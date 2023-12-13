@@ -1,0 +1,41 @@
+digraph test {
+  
+  request [label="Request for products", style=filled, fillcolor=lightgray]
+  package [label="Packaged products"]
+  scisoft [label="Tarball server", style=filled, fillcolor=pink]
+  build [label="Built products", style=filled, fillcolor=khaki]
+  developed [label="Developed\nproducts", style=filled, fillcolor=khaki]
+  local_install [label="base release", style=filled, fillcolor=lightcyan]
+  test_release [label="Test release", style=filled, fillcolor=lightcyan]
+  CVMFS [style=filled, fillcolor=lightcyan]
+  interactive [label="Interactive\nenvironment", style=filled, fillcolor=palegreen]
+  grid [label="Grid\nenvironment", style=filled, fillcolor=palegreen]
+  development [label="Development\nenvironment", style=filled, fillcolor=palegreen]
+  setup [label="Setup script", style=filled, fillcolor=lightgray]
+
+  { rank = same; developed; grid }
+  { rank = same; test_release; local_install; CVMFS }
+
+  request -> package [label=" package"]
+  package -> build [label=" build"]
+  build -> scisoft [label=" upload"]
+  scisoft -> CVMFS [label=" install/publish"]
+  scisoft -> local_install [label="install"]
+  local_install -> interactive [label=" setup"]
+  local_install -> test_release[label="layered install"]
+  CVMFS -> interactive [label=" setup"]
+  CVMFS -> local_install [label="layer installs "]
+  local_install -> grid [label=" use"]
+  test_release -> grid [label="use"]
+  CVMFS -> grid [label=" use"]
+  interactive -> development [label=" setup-for-dev"]
+  interactive -> grid [label="use"]
+  setup -> interactive [label=" invoke"]
+  setup -> grid [label=" invoke"]
+  development -> developed [label=" develop"]
+  developed -> local_install [label=" install"]
+  developed -> grid [label="use"]
+  developed -> scisoft [label=" upload"]
+  developed -> package [label=" package"]
+  developed -> test_release [label="install"]
+}

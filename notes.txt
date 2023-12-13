@@ -1,0 +1,40 @@
+1. It must be easy for an experiment to move many scripts from one "version" to another "version"
+
+* stakeholders: DAQ, production, analysts
+
+2.  Users must be able to access a stable base of software, and extend it with his own builds of higher-level packages.
+
+* stakeholders: developers
+
+
+----------------------
+
+Terminology
+
+
+----------------------
+
+90% or more of the time spent on spack has gone into supporting builds for SL7.
+SL7 is too old for spack to work well.
+
+Eric points out that ROOT is in the official spack repo, not in the FNAL repo.
+Can we decrease our support load by *not* considering ROOT to be a "CSAID-supplied package"?
+
+Can we eventually consider dropping binary installations, and rather merely deliver YAML files/recipes.
+
+We need reference builds of ... which packages? art, ots_daq
+
+We should think of what requirements we want to place on a "spack release" before it becomes a "Fermi spack release".
+We need to "vet" the releases from the spack team to verify they are workable for us.
+Marc M has an example of a case when this was *not* automatic.
+Part of our solution may be long-term support of our own fork of spack.
+
+
+----------------------
+
+1. **developer use case**: work on a new version of some part of the software stack, using lower-level packages that are pre-built and installed somehwere.
+This work is done in a development environment.
+
+2. **production use case**: use an installed code to run batch jobs at large scale.
+
+3. **analyst use case**: take newly developed and thus not yet released code to run grid jobs.
