@@ -3,6 +3,7 @@ digraph test {
   node [shape="rectangle"]
   
   request [label="Request for products", style=filled, fillcolor=lightgray]
+  request_for_products_area [label="Request for\nproducts area", style=filled, fillcolor=lightgray]
   packaged_products [label="Packaged products"]
   scisoft [label="Built product server", style=filled, fillcolor=pink]
   suite_config_server [label="Suite\nconfiguration\nserver", style=filled, fillcolor=pink]
@@ -23,6 +24,7 @@ digraph test {
   { rank = same; test_release; local_install; CVMFS }
   { rank = same; suite_config_server; scisoft}
   { rank = same; interactive; setup }
+  { rank= same; request; request_for_products_area }
 
   CVMFS -> grid [label=" use"]
   CVMFS -> interactive [label=" setup"]
@@ -38,6 +40,9 @@ digraph test {
   release_config -> packaged_suites [label = "instantiate"]
   request -> packaged_products [label=" packaged_products"]
   request -> release_config [label="specify config"]
+  request_for_products_area -> CVMFS [label="create"]
+  request_for_products_area -> local_install [label="create"]
+  request_for_products_area -> test_release [label="create"]
   scisoft -> CVMFS [label="install"]
   scisoft -> local_install [label="install"]
   suite_config_server -> CVMFS [label="retrieve"]
