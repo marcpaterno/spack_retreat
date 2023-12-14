@@ -29,6 +29,14 @@ We need to "vet" the releases from the spack team to verify they are workable fo
 Marc M has an example of a case when this was *not* automatic.
 Part of our solution may be long-term support of our own fork of spack.
 
+There is consensus that CSAID would not save effort by discontinuing the production of binary releases made available to the experiments.
+This would result in a small savings of effort in the creation and distribution of some builds, and an larger increase in the support load because we are no longer carefully controlling the software mixes used by the experiments.
+
+We may want to have a definition of the "current" version of any (sone or all) released software.
+Marc M suggests doing this through the use of symbolic links to point to a specific version of an environment.
+
+
+Experiments need to know how to make environments.
 
 ----------------------
 
