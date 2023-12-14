@@ -23,32 +23,25 @@ digraph test {
   { rank = same; test_release; local_install; CVMFS }
   { rank = same; suite_config_server; scisoft}
 
-  request -> packaged_products [label=" packaged_products"]
-  request -> release_config [label="specify config"]
-  
-  release_config -> packaged_suites [label = "instantiate"]
-  
-  packaged_products -> build [label=" build"]
-  packaged_products -> packaged_suites [label="register"]
-  
-  packaged_suites -> suite_config_server [label="upload"]
-  
-  suite_config_server -> CVMFS [label="retrieve"]
-  suite_config_server -> local_install [label="retrieve"]
-
-  
-  build -> scisoft [label=" upload"]
-  scisoft -> CVMFS [label="install"]
-  scisoft -> local_install [label="install"]
-  local_install -> interactive [label=" setup"]
-  local_install -> test_release[label="layered install"]
-  
-  CVMFS:w -> CVMFS:s [xlabel="publish"]
+  CVMFS -> grid [label=" use"]
   CVMFS -> interactive [label=" setup"]
   CVMFS -> local_install [label="layer installs "]
+  CVMFS:w -> CVMFS:s [xlabel="publish"]
+  build -> scisoft [label=" upload"]
   local_install -> grid [label=" use"]
+  local_install -> interactive [label=" setup"]
+  local_install -> test_release[label="layered install"]
+  packaged_products -> build [label=" build"]
+  packaged_products -> packaged_suites [label="register"]
+  packaged_suites -> suite_config_server [label="upload"]
+  release_config -> packaged_suites [label = "instantiate"]
+  request -> packaged_products [label=" packaged_products"]
+  request -> release_config [label="specify config"]
+  scisoft -> CVMFS [label="install"]
+  scisoft -> local_install [label="install"]
+  suite_config_server -> CVMFS [label="retrieve"]
+  suite_config_server -> local_install [label="retrieve"]
   test_release -> grid [label="use"]
-  CVMFS -> grid [label=" use"]
   interactive -> development [label=" setup-for-dev"]
   interactive -> grid [label="use"]
   setup -> interactive [label=" invoke"]
