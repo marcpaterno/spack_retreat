@@ -1,3 +1,5 @@
+## Requirements
+
 1. It must be easy for an experiment to move many scripts from one "version" to another "version"
 
 * stakeholders: DAQ, production, analysts
@@ -7,12 +9,10 @@
 * stakeholders: developers
 
 
-----------------------
-
-Terminology
+## Terminology
 
 
-----------------------
+## Various concerns, issues and questions
 
 90% or more of the time spent on spack has gone into supporting builds for SL7.
 SL7 is too old for spack to work well.
@@ -34,23 +34,51 @@ This would result in a small savings of effort in the creation and distribution 
 
 We may want to have a definition of the "current" version of any (sone or all) released software.
 Marc M suggests doing this through the use of symbolic links to point to a specific version of an environment.
+This is what UPS currently allows.
+Do experiments make use of this now?
+If not, are they doing it because they are unaware of it, or because it does not meet their needs?
+Do any projects use this?
 
 
-Experiments need to know how to make environments.
+Experiments need to know how to make a release (environment, bundle package, whatever we decide).
+
+Experiments need to know how to package products (implying all the steps involved).
+
+How do we distribute environments/releases?
+
+We need to complete enough documentation for experiments to be able to move to the new system.
+
+How do we use spack in a grid job?
+
+How do we reduce the number of environments and specifications we create for products and environments shared across experiments?
+Rephrase: we want to create as few build instances of lower-level packages.
+Rephrase: how do we prevent unnecessary duplication of built lower-level products?
+(set-theory union of requirements)
+
+How do we manage package-recipe repositories?
+What is the right number of such repositories, and how are they related?
+
+How do we cope with different spack versions?
+How do we keep up with changes upstream?
+
+What UPS support do we provide for transition on SL7?
+
+How do users test/use non-tagged commits?
+The release manager needs to test branches.
 
 Can we relax the level of specificity we require on compiler versions to take advantage of binary compatibility promises provided by compiler vendors?
 
-Can we make our burden lighter by some redudction in the specificity of variant/version/etc. we define for each product and suite?
+Can we make our burden lighter by some reduction in the specificity of variant/version/etc. we define for each product and suite?
 
-----------------------
+## Use cases for different types of stakeholders
 
-1. **developer use case**: work on a new version of some part of the software stack, using lower-level packages that are pre-built and installed somehwere.
+1. **developer use case**: work on a new version of some part of the software stack, using lower-level packages that are pre-built and installed somewhere.
 This work is done in a development environment.
 
 2. **production use case**: use an installed code to run batch jobs at large scale.
 
 3. **analyst use case**: take newly developed and thus not yet released code to run grid jobs.
 
-4. **experiment release manager use cas**: take a set of tagged source code and build and distribute a new experiment release.
+4. **experiment release manager use case**: take a set of tagged source code and build and distribute a new experiment release.
 
 5. **CSAID release manager use case**: take a set of tagged source code and build and distribute a new CSAID release.
