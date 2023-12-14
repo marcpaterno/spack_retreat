@@ -1,7 +1,8 @@
 digraph test {
 
   node [shape="rectangle"]
-  
+  nodesep=0.3
+
   request [label="Request for products", style=filled, fillcolor=lightgray]
   request_for_products_area [label="Request for\nproducts area", style=filled, fillcolor=lightgray]
   packaged_products [label="Packaged products"]
@@ -21,28 +22,28 @@ digraph test {
 
   { rank = same; developed; grid }
   { rank = same; packaged_suites; packaged_products }
-  { rank = same; test_release; local_install; CVMFS }
+  { rank = same; test_release; local_install; }
   { rank = same; suite_config_server; scisoft}
   { rank = same; interactive; setup }
-  { rank= same; request; request_for_products_area }
+  { rank = same; request; request_for_products_area }
 
   CVMFS -> grid [label=" use"]
   CVMFS -> interactive [label=" setup"]
-  CVMFS -> local_install [label="layer installs "]
-  CVMFS:w -> CVMFS:s [xlabel="publish"]
+  CVMFS -> local_install [label="layer"]
+  CVMFS:e -> CVMFS:se [xlabel="publish"]
   build -> scisoft [label=" upload"]
   local_install -> grid [label=" use"]
   local_install -> interactive [label=" setup"]
-  local_install -> test_release[label="layered install"]
+  local_install -> test_release[label="layer"]
   packaged_products -> build [label=" build"]
   packaged_products -> packaged_suites [label="register"]
   packaged_suites -> suite_config_server [label="upload"]
   release_config -> packaged_suites [label = "instantiate"]
   request -> packaged_products [label=" packaged_products"]
   request -> release_config [label="specify config"]
-  request_for_products_area -> CVMFS [label="create"]
-  request_for_products_area -> local_install [label="create"]
-  request_for_products_area -> test_release [label="create"]
+  request_for_products_area -> CVMFS [label=" create"]
+  request_for_products_area -> local_install [label=" create"]
+  request_for_products_area -> test_release [label=" create"]
   scisoft -> CVMFS [label="install"]
   scisoft -> local_install [label="install"]
   suite_config_server -> CVMFS [label="retrieve"]
@@ -59,4 +60,3 @@ digraph test {
   developed -> packaged_products [label=" package"]
   developed -> test_release [label="install"]
 }
- 
