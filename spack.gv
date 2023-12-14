@@ -57,7 +57,7 @@ digraph test {
   developed -> local_install [label=" install"]
   developed -> grid [label="use"]
   developed -> scisoft [label=" upload"]
-  developed -> packaged_products [label=" packaged_products"]
+  developed -> packaged_products [label=" package"]
   developed -> test_release [label="install"]
 }
  
