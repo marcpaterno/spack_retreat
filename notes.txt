@@ -46,3 +46,7 @@ This work is done in a development environment.
 2. **production use case**: use an installed code to run batch jobs at large scale.
 
 3. **analyst use case**: take newly developed and thus not yet released code to run grid jobs.
+
+4. **experiment release manager use cas**: take a set of tagged source code and build and distribute a new experiment release.
+
+5. **CSAID release manager use case**: take a set of tagged source code and build and distribute a new CSAID release.
