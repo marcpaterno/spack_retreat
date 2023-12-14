@@ -22,6 +22,7 @@ digraph test {
   { rank = same; packaged_suites; packaged_products }
   { rank = same; test_release; local_install; CVMFS }
   { rank = same; suite_config_server; scisoft}
+  { rank = same; interactive; setup }
 
   CVMFS -> grid [label=" use"]
   CVMFS -> interactive [label=" setup"]
