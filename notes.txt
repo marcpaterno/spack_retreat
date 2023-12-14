@@ -38,6 +38,10 @@ Marc M suggests doing this through the use of symbolic links to point to a speci
 
 Experiments need to know how to make environments.
 
+Can we relax the level of specificity we require on compiler versions to take advantage of binary compatibility promises provided by compiler vendors?
+
+Can we make our burden lighter by some redudction in the specificity of variant/version/etc. we define for each product and suite?
+
 ----------------------
 
 1. **developer use case**: work on a new version of some part of the software stack, using lower-level packages that are pre-built and installed somehwere.
