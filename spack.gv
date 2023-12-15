@@ -22,16 +22,15 @@ digraph test {
 
   { rank = same; developed; grid }
   { rank = same; packaged_products; packaged_suites }
-  { rank = same; test_release; local_install; }
   { rank = same; suite_config_server; scisoft}
   { rank = same; request; release_config; request_for_products_area }
 
-  CVMFS -> grid [label=" use", fontcolor=black]
+  CVMFS -> grid [label=" setup", fontcolor=blue]
   CVMFS -> runtime [label=" setup", fontcolor=blue]
   CVMFS -> local_install [label="layer", fontcolor=black]
   CVMFS:e -> CVMFS:se [label="publish", fontcolor=blue]
   build -> scisoft [label=" upload", fontcolor=forestgreen]
-  local_install -> grid [label=" use", fontcolor=black]
+  local_install -> grid [label=" relocate", fontcolor=black]
   local_install -> runtime [label=" setup", fontcolor=blue]
   local_install -> test_release[label="layer", fontcolor=black]
   packaged_products -> build [label=" build", fontcolor=blue]
@@ -43,20 +42,22 @@ digraph test {
   request -> packaged_products [label="package", fontcolor=blue]
   request -> release_config [label="specify config", fontcolor=forestgreen]
   request_for_products_area:sw -> CVMFS [label=" create", fontcolor=forestgreen]
-  request_for_products_area:s -> local_install [label=" create", fontcolor=forestgreen]
-  request_for_products_area:se -> test_release [label=" create", fontcolor=forestgreen]
+  request_for_products_area:se -> local_install [label=" create", fontcolor=forestgreen]
   scisoft -> CVMFS [label="install", fontcolor=blue]
   scisoft -> local_install [label="install", fontcolor=blue]
+  scisoft -> test_release [label="install", fontcolor=blue]
   suite_config_server -> CVMFS [label="retrieve", fontcolor=goldenrod]
   suite_config_server -> local_install [label="retrieve", fontcolor=goldenrod]
-  test_release -> grid [label="use", fontcolor=black]
+  suite_config_server -> test_release [label="retrieve", fontcolor=goldenrod]
+  test_release -> grid [label="relocate", fontcolor=black]
+  test_release -> runtime [label="setup", fontcolor=blue]
   runtime -> development [label=" setup-for-dev", fontcolor=black]
-  runtime -> grid [label="use", fontcolor=black]
-  development -> development [label="develop", fontcolor=develop]
+  runtime -> grid [label="submit", fontcolor=blue]
   development -> developed [label=" build", fontcolor=forestgreen]
+  developed -> development [label="tweak", fontcolor=blue]
   developed -> local_install [label=" install", fontcolor=black]
   developed -> grid [label="use", fontcolor=black]
   developed -> scisoft [label=" upload", fontcolor=black]
   developed -> packaged_products [label=" package", fontcolor=blue]
-  developed -> test_release [label="install", fontcolor=black]
+  developed -> test_release [label="install", fontcolor=blue]
 }
