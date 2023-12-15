@@ -37,10 +37,18 @@ Marc M suggests doing this through the use of symbolic links to point to a speci
 This is what UPS currently allows.
 Do experiments make use of this now?
 If not, are they doing it because they are unaware of it, or because it does not meet their needs?
+    * Experiments avoid this for releases of their own software
 Do any projects use this?
-
+    * The DAQ efforts avoid the use of curret because it is not sufficiently precise.
+The concept of "current" is useful for tools like gdb, valgrind, mrb, cmake, ifdhc_config: things upon which our code doesn't have binary dependencies.
+Users need to be able to conveniently get the list of available versions of a package or an environment.
+    * the suite configuration server needs to be interrogatable (browsable) to get this information.
+We want the ability to have an existing experiment script pick up a brand new ifdhc_config, without changing the script.
+    * spack's ability to deprecate a package version may handle this
 
 Experiments need to know how to make a release (environment, bundle package, whatever we decide).
+    * if they use our tools, they will have documentation and our support
+    * if they roll their own, they are on their own
 
 Experiments need to know how to package products (implying all the steps involved).
 
