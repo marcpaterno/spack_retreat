@@ -3,6 +3,9 @@ all: notes.html spack-crop.pdf
 notes.html: notes.txt
 	pandoc --from markdown-smart  -o $@ --to html $< || echo "Unable to build notes.html, please install pandoc"
 
+notes.pdf: notes.txt
+	pandoc --from markdown-smart  -o $@ --to pdf $< || echo "Unable to build notes.html, please install pandoc"
+
 spack-crop.pdf: spack.pdf
 	pdfcrop $<
 

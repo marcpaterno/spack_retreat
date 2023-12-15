@@ -81,10 +81,15 @@ How do we get our changes to spack merged upstream?
     * we need to maintain an active particpation in the spack developer community; we can not be passive users
     * forward-looking; not an emergent issue
 
-What UPS support do we provide for transition on SL7?
+What UPS support do we provide for transition to spack on SL7?
 
-How do users test/use non-tagged commits?
-The release manager needs to test branches.
+    * We can provide very limited support of the existing UPS -> spack translation tools, and only on special requests that will be approved on a case-by-case basis.
+
+How do users release managers test new software versions?
+    * The release manager needs to test experiment software in branches of the experiment source code repositories (CI)
+    * spack develop @ particular commit 
+    * spack recipes need to be adjusted to do this correctly
+    * github actions to support the use might be needed
 
 Can we relax the level of specificity we require on compiler versions to take advantage of binary compatibility promises provided by compiler vendors?
 
