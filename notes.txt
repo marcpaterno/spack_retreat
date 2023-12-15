@@ -54,12 +54,32 @@ How do we reduce the number of environments and specifications we create for pro
 Rephrase: we want to create as few build instances of lower-level packages.
 Rephrase: how do we prevent unnecessary duplication of built lower-level products?
 (set-theory union of requirements)
+    * proposed policy: for products like Boost, which have many variants, and which are low level and broadly used, we should build the batteries-included version. Enable as many flags as possible without giving us build problems.
+    * can we have a policy on the definition of the grid environment so that we can require that system things like X libraries, ssl, etc., are required in the grid environment -- even if they are not going to be used in the grid environment -- so that we can make fewer variants of our packages which depend upon them?
+    * we can use spack environments, or views, or ... to make it easy for "users" to "set up" the right environment for their use, in conjunction with making a small multiple of builds, e.g. with and without X?
+    * we need to carefully vet all pull requests sent to CSAID managed spack recipe repositories: this is also a continuous (low-level?) effort.
+
+Managing the use of X, or Qt, or GL, or ...:
+    * we have multiple options, e.g. have multiple distinct builds handled with spack, or demand an underlying "system environment/container image" that hhas the set of libraries that we require to be present.
+
 
 How do we manage package-recipe repositories?
 What is the right number of such repositories, and how are they related?
 
+    * We need at least one CSAID-maintained spack recipe repository.
+    * It is also possible to have a tree (not more general graph) of dependent repositories, mirroring in structure the dependencies of the software suite dependencies (e.g. critic -> nutools -> larsoft).
+    * Each experiment should maintain its own spack recipe repository.
+    * We propose each GitHub organization have its own package-recipe repository.
+
+
 How do we cope with different spack versions?
+    * maintain a FNAL spack fork in perpetuity
+    * provide migration abilities for (e.g.) buildcaches
+
 How do we keep up with changes upstream?
+How do we get our changes to spack merged upstream?
+    * we need to maintain an active particpation in the spack developer community; we can not be passive users
+    * forward-looking; not an emergent issue
 
 What UPS support do we provide for transition on SL7?
 
