@@ -1,4 +1,4 @@
-all: notes.html spack-crop.pdf
+all: notes.html spack-crop.pdf remaining_work.html
 
 define exec_error
 { status=$$?; echo "unable to generate $@ from $< with $(1)" 1>&2; exit $$status; }
