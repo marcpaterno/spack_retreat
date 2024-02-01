@@ -1,16 +1,24 @@
 all: notes.html spack-crop.pdf
 
-notes.html: notes.txt
-	pandoc --from markdown-smart  -o $@ --to html $< || echo "Unable to build notes.html, please install pandoc"
+define exec_error
+{ status=$$?; echo "unable to generate $@ from $< with $(1)" 1>&2; exit $$status; }
+endef
 
-notes.pdf: notes.txt
-	pandoc --from markdown-smart  -o $@ --to pdf $< || echo "Unable to build notes.html, please install pandoc"
+define PANDOC
+pandoc --from markdown-smart -o $@
+endef
 
-spack-crop.pdf: spack.pdf
-	pdfcrop $<
+%.html: %.md
+	$(PANDOC) --to html $< || $(call exec_error,pandoc)
+
+%.pdf: %.md
+	$(PANDOC) --to pdf $< || $(call exec_error,pandoc)
+
+%-crop.pdf: %.pdf
+	pdfcrop $< || $(call exec_error,pdfcrop)
 
 spack.pdf: spack.gv
-	dot  -T pdf -o $@ $<
+	dot -T pdf -o $@ $< || $(call exec_error,dot)
 
 clean:
-	rm notes.html spack.pdf spack-crop.pdf
+	-rm *.pdf *.html
