@@ -6,16 +6,17 @@ This document describes the components (nodes) and tasks (edges) depicted in the
 
 For each component or task, we provide:
 
-1. Name
-1. Unique ID
+1. Name and unique ID
+1. Components connected (tasks only)
 1. Brief description
 1. Detailed description
-1. Status label (task) or summary (component)
+1. Status
 1. Detailed status
-1. Remaining work description
+1. Remaining work
 1. Work lead
 1. Work contributors
 1. Work time estimate (FTE days)
+
 
 ## Status labels and their meanings
 
