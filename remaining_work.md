@@ -177,7 +177,7 @@ For each component or task, we provide:
 ### n_005: Built products {#n_005}
 
 **Brief Description**
-: One or more packaged products assembled for installation elsewhere.
+: One or more locally-built products.
 
 **Detailed Description**
 : …
@@ -204,8 +204,7 @@ For each component or task, we provide:
 ### n_006: Built suites {#n_006}
 
 **Brief Description**
-: A consistent suite of built products, individually assembled for
-  installation elsewhere.
+: A consistent suite of locally-built products.
 
 **Detailed Description**
 : …
