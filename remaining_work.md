@@ -543,7 +543,8 @@ For each component or task, we provide:
 : [n\_012](#n_012) -> [n\_014](#n_014)
 
 **Brief Description**
-: …
+: Set up a grid environment to use a specific CVMFS-based Spack
+  instance.
 
 **Detailed Description**
 : …
@@ -573,7 +574,8 @@ For each component or task, we provide:
 : [n\_012](#n_012) -> [n\_013](#n_013)
 
 **Brief Description**
-: …
+: Set up an interactive environment to use a specific CVMFS-based Spack
+  instance.
 
 **Detailed Description**
 : …
@@ -603,7 +605,8 @@ For each component or task, we provide:
 : [n\_012](#n_012) -> [n\_010](#n_010)
 
 **Brief Description**
-: …
+: Create a base release as a "sub-spack" dependent on a CVMFS-based
+  Spack instance.
 
 **Detailed Description**
 : …
@@ -633,7 +636,7 @@ For each component or task, we provide:
 : [n\_012](#n_012) -> [n\_012](#n_012)
 
 **Brief Description**
-: …
+: Make changes to a CVMFS-based Spack instance visible.
 
 **Detailed Description**
 : …
@@ -663,7 +666,7 @@ For each component or task, we provide:
 : [n\_005](#n_005) -> [n\_003](#n_003)
 
 **Brief Description**
-: …
+: Upload one or more built products to a server.
 
 **Detailed Description**
 : …
@@ -693,7 +696,7 @@ For each component or task, we provide:
 : [n\_010](#n_010) -> [n\_014](#n_014)
 
 **Brief Description**
-: …
+: Make a base release accessible in a grid environment.
 
 **Detailed Description**
 : …
@@ -723,7 +726,7 @@ For each component or task, we provide:
 : [n\_010](#n_010) -> [n\_013](#n_013)
 
 **Brief Description**
-: …
+: Set up an interactive environmnet to use a specific base release.
 
 **Detailed Description**
 : …
@@ -753,7 +756,7 @@ For each component or task, we provide:
 : [n\_010](#n_010) -> [n\_011](#n_011)
 
 **Brief Description**
-: …
+: Create a test release as a "sub-spack" dependent on a base release.
 
 **Detailed Description**
 : …
@@ -783,7 +786,8 @@ For each component or task, we provide:
 : [n\_002](#n_002) -> [n\_005](#n_005)
 
 **Brief Description**
-: …
+: Produce one or more built products by following the recipes provided
+  by the corresponding packaged products.
 
 **Detailed Description**
 : …
