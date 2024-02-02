@@ -550,7 +550,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -580,7 +580,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -610,7 +610,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -640,7 +640,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -670,7 +670,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -700,7 +700,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -730,7 +730,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -760,7 +760,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -790,7 +790,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -820,7 +820,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -850,7 +850,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -880,7 +880,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -910,7 +910,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -940,7 +940,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -970,7 +970,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1000,7 +1000,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -1030,7 +1030,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -1060,7 +1060,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -1090,7 +1090,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1120,7 +1120,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1150,7 +1150,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1180,7 +1180,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -1210,7 +1210,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -1240,7 +1240,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -1270,7 +1270,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -1300,7 +1300,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1330,7 +1330,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -1360,7 +1360,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1390,7 +1390,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
 : …
@@ -1420,7 +1420,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1450,7 +1450,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1480,7 +1480,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
 : …
@@ -1510,7 +1510,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1540,7 +1540,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1570,7 +1570,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1600,7 +1600,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1630,7 +1630,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
@@ -1660,7 +1660,7 @@ For each component or task, we provide:
 : …
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
 : …
