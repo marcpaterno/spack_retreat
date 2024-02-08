@@ -17,7 +17,7 @@ endef
 %-crop.pdf: %.pdf
 	pdfcrop $< || $(call exec_error,pdfcrop)
 
-spack.pdf: spack.gv
+%.pdf: %.gv
 	dot -T pdf -o $@ $< || $(call exec_error,dot)
 
 clean:
