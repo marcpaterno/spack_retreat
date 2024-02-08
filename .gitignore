@@ -1,4 +1,4 @@
 *.html
 *.pdf
 spack.png
-spack.svg
+!spack-crop.pdf
