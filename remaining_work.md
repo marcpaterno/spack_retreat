@@ -764,7 +764,8 @@ For each component or task, we provide:
 ### e_009: register {#e_009}
 
 **Brief Description**
-: …
+: Upload [non-concretized (loosely specified) configurations](#packaged_products) of
+  suites of products to the [release config repository](#release_config).
 
 **Detailed Description**
 : …
@@ -791,7 +792,8 @@ For each component or task, we provide:
 ### e_010: build {#e_010}
 
 **Brief Description**
-: …
+: Build a [specified consistent suite](#packaged_suites) of [packaged
+  products](#built_env).
 
 **Detailed Description**
 : …
@@ -818,7 +820,7 @@ For each component or task, we provide:
 ### e_011: upload {#e_011}
 
 **Brief Description**
-: …
+: Upload [built products](#built_env) to an [online location](#scisoft).
 
 **Detailed Description**
 : …
@@ -845,7 +847,8 @@ For each component or task, we provide:
 ### e_012: upload {#e_012}
 
 **Brief Description**
-: …
+: Upload concretized (fully-specified) configuration for a consistent
+  suite of [built products](#built_env) to a [server](#suite_config_server).
 
 **Detailed Description**
 : …
@@ -872,7 +875,10 @@ For each component or task, we provide:
 ### e_013: instantiate {#e_013}
 
 **Brief Description**
-: …
+: Create a suitably-configured Spack instance, and generate a Spack
+  environment describing a specific consistent suite of [packaged
+  products](#packaged_suites) from information in a [release configuration
+  repository](#release_config).
 
 **Detailed Description**
 : …
@@ -899,7 +905,8 @@ For each component or task, we provide:
 ### e_014: package {#e_014}
 
 **Brief Description**
-: …
+: Create [Spack recipe(s)](#packaged_products) describing how to build [requested
+  products](#request_for_products).
 
 **Detailed Description**
 : …
@@ -926,7 +933,9 @@ For each component or task, we provide:
 ### e_015: specify config {#e_015}
 
 **Brief Description**
-: …
+: Add information to the [release config repository](#release_config) to enable
+  the creation of the [requested products](#request_for_products) via generated Spack
+  environments.
 
 **Detailed Description**
 : …
@@ -953,7 +962,8 @@ For each component or task, we provide:
 ### e_016: create {#e_016}
 
 **Brief Description**
-: …
+: Create and publish a [Spack instance in a CVMFS filesystem](#n012)
+  according to an [initial request](#request_for_products_area).
 
 **Detailed Description**
 : …
@@ -980,7 +990,8 @@ For each component or task, we provide:
 ### e_017: create {#e_017}
 
 **Brief Description**
-: …
+: Create a [Spack instance in a shared, non-CVMFS filesystem](#base_release)
+  according to an [initial request](#request_for_products_area).
 
 **Detailed Description**
 : …
@@ -1007,7 +1018,8 @@ For each component or task, we provide:
 ### e_018: install {#e_018}
 
 **Brief Description**
-: …
+: Obtain built products from a [server](#scisoft) to create a [CVMFS
+  release](#test_release).
 
 **Detailed Description**
 : …
@@ -1034,7 +1046,8 @@ For each component or task, we provide:
 ### e_019: install {#e_019}
 
 **Brief Description**
-: …
+: Obtain built products from a [server](#scisoft) to create a [base
+  release](#base_release) with the desired configuration.
 
 **Detailed Description**
 : …
@@ -1061,7 +1074,8 @@ For each component or task, we provide:
 ### e_020: install {#e_020}
 
 **Brief Description**
-: …
+: Obtain built products from a [server](#scisoft) to create a [base
+  release](#test_release) with the desired configuration.
 
 **Detailed Description**
 : …
@@ -1088,7 +1102,9 @@ For each component or task, we provide:
 ### e_021: retrieve {#e_021}
 
 **Brief Description**
-: …
+: Obtain the necessary specific suite configurations from the
+  [configuration server](#suite_config_server) to create a [CVMFS release](#CVMFS)
+  with the desired configuration.
 
 **Detailed Description**
 : …
@@ -1115,7 +1131,9 @@ For each component or task, we provide:
 ### e_022: retrieve {#e_022}
 
 **Brief Description**
-: …
+: Obtain the necessary specific suite configurations from the
+  [configuration server](#suite_config_server) to create a [base release](#base_release) with
+  the desired configuration.
 
 **Detailed Description**
 : …
@@ -1142,7 +1160,9 @@ For each component or task, we provide:
 ### e_023: retrieve {#e_023}
 
 **Brief Description**
-: …
+: Obtain the necessary specific suite configurations from the
+  [configuration server](#suite_config_server) to create a [test release](#test_release) with
+  the desired configuration.
 
 **Detailed Description**
 : …
@@ -1169,7 +1189,8 @@ For each component or task, we provide:
 ### e_024: relocate {#e_024}
 
 **Brief Description**
-: …
+: Make a [test release](#test_release) accessible in a [grid
+  environment](#grid).
 
 **Detailed Description**
 : …
@@ -1196,7 +1217,8 @@ For each component or task, we provide:
 ### e_025: setup {#e_025}
 
 **Brief Description**
-: …
+: Set up an [interactive environment](#runtime) to use a specific [test
+  release](#test_release).
 
 **Detailed Description**
 : …
@@ -1223,7 +1245,8 @@ For each component or task, we provide:
 ### e_026: setup-for-dev {#e_026}
 
 **Brief Description**
-: …
+: Convert an [interactive environment](#runtime) into an [environemt
+  suitable for the development of one or more products](#development).
 
 **Detailed Description**
 : …
@@ -1250,7 +1273,8 @@ For each component or task, we provide:
 ### e_027: submit {#e_027}
 
 **Brief Description**
-: …
+: Make an [interactive environment](#runtime) accessible in a [grid
+  environment](#grid).
 
 **Detailed Description**
 : …
@@ -1277,7 +1301,8 @@ For each component or task, we provide:
 ### e_028: build {#e_028}
 
 **Brief Description**
-: …
+: Build from local sources, making necessary changes or additions to
+  local sources in an interactive [development environment](#development).
 
 **Detailed Description**
 : …
@@ -1304,7 +1329,8 @@ For each component or task, we provide:
 ### e_029: create {#e_029}
 
 **Brief Description**
-: …
+: Create a [GitHub Pull Request](#PR) based on sources in a
+  [development environment](#development).
 
 **Detailed Description**
 : …
@@ -1331,7 +1357,8 @@ For each component or task, we provide:
 ### e_030: trigger {#e_030}
 
 **Brief Description**
-: …
+: Trigger a build process in a [CI](#CI) system based on a [GitHub
+  Pull Request](#PR).
 
 **Detailed Description**
 : …
@@ -1358,7 +1385,7 @@ For each component or task, we provide:
 ### e_031: process {#e_031}
 
 **Brief Description**
-: …
+: Execute Spack-based builds in a [CI](#CI) system.
 
 **Detailed Description**
 : …
@@ -1385,7 +1412,8 @@ For each component or task, we provide:
 ### e_032: report {#e_032}
 
 **Brief Description**
-: …
+: Retrieve status and built products from a [CI](#CI) system,
+  updating the state of the triggering [pull request](#PR).
 
 **Detailed Description**
 : …
@@ -1412,7 +1440,7 @@ For each component or task, we provide:
 ### e_033: install {#e_033}
 
 **Brief Description**
-: …
+: Install [locally-built products](#development) into a [base release](#base_release).
 
 **Detailed Description**
 : …
@@ -1439,7 +1467,7 @@ For each component or task, we provide:
 ### e_034: use {#e_034}
 
 **Brief Description**
-: …
+: Use [locally-built products](#development) in a [grid environment](#grid).
 
 **Detailed Description**
 : …
@@ -1466,7 +1494,8 @@ For each component or task, we provide:
 ### e_035: package {#e_035}
 
 **Brief Description**
-: …
+: Finalize [recipe changes/additions](#packaged_products) from
+  [development environment](#development)
 
 **Detailed Description**
 : …
@@ -1493,7 +1522,8 @@ For each component or task, we provide:
 ### e_036: install {#e_036}
 
 **Brief Description**
-: …
+: Install products built in a [development environment](#development)
+  into a [test release](#test).
 
 **Detailed Description**
 : …
