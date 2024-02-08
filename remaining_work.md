@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the components (nodes) and tasks (edges) depicted in the [Spack-at-FNAL](spack-crop.pdf) system diagram.
+This document describes the components (nodes) and tasks (edges) in the [workflow diagram below](#swd):
 
 For each component or task, we provide:
 
@@ -1680,3 +1680,6 @@ For each component or task, we provide:
 
 **Work time estimate (FTE days)**
 : …
+![Spack Workflow Diagram](spack.svg){#swd width=30cm alt="Schematic
+describing stages in anticipated Spack workflows as nodes, with
+processes implementing progression between stages as edges."}
