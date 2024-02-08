@@ -35,6 +35,7 @@ For each component or task, we provide:
 🟣**Crisis**🟣
 : Solution not understood.
 
+
 ## Components
 
 
