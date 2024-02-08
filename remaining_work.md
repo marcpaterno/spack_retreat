@@ -259,8 +259,8 @@ For each component or task, we provide:
 ### n_008: Release config repository {#release_config}
 
 **Brief Description**
-: An online location from which non-concretized (loosely specified)
-  configurations of suites of products may be obtained.
+: A repository of information containing package and suite information
+  from which a Spack environment may be created.
 
 **Detailed Description**
 : …
@@ -514,8 +514,8 @@ For each component or task, we provide:
 ### e_000: setup {#e_000}
 
 **Brief Description**
-: Set up a grid environment to use a specific CVMFS-based Spack
-  instance.
+: Set up a [grid environment](#grid) to use a specific [CVMFS-based
+  Spack instance](#CVMFS).
 
 **Detailed Description**
 : …
@@ -542,8 +542,8 @@ For each component or task, we provide:
 ### e_001: setup {#e_001}
 
 **Brief Description**
-: Set up an interactive environment to use a specific CVMFS-based Spack
-  instance.
+: Set up an [interactive environment](#runtime) to use a specific
+  [CVMFS-based Spack instance](#CVMFS).
 
 **Detailed Description**
 : …
@@ -570,8 +570,8 @@ For each component or task, we provide:
 ### e_002: layer {#e_002}
 
 **Brief Description**
-: Create a base release as a "sub-spack" dependent on a CVMFS-based
-  Spack instance.
+: Create a [base release](#base_release) as a "sub-spack" dependent on a
+  [CVMFS-based Spack instance](#CVMFS).
 
 **Detailed Description**
 : …
@@ -598,7 +598,7 @@ For each component or task, we provide:
 ### e_003: publish {#e_003}
 
 **Brief Description**
-: Make changes to a CVMFS-based Spack instance visible.
+: Make changes to a [CVMFS-based Spack instance](#CVMFS) visible.
 
 **Detailed Description**
 : …
@@ -625,7 +625,7 @@ For each component or task, we provide:
 ### e_004: upload {#e_004}
 
 **Brief Description**
-: Upload one or more built products to a server.
+: Upload one or more [built products](#built_products) to a [server](#scisoft).
 
 **Detailed Description**
 : …
@@ -652,7 +652,8 @@ For each component or task, we provide:
 ### e_005: relocate {#e_005}
 
 **Brief Description**
-: Make a base release accessible in a grid environment.
+: Make a [base release](#base_release) accessible in a [grid
+  environment](#grid).
 
 **Detailed Description**
 : …
@@ -679,7 +680,8 @@ For each component or task, we provide:
 ### e_006: setup {#e_006}
 
 **Brief Description**
-: Set up an interactive environmnet to use a specific base release.
+: Set up an [interactive environment](#runtime) to use a specific [base
+  release](#base_release).
 
 **Detailed Description**
 : …
@@ -706,7 +708,8 @@ For each component or task, we provide:
 ### e_007: layer {#e_007}
 
 **Brief Description**
-: Create a test release as a "sub-spack" dependent on a base release.
+: Create a [test release](#test_release) as a "sub-spack" dependent on a [base
+  release](#base_release).
 
 **Detailed Description**
 : …
@@ -733,8 +736,8 @@ For each component or task, we provide:
 ### e_008: build {#e_008}
 
 **Brief Description**
-: Produce one or more built products by following the recipes provided
-  by the corresponding packaged products.
+: Produce one or more [built products](#built_products) by following the recipes
+  provided by the corresponding [packaged products](#packaged_products).
 
 **Detailed Description**
 : …
