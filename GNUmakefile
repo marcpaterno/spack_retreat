@@ -20,5 +20,11 @@ endef
 %.pdf: %.gv
 	dot -T pdf -o $@ $< || $(call exec_error,dot)
 
+%.svg: %.gv
+	dot -T svg -o $@ $< || $(call exec_error,dot)
+
+%.png: %.gv
+	dot -T png -o $@ $< || $(call exec_error,dot)
+
 clean:
 	-rm *.pdf *.html
