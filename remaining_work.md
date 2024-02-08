@@ -39,7 +39,7 @@ For each component or task, we provide:
 ## Components
 
 
-### n_000: Request for products {#n_000}
+### n_000: Request for products {#request_for_products}
 
 **Brief Description**
 : An incoming request for a product to be built and packaged.
@@ -66,7 +66,7 @@ For each component or task, we provide:
 : …
 
 
-### n_001: Request for products area {#n_001}
+### n_001: Request for products area {#request_for_products_area}
 
 **Brief Description**
 : An incoming request for a new area for installed products.
@@ -93,7 +93,7 @@ For each component or task, we provide:
 : …
 
 
-### n_002: Packaged products {#n_002}
+### n_002: Packaged products {#packaged_products}
 
 **Brief Description**
 : One or more packaged products.
@@ -120,7 +120,7 @@ For each component or task, we provide:
 : …
 
 
-### n_003: Built product server {#n_003}
+### n_003: Built product server {#scisoft}
 
 **Brief Description**
 : An online location from which built products may be obtained.
@@ -147,7 +147,7 @@ For each component or task, we provide:
 : …
 
 
-### n_004: Suite configuration server {#n_004}
+### n_004: Suite configuration server {#suite_config_server}
 
 **Brief Description**
 : An online location from which concretized (fully-specified)
@@ -175,7 +175,7 @@ For each component or task, we provide:
 : …
 
 
-### n_005: Built products {#n_005}
+### n_005: Built products {#built_products}
 
 **Brief Description**
 : One or more locally-built products.
@@ -202,7 +202,7 @@ For each component or task, we provide:
 : …
 
 
-### n_006: Built suites {#n_006}
+### n_006: Built suites {#built_env}
 
 **Brief Description**
 : A consistent suite of locally-built products.
@@ -229,7 +229,7 @@ For each component or task, we provide:
 : …
 
 
-### n_007: Packaged suites {#n_007}
+### n_007: Packaged suites {#packaged_suites}
 
 **Brief Description**
 : A consistent suite of packaged products.
@@ -256,7 +256,7 @@ For each component or task, we provide:
 : …
 
 
-### n_008: Release config repository {#n_008}
+### n_008: Release config repository {#release_config}
 
 **Brief Description**
 : An online location from which non-concretized (loosely specified)
@@ -284,34 +284,7 @@ For each component or task, we provide:
 : …
 
 
-### n_009: Results of build {#n_009}
-
-**Brief Description**
-: The results of building in a development environment.
-
-**Detailed Description**
-: …
-
-**Status**
-: …
-
-**Detailed status**
-: …
-
-**Remaining work**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
-
-
-### n_010: Base release {#n_010}
+### n_009: Base release {#base_release}
 
 **Brief Description**
 : A Spack instance containing built packages installed in a shared,
@@ -339,7 +312,7 @@ For each component or task, we provide:
 : …
 
 
-### n_011: Test release {#n_011}
+### n_010: Test release {#test_release}
 
 **Brief Description**
 : A secondary Spack instance containing built packages requiring either
@@ -367,7 +340,7 @@ For each component or task, we provide:
 : …
 
 
-### n_012: CVMFS {#n_012}
+### n_011: CVMFS {#CVMFS}
 
 **Brief Description**
 : A Spack instance containing built packages installed in a CVMFS
@@ -395,7 +368,7 @@ For each component or task, we provide:
 : …
 
 
-### n_013: Runtime environment {#n_013}
+### n_012: Runtime environment {#runtime}
 
 **Brief Description**
 : An environment configured to use a CVMFS spack instance, base release,
@@ -423,7 +396,7 @@ For each component or task, we provide:
 : …
 
 
-### n_014: Grid environment {#n_014}
+### n_013: Grid environment {#grid}
 
 **Brief Description**
 : A non-interactive runtime environment configured for remote and/or
@@ -451,7 +424,7 @@ For each component or task, we provide:
 : …
 
 
-### n_015: Development environment {#n_015}
+### n_014: Development environment {#development}
 
 **Brief Description**
 : An interactive runtime environment configured for software
@@ -479,7 +452,7 @@ For each component or task, we provide:
 : …
 
 
-### n_016: Pull request {#n_016}
+### n_015: Pull request {#PR}
 
 **Brief Description**
 : A GitHub pull request intended for merge into a package's source
@@ -507,7 +480,7 @@ For each component or task, we provide:
 : …
 
 
-### n_017: CI {#n_017}
+### n_016: CI {#CI}
 
 **Brief Description**
 : A continuous integration system capable of building and testing
@@ -540,9 +513,6 @@ For each component or task, we provide:
 
 ### e_000: setup {#e_000}
 
-**Components connected**
-: [n\_012](#n_012) -> [n\_014](#n_014)
-
 **Brief Description**
 : Set up a grid environment to use a specific CVMFS-based Spack
   instance.
@@ -570,9 +540,6 @@ For each component or task, we provide:
 
 
 ### e_001: setup {#e_001}
-
-**Components connected**
-: [n\_012](#n_012) -> [n\_013](#n_013)
 
 **Brief Description**
 : Set up an interactive environment to use a specific CVMFS-based Spack
@@ -602,9 +569,6 @@ For each component or task, we provide:
 
 ### e_002: layer {#e_002}
 
-**Components connected**
-: [n\_012](#n_012) -> [n\_010](#n_010)
-
 **Brief Description**
 : Create a base release as a "sub-spack" dependent on a CVMFS-based
   Spack instance.
@@ -633,9 +597,6 @@ For each component or task, we provide:
 
 ### e_003: publish {#e_003}
 
-**Components connected**
-: [n\_012](#n_012) -> [n\_012](#n_012)
-
 **Brief Description**
 : Make changes to a CVMFS-based Spack instance visible.
 
@@ -662,9 +623,6 @@ For each component or task, we provide:
 
 
 ### e_004: upload {#e_004}
-
-**Components connected**
-: [n\_005](#n_005) -> [n\_003](#n_003)
 
 **Brief Description**
 : Upload one or more built products to a server.
@@ -693,9 +651,6 @@ For each component or task, we provide:
 
 ### e_005: relocate {#e_005}
 
-**Components connected**
-: [n\_010](#n_010) -> [n\_014](#n_014)
-
 **Brief Description**
 : Make a base release accessible in a grid environment.
 
@@ -722,9 +677,6 @@ For each component or task, we provide:
 
 
 ### e_006: setup {#e_006}
-
-**Components connected**
-: [n\_010](#n_010) -> [n\_013](#n_013)
 
 **Brief Description**
 : Set up an interactive environmnet to use a specific base release.
@@ -753,9 +705,6 @@ For each component or task, we provide:
 
 ### e_007: layer {#e_007}
 
-**Components connected**
-: [n\_010](#n_010) -> [n\_011](#n_011)
-
 **Brief Description**
 : Create a test release as a "sub-spack" dependent on a base release.
 
@@ -782,9 +731,6 @@ For each component or task, we provide:
 
 
 ### e_008: build {#e_008}
-
-**Components connected**
-: [n\_002](#n_002) -> [n\_005](#n_005)
 
 **Brief Description**
 : Produce one or more built products by following the recipes provided
@@ -814,9 +760,6 @@ For each component or task, we provide:
 
 ### e_009: register {#e_009}
 
-**Components connected**
-: [n\_002](#n_002) -> [n\_008](#n_008)
-
 **Brief Description**
 : …
 
@@ -843,9 +786,6 @@ For each component or task, we provide:
 
 
 ### e_010: build {#e_010}
-
-**Components connected**
-: [n\_007](#n_007) -> [n\_006](#n_006)
 
 **Brief Description**
 : …
@@ -874,9 +814,6 @@ For each component or task, we provide:
 
 ### e_011: upload {#e_011}
 
-**Components connected**
-: [n\_006](#n_006) -> [n\_003](#n_003)
-
 **Brief Description**
 : …
 
@@ -903,9 +840,6 @@ For each component or task, we provide:
 
 
 ### e_012: upload {#e_012}
-
-**Components connected**
-: [n\_006](#n_006) -> [n\_006](#n_004)
 
 **Brief Description**
 : …
@@ -934,9 +868,6 @@ For each component or task, we provide:
 
 ### e_013: instantiate {#e_013}
 
-**Components connected**
-: [n\_008](#n_008) -> [n\_007](#n_007)
-
 **Brief Description**
 : …
 
@@ -963,9 +894,6 @@ For each component or task, we provide:
 
 
 ### e_014: package {#e_014}
-
-**Components connected**
-: [n\_000](#n_000) -> [n\_002](#n_002)
 
 **Brief Description**
 : …
@@ -994,9 +922,6 @@ For each component or task, we provide:
 
 ### e_015: specify config {#e_015}
 
-**Components connected**
-: [n\_000](#n_000) -> [n\_008](#n_008)
-
 **Brief Description**
 : …
 
@@ -1023,9 +948,6 @@ For each component or task, we provide:
 
 
 ### e_016: create {#e_016}
-
-**Components connected**
-: [n\_001](#n_001) -> [n\_012](#n_012)
 
 **Brief Description**
 : …
@@ -1054,9 +976,6 @@ For each component or task, we provide:
 
 ### e_017: create {#e_017}
 
-**Components connected**
-: [n\_001](#n_001) -> [n\_010](#n_010)
-
 **Brief Description**
 : …
 
@@ -1083,9 +1002,6 @@ For each component or task, we provide:
 
 
 ### e_018: install {#e_018}
-
-**Components connected**
-: [n\_004](#n_004) -> [n\_011](#n_011)
 
 **Brief Description**
 : …
@@ -1114,9 +1030,6 @@ For each component or task, we provide:
 
 ### e_019: install {#e_019}
 
-**Components connected**
-: [n\_003](#n_003) -> [n\_010](#n_010)
-
 **Brief Description**
 : …
 
@@ -1143,9 +1056,6 @@ For each component or task, we provide:
 
 
 ### e_020: install {#e_020}
-
-**Components connected**
-: [n\_003](#n_003) -> [n\_011](#n_011)
 
 **Brief Description**
 : …
@@ -1174,9 +1084,6 @@ For each component or task, we provide:
 
 ### e_021: retrieve {#e_021}
 
-**Components connected**
-: [n\_001](#n_001) -> [n\_010](#n_010)
-
 **Brief Description**
 : …
 
@@ -1203,9 +1110,6 @@ For each component or task, we provide:
 
 
 ### e_022: retrieve {#e_022}
-
-**Components connected**
-: [n\_004](#n_004) -> [n\_010](#n_010)
 
 **Brief Description**
 : …
@@ -1234,9 +1138,6 @@ For each component or task, we provide:
 
 ### e_023: retrieve {#e_023}
 
-**Components connected**
-: [n\_004](#n_004) -> [n\_011](#n_011)
-
 **Brief Description**
 : …
 
@@ -1263,9 +1164,6 @@ For each component or task, we provide:
 
 
 ### e_024: relocate {#e_024}
-
-**Components connected**
-: [n\_011](#n_011) -> [n\_014](#n_014)
 
 **Brief Description**
 : …
@@ -1294,9 +1192,6 @@ For each component or task, we provide:
 
 ### e_025: setup {#e_025}
 
-**Components connected**
-: [n\_011](#n_011) -> [n\_013](#n_013)
-
 **Brief Description**
 : …
 
@@ -1323,9 +1218,6 @@ For each component or task, we provide:
 
 
 ### e_026: setup-for-dev {#e_026}
-
-**Components connected**
-: [n\_013](#n_013) -> [n\_015](#n_015)
 
 **Brief Description**
 : …
@@ -1354,9 +1246,6 @@ For each component or task, we provide:
 
 ### e_027: submit {#e_027}
 
-**Components connected**
-: [n\_013](#n_013) -> [n\_014](#n_014)
-
 **Brief Description**
 : …
 
@@ -1383,9 +1272,6 @@ For each component or task, we provide:
 
 
 ### e_028: build {#e_028}
-
-**Components connected**
-: [n\_015](#n_015) -> [n\_009](#n_009)
 
 **Brief Description**
 : …
@@ -1414,9 +1300,6 @@ For each component or task, we provide:
 
 ### e_029: create {#e_029}
 
-**Components connected**
-: [n\_015](#n_015) -> [n\_016](#n_016)
-
 **Brief Description**
 : …
 
@@ -1443,9 +1326,6 @@ For each component or task, we provide:
 
 
 ### e_030: trigger {#e_030}
-
-**Components connected**
-: [n\_016](#n_016) -> [n\_017](#n_017)
 
 **Brief Description**
 : …
@@ -1474,9 +1354,6 @@ For each component or task, we provide:
 
 ### e_031: process {#e_031}
 
-**Components connected**
-: [n\_017](#n_017) -> [n\_017](#n_017)
-
 **Brief Description**
 : …
 
@@ -1504,8 +1381,32 @@ For each component or task, we provide:
 
 ### e_032: report {#e_032}
 
-**Components connected**
-: [n\_017](#n_017) -> [n\_016](#n_016)
+**Brief Description**
+: …
+
+**Detailed Description**
+: …
+
+**Status**
+: 🔵**Done**🔵
+
+**Detailed status**
+: …
+
+**Remaining work**
+: …
+
+**Work lead**
+: …
+
+**Work contributors**
+: …
+
+**Work time estimate (FTE days)**
+: …
+
+
+### e_033: install {#e_033}
 
 **Brief Description**
 : …
@@ -1532,10 +1433,7 @@ For each component or task, we provide:
 : …
 
 
-### e_033: tweak {#e_033}
-
-**Components connected**
-: [n\_009](#n_009) -> [n\_015](#n_015)
+### e_034: use {#e_034}
 
 **Brief Description**
 : …
@@ -1562,10 +1460,7 @@ For each component or task, we provide:
 : …
 
 
-### e_034: install {#e_034}
-
-**Components connected**
-: [n\_009](#n_009) -> [n\_010](#n_010)
+### e_035: package {#e_035}
 
 **Brief Description**
 : …
@@ -1592,10 +1487,7 @@ For each component or task, we provide:
 : …
 
 
-### e_035: use {#e_035}
-
-**Components connected**
-: [n\_009](#n_009) -> [n\_014](#n_014)
+### e_036: install {#e_036}
 
 **Brief Description**
 : …
@@ -1621,65 +1513,6 @@ For each component or task, we provide:
 **Work time estimate (FTE days)**
 : …
 
-
-### e_036: package {#e_036}
-
-**Components connected**
-: [n\_009](#n_009) -> [n\_002](#n_002)
-
-**Brief Description**
-: …
-
-**Detailed Description**
-: …
-
-**Status**
-: 🔵**Done**🔵
-
-**Detailed status**
-: …
-
-**Remaining work**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
-
-
-### e_037: install {#e_037}
-
-**Components connected**
-: [n\_009](#n_009) -> [n\_011](#n_011)
-
-**Brief Description**
-: …
-
-**Detailed Description**
-: …
-
-**Status**
-: 🔵**Done**🔵
-
-**Detailed status**
-: …
-
-**Remaining work**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
 ![Spack Workflow Diagram](spack.svg){#swd width=30cm alt="Schematic
 describing stages in anticipated Spack workflows as nodes, with
 processes implementing progression between stages as edges."}
