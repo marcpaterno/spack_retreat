@@ -15,7 +15,7 @@ endef
 	$(PANDOC) --to pdf $< || $(call exec_error,pandoc)
 
 %-crop.pdf: %.pdf
-	pdfcrop $< || $(call exec_error,pdfcrop)
+	pdfcrop --margins 5 $< || $(call exec_error,pdfcrop)
 
 %.pdf: %.gv
 	dot -T pdf -o $@ $< || $(call exec_error,dot)
