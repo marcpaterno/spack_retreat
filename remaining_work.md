@@ -7,15 +7,13 @@ This document describes the components (nodes) and tasks (edges) in the [workflo
 For each component or task, we provide:
 
 1. Name and unique ID
-1. Components connected (tasks only)
 1. Brief description
-1. Detailed description
+1. Detailed description (optional)
 1. Status
-1. Detailed status
-1. Remaining work
-1. Work lead
-1. Work contributors
-1. Work time estimate (FTE days)
+1. Detailed status (optional)
+1. Work lead (optional)
+1. Work contributors (optional)
+1. Work time estimate in FTE days (optional)
 
 
 ## Status labels and their meanings
@@ -43,23 +41,26 @@ processes implementing progression between stages as edges."}
 
 ## Components
 
+[/0/]: # Uneditable checked/unchecked checkboxes for cut/paste:
+[/1/]: #
+[/2/]: # ☑ 
+[/3/]: #
+[/4/]: # ☐ 
 
 ### n_000: Request for products {#request_for_products}
 
 **Brief Description**
 : An incoming request for a product to be built and packaged.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🟢**Questions**🟢
 
 **Detailed status**
-: …
+:
 
-**Remaining work**
-: …
+* ☐ Do we wish to allow email requests, or require tickets? If the
+  latter, to which system and/or GitHub project, and should we have
+  issue templates for the purpose?
 
 **Work lead**
 : …
@@ -76,17 +77,15 @@ processes implementing progression between stages as edges."}
 **Brief Description**
 : An incoming request for a new area for installed products.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🟢**Questions**🟢
 
 **Detailed status**
-: …
+:
 
-**Remaining work**
-: …
+* ☐ Do we wish to allow email requests, or require tickets? If the
+  latter, to which system and/or GitHub project, and should we have
+  issue templates for the purpose?
 
 **Work lead**
 : …
@@ -104,25 +103,16 @@ processes implementing progression between stages as edges."}
 : One or more packaged products.
 
 **Detailed Description**
-: …
+: A "packaged product" in the context of Spack is a recipe
+  (`package.py`{.console} and any ancillary files such as patches)
+  capable of building the product to the desired specification, along
+  with any new or updated recipes required to build dependencies. These
+  recipes should be made available either from Spack's main repository
+  (preferred), or from one or more dedicated recipe repositories
+  accessible to the requester.
 
 **Status**
-: …
-
-**Detailed status**
-: …
-
-**Remaining work**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: 🔵**Done**🔵
 
 
 ### n_003: Built product server {#scisoft}
@@ -137,9 +127,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -167,9 +154,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -192,9 +176,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -221,9 +202,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -246,9 +224,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -276,9 +251,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -302,9 +274,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -332,9 +301,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -358,9 +324,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -388,9 +351,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -414,9 +374,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -444,9 +401,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -469,9 +423,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -497,9 +448,6 @@ processes implementing progression between stages as edges."}
 : …
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -530,9 +478,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -556,9 +501,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -586,9 +528,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -613,9 +552,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -638,9 +574,6 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -668,9 +601,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -694,9 +624,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -724,9 +651,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -750,9 +674,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -780,9 +701,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -806,9 +724,6 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -835,9 +750,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -861,9 +773,6 @@ processes implementing progression between stages as edges."}
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -893,9 +802,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -919,9 +825,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -950,9 +853,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -976,9 +876,6 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1006,9 +903,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1032,9 +926,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1062,9 +953,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1088,9 +976,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1119,9 +1004,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1146,9 +1028,6 @@ processes implementing progression between stages as edges."}
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1177,9 +1056,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1203,9 +1079,6 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1233,9 +1106,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1259,9 +1129,6 @@ processes implementing progression between stages as edges."}
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1289,9 +1156,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1315,9 +1179,6 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1345,9 +1206,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1373,9 +1231,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1398,9 +1253,6 @@ processes implementing progression between stages as edges."}
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1428,9 +1280,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1455,9 +1304,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1480,9 +1326,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
@@ -1510,9 +1353,6 @@ processes implementing progression between stages as edges."}
 **Detailed status**
 : …
 
-**Remaining work**
-: …
-
 **Work lead**
 : …
 
@@ -1536,9 +1376,6 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
-
-**Remaining work**
 : …
 
 **Work lead**
