@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the components (nodes) and tasks (edges) in the [workflow diagram below](#swd):
+This document describes the components (nodes) and tasks (edges) in the [workflow diagram below](#Workflow):
 
 For each component or task, we provide:
 
@@ -35,6 +35,11 @@ For each component or task, we provide:
 🟣**Crisis**🟣
 : Solution not understood.
 
+## Workflow
+
+![Spack Workflow Diagram](spack.svg){#swd usemap="#spack_workflow" alt="Schematic
+describing stages in anticipated Spack workflows as nodes, with
+processes implementing progression between stages as edges."}
 
 ## Components
 
@@ -1545,7 +1550,3 @@ For each component or task, we provide:
 
 **Work time estimate (FTE days)**
 : …
-
-![Spack Workflow Diagram](spack.svg){#swd width=30cm alt="Schematic
-describing stages in anticipated Spack workflows as nodes, with
-processes implementing progression between stages as edges."}

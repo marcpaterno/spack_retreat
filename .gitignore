@@ -1,4 +1,4 @@
+*.cmapx
 *.html
 *.pdf
-spack.png
 !spack-crop.pdf
