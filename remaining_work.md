@@ -457,11 +457,10 @@ processes implementing progression between stages as edges."}
 : …
 
 
-### n_015: Pull request {#PR}
+### n_015: Pull request (PR) {#PR}
 
 **Brief Description**
-: A GitHub pull request intended for merge into a package's source
-  repository.
+: A GitHub PR intended for merge into a package's source repository.
 
 **Detailed Description**
 : …
@@ -485,7 +484,7 @@ processes implementing progression between stages as edges."}
 : …
 
 
-### n_016: CI {#CI}
+### n_016: Continuous Integration (CI) {#CI}
 
 **Brief Description**
 : A continuous integration system capable of building and testing
@@ -1334,8 +1333,8 @@ processes implementing progression between stages as edges."}
 ### e_029: create {#e_029}
 
 **Brief Description**
-: Create a [GitHub Pull Request](#PR) based on sources in a
-  [development environment](#development).
+: Create a [GitHub PR](#PR) based on sources in a [development
+  environment](#development).
 
 **Detailed Description**
 : …
@@ -1363,7 +1362,7 @@ processes implementing progression between stages as edges."}
 
 **Brief Description**
 : Trigger a build process in a [CI](#CI) system based on a [GitHub
-  Pull Request](#PR).
+  PR](#PR).
 
 **Detailed Description**
 : …
@@ -1417,8 +1416,8 @@ processes implementing progression between stages as edges."}
 ### e_032: report {#e_032}
 
 **Brief Description**
-: Retrieve status and built products from a [CI](#CI) system,
-  updating the state of the triggering [pull request](#PR).
+: Retrieve status and built products from a [CI](#CI) system, updating
+  the state of the triggering [PR](#PR).
 
 **Detailed Description**
 : …
