@@ -1,8 +1,14 @@
 all: notes.html spack-crop.pdf remaining_work-final.html
 
 remaining_work.html: spack.svg
+
+# Most robust way to get the clickable map information into the HTML.
 remaining_work-final.html: remaining_work.html spack.cmapx
 	cat $^ > $@
+
+########################################################################
+# No user-serviceable parts below
+########################################################################
 
 define exec_error
 { status=$$?; echo "unable to generate $@ from $< with $(1)" 1>&2; exit $$status; }
