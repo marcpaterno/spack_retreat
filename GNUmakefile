@@ -2,6 +2,10 @@ all: notes.html spack-crop.pdf remaining_work-final.html
 
 remaining_work.html: spack.svg
 
+# We want "hard-coded" blank checkboxes when we specify.
+remaining_work.html: unicode-checkbox.lua
+remaining_work.html: PANDOC_OPTS += --lua-filter=unicode-checkbox.lua
+
 # Most robust way to get the clickable map information into the HTML.
 remaining_work-final.html: remaining_work.html spack.cmapx
 	cat $^ > $@
@@ -14,15 +18,22 @@ define exec_error
 { status=$$?; echo "unable to generate $@ from $< with $(1)" 1>&2; exit $$status; }
 endef
 
+empty :=
+space := $(empty) $(empty)
+
+define join-with
+$(subst $(space),$1,$(strip $2))
+endef
+
 define PANDOC
 pandoc --from markdown-smart -o $@
 endef
 
 %.html: %.md
-	$(PANDOC) --to html $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
+	$(PANDOC) --to html --from markdown$(call join-with,$(empty),$(PANDOC_MD_EXTS)) $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
 
 %.pdf: %.md
-	$(PANDOC) --to pdf $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
+	$(PANDOC) --to pdf --from markdown$(call join-with,$(empty),$(PANDOC_MD_EXTS)) $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
 
 %-crop.pdf: %.pdf
 	pdfcrop --margins 5 $< || $(call exec_error,pdfcrop)
