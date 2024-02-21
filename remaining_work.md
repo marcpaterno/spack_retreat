@@ -114,29 +114,27 @@ processes implementing progression between stages as edges."}
 **Status**
 : 🔵**Done**🔵
 
-
 ### n_003: Built product server {#scisoft}
 
 **Brief Description**
 : An online location from which built products may be obtained.
 
 **Detailed Description**
-: …
+: Specifically: a Spack build cache to/from which built products may be placed/downloaded by means of Spack commands.
 
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
+* ☑ Several build caches exist, served by `scisoft.fnal.gov`.
 
-**Work contributors**
-: …
+* ☑ Build caches may be populated via `spack buildcache create` on a
+  node with a write-access mount to `/nasroot/SciSoft/` via NFSv4.
 
-**Work time estimate (FTE days)**
-: …
+* ☑ Build caches are accessible from offsite via HTTPS and properly
+  configured Spack instances.
 
 
 ### n_004: Suite configuration server {#suite_config_server}
@@ -146,13 +144,31 @@ processes implementing progression between stages as edges."}
   configurations of consistent suites of built products may be obtained.
 
 **Detailed Description**
-: …
+: Specifically: `spack.lock` files shall be available to on- and offsite
+  users via HTTPS.
 
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
-: …
+:
+
+* ☑ The existing infrastructure for uploading UPS packages, bundle
+  configurations, and manifests, and Spack `spack.yaml` files may be
+  leveraged to upload and provide indexed HTTPS access to `spack.lock`
+  files.
+
+* ☐ A naming convention must be conceived and implemented to enable
+  unambiguous identification of fully concretized environment
+  configurations.
+
+* ☐ Upload infrastructure must be extended to follow the developed
+  naming convention.
+
+* ☐ Infrastructure must be developed to facilitate identification and
+  download of appropriate `spack.lock` files according to the
+  destination architecture, and user requirements.
+
 
 **Work lead**
 : …
@@ -170,70 +186,28 @@ processes implementing progression between stages as edges."}
 : One or more locally-built products.
 
 **Detailed Description**
-: …
+: A "built product" is an built and/or installed package within a Spack instance.
 
 **Status**
-: …
-
-**Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: 🔵**Done**🔵
 
 
 ### n_006: Built suites {#built_env}
 
 **Brief Description**
-: A consistent suite of locally-built products.
-
-**Detailed Description**
-: …
+: A consistent suite of [built products](#built_products).
 
 **Status**
-: …
-
-**Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: 🔵**Done**🔵
 
 
 ### n_007: Packaged suites {#packaged_suites}
 
 **Brief Description**
-: A consistent suite of packaged products.
-
-**Detailed Description**
-: …
+: A consistent suite of [packaged products](#packaged_products).
 
 **Status**
-: …
-
-**Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: 🔵**Done**🔵
 
 
 ### n_008: Release config repository {#release_config}
@@ -243,13 +217,28 @@ processes implementing progression between stages as edges."}
   from which a Spack environment may be created.
 
 **Detailed Description**
-: …
+: Given the desirability of being able to produce different [packaged
+  suites](#packaged_suites) that are consistent and can interoperate
+  with each other, information about package versions and configurations
+  should be accessible for the generation of Spack environments
+  describing suite configurations.
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* ☑ A basic implementation of a release config repository exists at
+  https://cdcvs.fnal.gov/redmine/projects/build-framework/repository
+
+* ☐ Package configurations (currently in multiple `.yaml.in` files)
+  should be factored-out and stored in a way more conducive to their
+  consistent reuse in multiple `.yaml.in` files.
+  
+* ☐ `.yaml.in` files should make use of recent improvements to the
+  provision of YAML `include` facilities in Spack environment
+  configuration files.
 
 **Work lead**
 : …
@@ -267,23 +256,14 @@ processes implementing progression between stages as edges."}
 : A Spack instance containing built packages installed in a shared,
   non-CVMFS filesystem.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+*  ☑ Scripts exist to facilitate the creation and population of
+   consistently-configured and populated Spack instances.
 
 
 ### n_010: Test release {#test_release}
@@ -292,23 +272,14 @@ processes implementing progression between stages as edges."}
 : A secondary Spack instance containing built packages requiring either
   a base release or a CVMFS Spack instance for consistent operation.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+*  ☑ Scripts exist to facilitate the creation and population of
+   consistently-configured and populated Spack instances.
 
 
 ### n_011: CVMFS {#CVMFS}
@@ -317,23 +288,14 @@ processes implementing progression between stages as edges."}
 : A Spack instance containing built packages installed in a CVMFS
   filesystem.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+*  ☑ Scripts exist to facilitate the creation and population of
+   consistently-configured and populated Spack instances.
 
 
 ### n_012: Runtime environment {#runtime}
@@ -367,6 +329,9 @@ processes implementing progression between stages as edges."}
 : A non-interactive runtime environment configured for remote and/or
   batch execution.
 
+**Status**
+: 🔵**Done**🔵
+
 **Detailed Description**
 : …
 
@@ -392,63 +357,57 @@ processes implementing progression between stages as edges."}
 : An interactive runtime environment configured for software
   development.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
+: 🟡**In progress**🟡
 
 **Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: See [setup-for-dev](#e_026).
 
 
-### n_015: Pull request (PR) {#PR}
+### n_015: Pull requests (PR) {#PR}
 
 **Brief Description**
-: A GitHub PR intended for merge into a package's source repository.
-
-**Detailed Description**
-: …
+: One or more related GitHub PRs intended for merge into one or more
+  package source repositories.
 
 **Status**
-: …
+: 🟢**Almost done**🟢
 
 **Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: ☐ The implementation of [trigger](#e_030) must specify a way to link
+  PRs in separate repositories for group inclusion in a [CI test
+  process](#e_031).
 
 
 ### n_016: Continuous Integration (CI) {#CI}
 
 **Brief Description**
-: A continuous integration system capable of building and testing
-  released, un-released, or unmerged software, or combinations thereof.
-
-**Detailed Description**
-: …
+: A CI system capable of building and testing released, un-released, or
+  unmerged software, or combinations thereof.
 
 **Status**
-: …
+: 🔴**Problematic**🔴
 
 **Detailed status**
-: …
+:
+
+* ☑ A CI system exists capable of producing [built
+  suites](#built_suites) of released products using Spack.
+  
+* ☐ We require a method of specifying that certain [built
+  products](#built_products) shall be tested while others shall not.
+
+* ☐ We require a system capable of providing configured CI processes for
+  different organizations and [built suites](#built_suites) that
+  minimizes process-specific accommodations beyond simple CI job
+  configuration.
+
+* ☐ We require a system capable of building and testing specified
+  combinations of released, un-released, or unmerged software.
+
+* ☐ We require a system capable of building and testing released
+  software in such a way that [built suites](#build_suites) may be
+  easily [uploaded](#e_012) to a [built product server](#scisoft).
 
 **Work lead**
 : …
