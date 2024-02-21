@@ -1,4 +1,4 @@
-all: notes.html spack-crop.pdf remaining_work-final.html
+all: notes.html spack-crop.pdf remaining_work.html
 
 remaining_work.html: spack.svg
 
@@ -7,8 +7,8 @@ remaining_work.html: unicode-checkbox.lua
 remaining_work.html: PANDOC_OPTS += --lua-filter=unicode-checkbox.lua
 
 # Most robust way to get the clickable map information into the HTML.
-remaining_work-final.html: remaining_work.html spack.cmapx
-	cat $^ > $@
+remaining_work.html: spack.cmapx
+remaining_work.html: override POSTPROCESS_ACTION = cat $1 spack.cmapx > $2
 
 ########################################################################
 # No user-serviceable parts below
@@ -25,15 +25,19 @@ define join-with
 $(subst $(space),$1,$(strip $2))
 endef
 
-define PANDOC
-pandoc --from markdown-smart -o $@
+define POSTPROCESS_ACTION
+mv $1 $2
+endef
+
+define PANDOC_MARKDOWN
+{ pandoc --to $(patsubst .%,%,$(suffix $@)) --from markdown-smart$(call join-with,$(empty),$(PANDOC_MD_EXTS)) $(PANDOC_OPTS) -o $@.tmp $< && $(call POSTPROCESS_ACTION,$@.tmp,$@) && rm -f $@.tmp; } || $(call exec_error,pandoc)
 endef
 
 %.html: %.md
-	$(PANDOC) --to html --from markdown$(call join-with,$(empty),$(PANDOC_MD_EXTS)) $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
+	$(call PANDOC_MARKDOWN)
 
-%.pdf: %.md
-	$(PANDOC) --to pdf --from markdown$(call join-with,$(empty),$(PANDOC_MD_EXTS)) $(PANDOC_OPTS) $< || $(call exec_error,pandoc)
+%.pdf: %.html
+	pandoc --from html --to pdf -o $@ $< || $(call exec_error,pandoc)
 
 %-crop.pdf: %.pdf
 	pdfcrop --margins 5 $< || $(call exec_error,pdfcrop)
