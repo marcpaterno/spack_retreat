@@ -304,23 +304,8 @@ processes implementing progression between stages as edges."}
 : An environment configured to use a CVMFS spack instance, base release,
   or test release for execution purposes.
 
-**Detailed Description**
-: …
-
 **Status**
-: …
-
-**Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+: 🔵**Done**🔵
 
 
 ### n_013: Grid environment {#grid}
@@ -331,24 +316,6 @@ processes implementing progression between stages as edges."}
 
 **Status**
 : 🔵**Done**🔵
-
-**Detailed Description**
-: …
-
-**Status**
-: …
-
-**Detailed status**
-: …
-
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
 
 
 ### n_014: Development environment {#development}
