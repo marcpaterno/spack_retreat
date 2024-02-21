@@ -395,23 +395,15 @@ processes implementing progression between stages as edges."}
 : Set up a [grid environment](#grid) to use a specific [CVMFS-based
   Spack instance](#CVMFS).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ Given an existing [CVMFS-based Spack instance](#CVMFS), the
+  `make_subspack`{.console} script will create and configure a
+  subordinate Spack instance.
 
 
 ### e_001: setup {#e_001}
@@ -420,23 +412,15 @@ processes implementing progression between stages as edges."}
 : Set up an [interactive environment](#runtime) to use a specific
   [CVMFS-based Spack instance](#CVMFS).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ Given an existing [CVMFS-based Spack instance](#CVMFS), the
+  `make_subspack`{.console} script will create and configure a
+  subordinate Spack instance.
 
 
 ### e_002: layer {#e_002}
@@ -445,23 +429,15 @@ processes implementing progression between stages as edges."}
 : Create a [base release](#base_release) as a "sub-spack" dependent on a
   [CVMFS-based Spack instance](#CVMFS).
 
-**Detailed Description**
-: …
-
 **Status**
-: 🟢**Almost done**🟢
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ Given an existing [CVMFS-based Spack instance](#CVMFS), the
+  `make_subspack`{.console} script will create and configure a
+  subordinate Spack instance.
 
 
 ### e_003: publish {#e_003}
@@ -469,23 +445,14 @@ processes implementing progression between stages as edges."}
 **Brief Description**
 : Make changes to a [CVMFS-based Spack instance](#CVMFS) visible.
 
-**Detailed Description**
-: …
-
 **Status**
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
+: 
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ The ability to publish changes to a CVMFS-based filesystem is an
+  existing feature of the system.
 
 
 ### e_004: upload {#e_004}
@@ -493,14 +460,24 @@ processes implementing progression between stages as edges."}
 **Brief Description**
 : Upload one or more [built products](#built_products) to a [server](#scisoft).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* ☑ Spack build caches are provided in multiple public, online locations
+  by Fermilab.
+
+* ☐ We must organize, consolidate, and document the availability of
+  public build caches.
+
+* ☐ We must provide for the long term maintenance and storage
+  requirements of public build caches.
+
+* ☐ We must be aware of and have a plan to manage possible compatibility
+  issues caused by uploading built products to a build cache with
+  different versions of Spack.
 
 **Work lead**
 : …
@@ -519,13 +496,28 @@ processes implementing progression between stages as edges."}
   environment](#grid).
 
 **Detailed Description**
-: …
+: In the absence of a shared filesystem, create a [grid
+  environment](#grid) containing the elements of a given [base
+  release](#base_release) necessary to enable the desired remote
+  computational activity.
 
 **Status**
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* ☑ The facility exists to be able to export the necessary built
+  products and/or suites to a build cache which can then be uploaded to
+  a remote node as part of a grid submission.
+
+* ☐ We require a script enabling a user to specify the required software
+  environment and execute the packaging operations necessary to export
+  same.
+  
+* ☐ We need to provide a mechanism for submitting grid jobs which will
+  ensure the upload of the created build cache, and its use in creating
+  a correctly configured execution environment on the execution node.
 
 **Work lead**
 : …
@@ -543,23 +535,15 @@ processes implementing progression between stages as edges."}
 : Set up an [interactive environment](#runtime) to use a specific [base
   release](#base_release).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ Given an existing [base release](#base_release), the
+  `make_subspack`{.console} script will create and configure a
+  subordinate Spack instance.
 
 
 ### e_007: layer {#e_007}
@@ -568,23 +552,15 @@ processes implementing progression between stages as edges."}
 : Create a [test release](#test_release) as a "sub-spack" dependent on a [base
   release](#base_release).
 
-**Detailed Description**
-: …
-
 **Status**
-: 🟢**Almost done**🟢
+: 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ Given an existing [base release](#base_release), the
+  `make_subspack`{.console} script will create and configure a
+  subordinate Spack instance.
 
 
 ### e_008: build {#e_008}
@@ -593,23 +569,13 @@ processes implementing progression between stages as edges."}
 : Produce one or more [built products](#built_products) by following the recipes
   provided by the corresponding [packaged products](#packaged_products).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🔵**Done**🔵
 
 **Detailed status**
-: …
+:
 
-**Work lead**
-: …
-
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+* ☑ The required functionality is provided by the `spack install` command.
 
 
 ### e_009: register {#e_009}
@@ -618,14 +584,26 @@ processes implementing progression between stages as edges."}
 : Upload [non-concretized (loosely specified) configurations](#packaged_products) of
   suites of products to the [release config repository](#release_config).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* See current status of [release config repository](#release_config).
+
+* ☑ A suitable online location
+  (`https://scisoft.fnal.gov/packages/.../buildcfg/`) exists to which to
+  upload generated or manually-created Spack environment configuration
+  files.
+
+* ☑ The `copyToSciSoft` script is capable of uploading a suitably-named
+  Spack environmnt configuration file to an appropriate online location.
+
+* ☐ The naming convention must be documented.
+
+* ☐ The upload procedure must be documented.
+
 
 **Work lead**
 : …
@@ -643,14 +621,19 @@ processes implementing progression between stages as edges."}
 : Build a [specified consistent suite](#packaged_suites) of [packaged
   products](#built_env).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* ☑ The `build-spack-env.sh` script enables the creation of one or more
+  [specified consistent suites](#packaged_suites) given corresponding
+  Spack environment configurations.
+  
+* ☐ We require a faciity to locate and retrieve Spack environment
+  configurations from their [online repository](#suite_config_server)
+  where appropriate.
 
 **Work lead**
 : …
@@ -667,14 +650,18 @@ processes implementing progression between stages as edges."}
 **Brief Description**
 : Upload [built products](#built_env) to an [online location](#scisoft).
 
-**Detailed Description**
-: …
-
 **Status**
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: …
+:
+
+* ☑ `spack buildcache create` is the appopriate upload mechanism to use
+  for this task.
+
+* ☐ The appropriate online location(s) for specific products and/or
+  organizations should be documented, along with any specific
+  authentication/authorization procedures required.
 
 **Work lead**
 : …
@@ -689,17 +676,32 @@ processes implementing progression between stages as edges."}
 ### e_012: upload {#e_012}
 
 **Brief Description**
-: Upload concretized (fully-specified) configuration for a consistent
-  suite of [built products](#built_env) to a [server](#suite_config_server).
-
-**Detailed Description**
-: …
+: Upload the concretized (fully-specified) configuration for a
+  consistent suite of [built products](#built_env) to a
+  [server](#suite_config_server).
 
 **Status**
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
+:
+
+* ☑ A suitable online location
+  (`https://scisoft.fnal.gov/packages/.../`) exists to which to upload
+  the `spack.lock` files created during a [build](#e_010) procedure.
+
+* ☐ We require a suitable directory organization on the [online
+  location](#suite_config_server).
+
+* ☐ We must decide upon a suitably specific naming convention for
+  `spack.lock` files and provide the means to rename `spack.lock` files
+  according to that convention.
+
+* ☐ We must adapt the `copyToSciSoft` script (or provide a suitable
+  alternative) to upload `spack.lock` files to an appropriate location
+  on the [online location](#suite_config_server), creating necessary
+  directory structure and indexing facilities as appropriate.
+
 
 **Work lead**
 : …
