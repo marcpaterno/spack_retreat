@@ -10,9 +10,9 @@
 <title>spack_workflow</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-1455.5 587.62,-1455.5 587.62,4 -4,4"/>
 <!-- request_for_products -->
-<g id="node1" class="node">
+<g id="n_000" class="node">
 <title>request_for_products</title>
-<g id="a_node1"><a xlink:href="./remaining_work.html#request_for_products" xlink:title="n_000\nRequest for products\n">
+<g id="a_n_000"><a xlink:href="./remaining_work.html#request_for_products" xlink:title="n_000\nRequest for products\n">
 <polygon fill="lightgray" stroke="black" points="279.88,-1451.5 150.62,-1451.5 150.62,-1410.5 279.88,-1410.5 279.88,-1451.5"/>
 <text text-anchor="middle" x="215.25" y="-1434.2" font-family="Times,serif" font-size="14.00">n_000</text>
 <text text-anchor="middle" x="215.25" y="-1417.7" font-family="Times,serif" font-size="14.00">Request for products</text>
@@ -20,9 +20,9 @@
 </g>
 </g>
 <!-- packaged_products -->
-<g id="node3" class="node">
+<g id="n_002" class="node">
 <title>packaged_products</title>
-<g id="a_node3"><a xlink:href="./remaining_work.html#packaged_products" xlink:title="n_002\nPackaged products">
+<g id="a_n_002"><a xlink:href="./remaining_work.html#packaged_products" xlink:title="n_002\nPackaged products">
 <polygon fill="none" stroke="black" points="213.25,-1341.5 95.25,-1341.5 95.25,-1300.5 213.25,-1300.5 213.25,-1341.5"/>
 <text text-anchor="middle" x="154.25" y="-1324.2" font-family="Times,serif" font-size="14.00">n_002</text>
 <text text-anchor="middle" x="154.25" y="-1307.7" font-family="Times,serif" font-size="14.00">Packaged products</text>
@@ -44,9 +44,9 @@
 </g>
 </g>
 <!-- release_config -->
-<g id="node9" class="node">
+<g id="n_008" class="node">
 <title>release_config</title>
-<g id="a_node9"><a xlink:href="./remaining_work.html#release_config" xlink:title="n_008\nRelease config\nrepository">
+<g id="a_n_008"><a xlink:href="./remaining_work.html#release_config" xlink:title="n_008\nRelease config\nrepository">
 <polygon fill="none" stroke="black" points="312.38,-1231.5 216.12,-1231.5 216.12,-1174 312.38,-1174 312.38,-1231.5"/>
 <text text-anchor="middle" x="264.25" y="-1214.2" font-family="Times,serif" font-size="14.00">n_008</text>
 <text text-anchor="middle" x="264.25" y="-1197.7" font-family="Times,serif" font-size="14.00">Release config</text>
@@ -69,9 +69,9 @@
 </g>
 </g>
 <!-- request_for_products_area -->
-<g id="node2" class="node">
+<g id="n_001" class="node">
 <title>request_for_products_area</title>
-<g id="a_node2"><a xlink:href="./remaining_work.html#request_for_products_area" xlink:title="n_001\nRequest for\nproducts area\n">
+<g id="a_n_001"><a xlink:href="./remaining_work.html#request_for_products_area" xlink:title="n_001\nRequest for\nproducts area\n">
 <polygon fill="lightgray" stroke="black" points="583.62,-877 494.88,-877 494.88,-819.5 583.62,-819.5 583.62,-877"/>
 <text text-anchor="middle" x="539.25" y="-859.7" font-family="Times,serif" font-size="14.00">n_001</text>
 <text text-anchor="middle" x="539.25" y="-843.2" font-family="Times,serif" font-size="14.00">Request for</text>
@@ -80,9 +80,9 @@
 </g>
 </g>
 <!-- base_release -->
-<g id="node10" class="node">
+<g id="n_009" class="node">
 <title>base_release</title>
-<g id="a_node10"><a xlink:href="./remaining_work.html#base_release" xlink:title="n_009\nBase release\n">
+<g id="a_n_009"><a xlink:href="./remaining_work.html#base_release" xlink:title="n_009\nBase release\n">
 <polygon fill="lightcyan" stroke="black" points="423,-640.5 339.5,-640.5 339.5,-599.5 423,-599.5 423,-640.5"/>
 <text text-anchor="middle" x="381.25" y="-623.2" font-family="Times,serif" font-size="14.00">n_009</text>
 <text text-anchor="middle" x="381.25" y="-606.7" font-family="Times,serif" font-size="14.00">Base release</text>
@@ -104,9 +104,9 @@
 </g>
 </g>
 <!-- CVMFS -->
-<g id="node12" class="node">
+<g id="n_011" class="node">
 <title>CVMFS</title>
-<g id="a_node12"><a xlink:href="./remaining_work.html#CVMFS" xlink:title="n_011\nCVMFS\n">
+<g id="a_n_011"><a xlink:href="./remaining_work.html#CVMFS" xlink:title="n_011\nCVMFS\n">
 <polygon fill="lightcyan" stroke="black" points="392.5,-750.5 330,-750.5 330,-709.5 392.5,-709.5 392.5,-750.5"/>
 <text text-anchor="middle" x="361.25" y="-733.2" font-family="Times,serif" font-size="14.00">n_011</text>
 <text text-anchor="middle" x="361.25" y="-716.7" font-family="Times,serif" font-size="14.00">CVMFS</text>
@@ -128,9 +128,9 @@
 </g>
 </g>
 <!-- built_products -->
-<g id="node6" class="node">
+<g id="n_005" class="node">
 <title>built_products</title>
-<g id="a_node6"><a xlink:href="./remaining_work.html#built_products" xlink:title="n_005\nBuilt products\n">
+<g id="a_n_005"><a xlink:href="./remaining_work.html#built_products" xlink:title="n_005\nBuilt products\n">
 <polygon fill="khaki" stroke="black" points="201.88,-1156 108.62,-1156 108.62,-1115 201.88,-1115 201.88,-1156"/>
 <text text-anchor="middle" x="155.25" y="-1138.7" font-family="Times,serif" font-size="14.00">n_005</text>
 <text text-anchor="middle" x="155.25" y="-1122.2" font-family="Times,serif" font-size="14.00">Built products</text>
@@ -166,9 +166,9 @@
 </g>
 </g>
 <!-- scisoft -->
-<g id="node4" class="node">
+<g id="n_003" class="node">
 <title>scisoft</title>
-<g id="a_node4"><a xlink:href="./remaining_work.html#scisoft" xlink:title="n_003\nBuilt product\nserver\n">
+<g id="a_n_003"><a xlink:href="./remaining_work.html#scisoft" xlink:title="n_003\nBuilt product\nserver\n">
 <polygon fill="pink" stroke="black" points="268.25,-877 180.25,-877 180.25,-819.5 268.25,-819.5 268.25,-877"/>
 <text text-anchor="middle" x="224.25" y="-859.7" font-family="Times,serif" font-size="14.00">n_003</text>
 <text text-anchor="middle" x="224.25" y="-843.2" font-family="Times,serif" font-size="14.00">Built product</text>
@@ -191,9 +191,9 @@
 </g>
 </g>
 <!-- test_release -->
-<g id="node11" class="node">
+<g id="n_010" class="node">
 <title>test_release</title>
-<g id="a_node11"><a xlink:href="./remaining_work.html#test_release" xlink:title="n_010\nTest release\n">
+<g id="a_n_010"><a xlink:href="./remaining_work.html#test_release" xlink:title="n_010\nTest release\n">
 <polygon fill="lightcyan" stroke="black" points="209.5,-530.5 129,-530.5 129,-489.5 209.5,-489.5 209.5,-530.5"/>
 <text text-anchor="middle" x="169.25" y="-513.2" font-family="Times,serif" font-size="14.00">n_010</text>
 <text text-anchor="middle" x="169.25" y="-496.7" font-family="Times,serif" font-size="14.00">Test release</text>
@@ -229,9 +229,9 @@
 </g>
 </g>
 <!-- suite_config_server -->
-<g id="node5" class="node">
+<g id="n_004" class="node">
 <title>suite_config_server</title>
-<g id="a_node5"><a xlink:href="./remaining_work.html#suite_config_server" xlink:title="n_004\nSuite configuration\nserver\n">
+<g id="a_n_004"><a xlink:href="./remaining_work.html#suite_config_server" xlink:title="n_004\nSuite configuration\nserver\n">
 <polygon fill="pink" stroke="black" points="417.38,-877 297.12,-877 297.12,-819.5 417.38,-819.5 417.38,-877"/>
 <text text-anchor="middle" x="357.25" y="-859.7" font-family="Times,serif" font-size="14.00">n_004</text>
 <text text-anchor="middle" x="357.25" y="-843.2" font-family="Times,serif" font-size="14.00">Suite configuration</text>
@@ -296,9 +296,9 @@
 </g>
 </g>
 <!-- built_env -->
-<g id="node7" class="node">
+<g id="n_006" class="node">
 <title>built_env</title>
-<g id="a_node7"><a xlink:href="./remaining_work.html#built_env" xlink:title="n_006\nBuilt suites\n">
+<g id="a_n_006"><a xlink:href="./remaining_work.html#built_env" xlink:title="n_006\nBuilt suites\n">
 <polygon fill="khaki" stroke="black" points="303,-987 225.5,-987 225.5,-946 303,-946 303,-987"/>
 <text text-anchor="middle" x="264.25" y="-969.7" font-family="Times,serif" font-size="14.00">n_006</text>
 <text text-anchor="middle" x="264.25" y="-953.2" font-family="Times,serif" font-size="14.00">Built suites</text>
@@ -334,9 +334,9 @@
 </g>
 </g>
 <!-- packaged_suites -->
-<g id="node8" class="node">
+<g id="n_007" class="node">
 <title>packaged_suites</title>
-<g id="a_node8"><a xlink:href="./remaining_work.html#packaged_suites" xlink:title="n_007\nPackaged suites">
+<g id="a_n_007"><a xlink:href="./remaining_work.html#packaged_suites" xlink:title="n_007\nPackaged suites">
 <polygon fill="none" stroke="black" points="315.38,-1097 213.12,-1097 213.12,-1056 315.38,-1056 315.38,-1097"/>
 <text text-anchor="middle" x="264.25" y="-1079.7" font-family="Times,serif" font-size="14.00">n_007</text>
 <text text-anchor="middle" x="264.25" y="-1063.2" font-family="Times,serif" font-size="14.00">Packaged suites</text>
@@ -386,9 +386,9 @@
 </g>
 </g>
 <!-- runtime -->
-<g id="node13" class="node">
+<g id="n_012" class="node">
 <title>runtime</title>
-<g id="a_node13"><a xlink:href="./remaining_work.html#runtime" xlink:title="n_012\nRuntime\nenvironment\n">
+<g id="a_n_012"><a xlink:href="./remaining_work.html#runtime" xlink:title="n_012\nRuntime\nenvironment\n">
 <polygon fill="palegreen" stroke="black" points="325.75,-420.5 240.75,-420.5 240.75,-363 325.75,-363 325.75,-420.5"/>
 <text text-anchor="middle" x="283.25" y="-403.2" font-family="Times,serif" font-size="14.00">n_012</text>
 <text text-anchor="middle" x="283.25" y="-386.7" font-family="Times,serif" font-size="14.00">Runtime</text>
@@ -411,9 +411,9 @@
 </g>
 </g>
 <!-- grid -->
-<g id="node14" class="node">
+<g id="n_013" class="node">
 <title>grid</title>
-<g id="a_node14"><a xlink:href="./remaining_work.html#grid" xlink:title="n_013\nGrid\nenvironment\n">
+<g id="a_n_013"><a xlink:href="./remaining_work.html#grid" xlink:title="n_013\nGrid\nenvironment\n">
 <polygon fill="palegreen" stroke="black" points="403.75,-167.5 318.75,-167.5 318.75,-110 403.75,-110 403.75,-167.5"/>
 <text text-anchor="middle" x="361.25" y="-150.2" font-family="Times,serif" font-size="14.00">n_013</text>
 <text text-anchor="middle" x="361.25" y="-133.7" font-family="Times,serif" font-size="14.00">Grid</text>
@@ -534,9 +534,9 @@
 </g>
 </g>
 <!-- development -->
-<g id="node15" class="node">
+<g id="n_014" class="node">
 <title>development</title>
-<g id="a_node15"><a xlink:href="./remaining_work.html#development" xlink:title="n_014\nDevelopment\nenvironment\n">
+<g id="a_n_014"><a xlink:href="./remaining_work.html#development" xlink:title="n_014\nDevelopment\nenvironment\n">
 <polygon fill="palegreen" stroke="black" points="228,-294 138.5,-294 138.5,-236.5 228,-236.5 228,-294"/>
 <text text-anchor="middle" x="183.25" y="-276.7" font-family="Times,serif" font-size="14.00">n_014</text>
 <text text-anchor="middle" x="183.25" y="-260.2" font-family="Times,serif" font-size="14.00">Development</text>
@@ -629,9 +629,9 @@
 </g>
 </g>
 <!-- PR -->
-<g id="node16" class="node">
+<g id="n_015" class="node">
 <title>PR</title>
-<g id="a_node16"><a xlink:href="./remaining_work.html#PR" xlink:title="n_015\nPull request\n">
+<g id="a_n_015"><a xlink:href="./remaining_work.html#PR" xlink:title="n_015\nPull request\n">
 <polygon fill="lightgray" stroke="black" points="80.5,-159.25 0,-159.25 0,-118.25 80.5,-118.25 80.5,-159.25"/>
 <text text-anchor="middle" x="40.25" y="-141.95" font-family="Times,serif" font-size="14.00">n_015</text>
 <text text-anchor="middle" x="40.25" y="-125.45" font-family="Times,serif" font-size="14.00">Pull request</text>
@@ -653,9 +653,9 @@
 </g>
 </g>
 <!-- CI -->
-<g id="node17" class="node">
+<g id="n_016" class="node">
 <title>CI</title>
-<g id="a_node17"><a xlink:href="./remaining_work.html#CI" xlink:title="n_016\nCI\n">
+<g id="a_n_016"><a xlink:href="./remaining_work.html#CI" xlink:title="n_016\nCI\n">
 <polygon fill="palegreen" stroke="black" points="67.25,-41 13.25,-41 13.25,0 67.25,0 67.25,-41"/>
 <text text-anchor="middle" x="40.25" y="-23.7" font-family="Times,serif" font-size="14.00">n_016</text>
 <text text-anchor="middle" x="40.25" y="-7.2" font-family="Times,serif" font-size="14.00">CI</text>
