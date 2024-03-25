@@ -43,9 +43,9 @@ processes implementing progression between stages as edges."}
 
 [/0/]: # Uneditable checked/unchecked checkboxes for cut/paste:
 [/1/]: #
-[/2/]: # * ☑ 
+[/2/]: # * ☑
 [/3/]: #
-[/4/]: # * ☐ 
+[/4/]: # * ☐
 
 ### [n_000](spack.svg#n_000): Request for products {#request_for_products}
 
@@ -236,7 +236,7 @@ processes implementing progression between stages as edges."}
 * ☐ Package configurations (currently in multiple `.yaml.in`{.console}
   files) should be factored-out and stored in a way more conducive to
   their consistent reuse in multiple `.yaml.in`{.console} files.
-  
+
 * ☐ `.yaml.in`{.console} files should make use of recent improvements to
   the provision of YAML `include`{.yaml} facilities in Spack environment
   configuration files.
@@ -361,7 +361,7 @@ processes implementing progression between stages as edges."}
 
 * ☑ A CI system exists capable of producing [built
   suites](#built_suites) of released products using Spack.
-  
+
 * ☐ We require a method of specifying that certain [built
   products](#built_products) shall be tested while others shall not.
 
@@ -450,7 +450,7 @@ processes implementing progression between stages as edges."}
 : 🔵**Done**🔵
 
 **Detailed status**
-: 
+:
 
 * ☑ The ability to publish changes to a CVMFS-based filesystem is an
   existing feature of the system.
@@ -515,7 +515,7 @@ processes implementing progression between stages as edges."}
 * ☐ We require a script enabling a user to specify the required software
   environment and execute the packaging operations necessary to export
   same.
-  
+
 * ☐ We need to provide a mechanism for submitting grid jobs which will
   ensure the upload of the created build cache, and its use in creating
   a correctly configured execution environment on the execution node.
@@ -633,7 +633,7 @@ processes implementing progression between stages as edges."}
 * ☑ The `build-spack-env.sh`{.console} script enables the creation of
   one or more [specified consistent suites](#packaged_suites) given
   corresponding Spack environment configurations.
-  
+
 * ☐ We require a faciity to locate and retrieve Spack environment
   configurations from their [online repository](#suite_config_server)
   where appropriate.
@@ -1008,10 +1008,19 @@ processes implementing progression between stages as edges."}
 : 🟡**In progress**🟡
 
 **Detailed status**
-: …
+: There are multiple options, including
+
+1. `spack develop` which, although natively supported by Spack, has limitations in the
+  development, such as requiring CMake configuration for each build iteration, when no
+  reconfiguration is necessary.
+
+2. Spack extensions, which allow an approach that is more conducive to the development
+  model we (and our users) expect.
+
+The latter option is favored and is being explored.
 
 **Work lead**
-: …
+: Kyle Knoepfel
 
 **Work contributors**
 : …
@@ -1076,7 +1085,7 @@ processes implementing progression between stages as edges."}
 : 🟢**Almost done**🟢
 
 **Detailed status**
-: 
+:
 
 * See relevant details of current status of [continuous integration](#CI).
 
