@@ -1,4 +1,4 @@
-all: notes.html spack-crop.pdf remaining_work.html
+all: notes.html spack-crop.pdf remaining_work.html revised_work.html
 
 remaining_work.html: spack.svg
 
@@ -8,6 +8,7 @@ remaining_work.html: PANDOC_OPTS += --lua-filter=unicode-checkbox.lua
 
 # We want smart quotes for this document specifically:
 remaining_work.html: PANDOC_MD_EXTS += +smart
+revised_work.html: PANDOC_MD_EXTS += +smart
 
 # Most robust way to get the clickable map information into the HTML.
 remaining_work.html: spack.cmapx

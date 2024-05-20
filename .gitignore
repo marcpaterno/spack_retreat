@@ -2,3 +2,4 @@
 *.html
 *.pdf
 !spack-crop.pdf
+.Rproj.user
