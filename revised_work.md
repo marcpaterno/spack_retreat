@@ -17,7 +17,7 @@ The other is to allow greater flexibility to the experiments, who will be able t
 
 ## Project Goals
 
-The reason that CSAID is moving to the use of Spack is to reduce the work load inherant in the use of the Fermilab-supported UPS and the other software tools that were couped to the use of UPS.
+The reason that CSAID is moving to the use of Spack is to reduce the work load inherent in the use of the Fermilab-supported UPS and the other software tools that were coupled to the use of UPS.
 The primary goal of the Spack Migration Project is to deliver the set of spack-based and spack-related tools necessary to execute this move.
 This is being done at the same time as the move to the AL9 operating system.
 All software support for CSAID-developed software  on AL9  will be based on the use of Spack, rather than the UPS-related tools.
@@ -27,7 +27,7 @@ Following Fermilab security policies, the use of SL7 software will be restricted
 The tools we deliver must support:
 
 1. The DSSL division's development of a new framework for the DUNE collaboration.
-2. The DSSL division's continued support of art and related softwre (the *critic suite*) on AL9
+2. The DSSL division's continued support of art and related software (the *critic suite*) on AL9
 3. The DSSL division's continued support of the LArSoft toolkit.
 4. Experiments that choose to use these tools for creation of their own software development and releases.
 
@@ -64,7 +64,7 @@ In concrete terms, the Spack Migration Project will deliver:
 
 Setting up (1) is part of the Spack Migration Project.
 
-Item (2b) is not part of the Spack Migration Project, and will be determined at the divsion level.
+Item (2b) is not part of the Spack Migration Project, and will be determined at the division level.
 
 For (3) we need a plan for dealing with new release of AL9, and eventual migration to support AL10.
 We also need a mechanism by which requests for additional platforms can be decided.
