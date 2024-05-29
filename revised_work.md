@@ -11,13 +11,25 @@ The changed goals of the project reflect a simultaneous change in (some of) the 
 In particular, the major change proposed is moving from a model in which the division delivers built and installable versions of many software products and large software suites to a model in which the division delivers source code and reference builds that demonstrate the working of that code.
 In this document this new model is called the "source code only" (SCO) model.
 
+The SCO model is intended to have two effects.
+One is reducing the burden on the DSSL division, to allow more time to focus on the development of the new framework.
+The other is to allow greater flexibility to the experiments, who will be able to use the same mechanisms used by DSSL developers to build their own variants of the product stacks and to support additional platforms that may be of interest to an experiment but which are not supported by Fermilab.
+
 ## Project Goals
 
-The primary goal of the Spack Migration Project is to move away from the use of UPS, and from other software that required the use of UPS.
+The reason that CSAID is moving to the use of Spack is to reduce the work load inherant in the use of the Fermilab-supported UPS and the other software tools that were couped to the use of UPS.
+The primary goal of the Spack Migration Project is to deliver the set of spack-based and spack-related tools necessary to execute this move.
 This is being done at the same time as the move to the AL9 operating system.
 All software support for CSAID-developed software  on AL9  will be based on the use of Spack, rather than the UPS-related tools.
 Support for use of SL7 will continue to rely on UPS and the associated tools.
 Following Fermilab security policies, the use of SL7 software will be restricted to running in containers based on SL7 and which themselves are run on an AL9 system.
+
+The tools we deliver must support:
+
+1. The DSSL division's development of a new framework for the DUNE collaboration.
+2. The DSSL division's continued support of art and related softwre (the *critic suite*) on AL9
+3. The DSSL division's continued support of the LArSoft toolkit.
+4. Experiments that choose to use these tools for creation of their own software development and releases.
 
 ### Deliverables
 
@@ -29,7 +41,7 @@ In concrete terms, the Spack Migration Project will deliver:
    This include the *critic suite* and the (yet to be named) DUNE framework.
    The tools will make use of Spack rather than UPS, and will be used natively on AL9.
 
-2. Documentation for these tools sufficient for the experiments and projects that use art, so that they may make use of the same tools.
+2. Documentation for these tools sufficient for the experiments and projects that use the DUNE framework or art , so that they may make use of the same tools.
 
 
 ## Important Assumptions
@@ -52,7 +64,7 @@ In concrete terms, the Spack Migration Project will deliver:
 
 Setting up (1) is part of the Spack Migration Project.
 
-(2) is not part of the Spack Migration Project.
+Item (2b) is not part of the Spack Migration Project, and will be determined at the divsion level.
 
 For (3) we need a plan for dealing with new release of AL9, and eventual migration to support AL10.
 We also need a mechanism by which requests for additional platforms can be decided.
@@ -90,11 +102,10 @@ In the SCO model this mostly away, except for self-support and the vetting of pu
 
 **Disposition**
 
-What is the Spack equivalent of an area for installed products?
-Is it (1) a CVMFS directory containing a built spec, or (2) a spack environment, or (3) something else?
-
-In the SCO model, DSSL is not responsible for creating CVMFS mount points.
-We will provide environment specifications for our reference builds of the *critic suite* and the DUNE framework.
+1. What is the Spack equivalent of an area for installed products?
+   Is it (1) a CVMFS directory containing a built spec, or (2) a spack environment, or (3) something else?
+2.In the SCO model, DSSL is not responsible for creating CVMFS mount points.
+  We will provide environment specifications for our reference builds of the *critic suite* and the DUNE framework.
 
 Should DSSL provide an environment for a reference build of LArSoft?
 
