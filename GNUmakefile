@@ -42,6 +42,9 @@ endef
 %.html: %.md
 	$(call PANDOC_MARKDOWN)
 
+%.pdf: %.md
+	pandoc --from markdown --to pdf --pdf-engine=lualatex -o $@ $< || $(call exec_error,pandoc)
+
 %.pdf: %.html
 	pandoc --from html --to pdf -o $@ $< || $(call exec_error,pandoc)
 

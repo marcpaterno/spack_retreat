@@ -66,8 +66,7 @@ It includes an analysis of to what extent each system component remains part of 
 
 ### Workflow
 
-![Spack Workflow Diagram](spack.svg){alt="Schematic describing stages in anticipated Spack workflows as nodes, with processes implementing progression between stages as edges."
-                                     height="9in"}
+![Spack Workflow Diagram](spack.svg){alt="Schematic describing stages in anticipated Spack workflows as nodes, with processes implementing progression between stages as edges." height="7.27in"}
 
 ## Components
 
@@ -382,19 +381,19 @@ But we need to do this is way that does not become prohibitively demanding on ou
   unmerged software, or combinations thereof.
 
 **Status**
-: 🔴**Problematic**🔴
+: **Problematic**
 
 **Detailed status**
 :
 
 * A CI system exists capable of producing [built
-  suites](#built_suites) of released products using Spack.
+  suites](#built_env) of released products using Spack.
 
 * We require a method of specifying that certain [built
   products](#built_products) shall be tested while others shall not.
 
 * We require a system capable of providing configured CI processes for
-  different organizations and [built suites](#built_suites) that
+  different organizations and [built suites](#built_env) that
   minimizes process-specific accommodations beyond simple CI job
   configuration.
 
@@ -402,7 +401,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   combinations of released, un-released, or unmerged software.
 
 * We require a system capable of building and testing released
-  software in such a way that [built suites](#build_suites) may be
+  software in such a way that [built suites](#built_env) may be
   easily [uploaded](#e_012) to a [built product server](#scisoft).
 
 **Disposition**
@@ -425,7 +424,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   Spack instance](#CVMFS).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -448,7 +447,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   [CVMFS-based Spack instance](#CVMFS).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -471,7 +470,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   [CVMFS-based Spack instance](#CVMFS).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -494,7 +493,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : Make changes to a [CVMFS-based Spack instance](#CVMFS) visible.
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -515,7 +514,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : Upload one or more [built products](#built_products) to a [server](#scisoft).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -552,7 +551,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   computational activity.
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -584,7 +583,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#base_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -607,7 +606,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#base_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -629,7 +628,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   provided by the corresponding [packaged products](#packaged_products).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -649,7 +648,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   suites of products to the [release config repository](#release_config).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -682,7 +681,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   products](#built_env).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -706,7 +705,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : Upload [built products](#built_env) to an [online location](#scisoft).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -731,7 +730,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   [server](#suite_config_server).
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 :
@@ -761,7 +760,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
    We should be tailoring our work to best support those users, with an eye toward how to minimize the ongoing maintenance burden on our end.
 
 
-### [e_013](spack.svg#e_013): instantiate {#e_013}
+### e_013: instantiate {#e_013}
 
 **Brief Description**
 : Create a suitably-configured Spack instance, and generate a Spack
@@ -770,7 +769,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   repository](#release_config).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -785,17 +784,16 @@ But we need to do this is way that does not become prohibitively demanding on ou
   configurations from their [online repository](#suite_config_server)
   where appropriate.
 
-**Work lead**
-: …
+**Disposition**
 
-**Work contributors**
-: …
+1. We need this for our own development work.
+2. Will should support this for the use of experiments.
+3. Can all the relevant scripts be turned into spack extensions?
+4. Can all the spack extensions be managed in our fork of the Spack repository, or is it better to have an additional repository for our spack extensions?
+   Is there a reason to have more than one repository for spack extensions?
+5. How do experiments that use our spack extensions get access to them?
 
-**Work time estimate (FTE days)**
-: …
-
-
-### [e_014](spack.svg#e_014): package {#e_014}
+### e_014: package {#e_014}
 
 **Brief Description**
 : Create [Spack recipe(s)](#packaged_products) describing how to build [requested
@@ -806,7 +804,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   any necessary auxiliary files (e.g. patches).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -819,17 +817,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
   of recipes for building and using experiment-originated products such
   as those utilizing ROOT, or framework plugin libraries.
 
-**Work lead**
-: …
+**Disposition**
 
-**Work contributors**
-: …
-
-**Work time estimate (FTE days)**
-: …
+1. One of our reasons for moving to the use of spack was to reduce our labor in the creation of new packaged products, and to remove ourselves as a bottleneck to the experimenters' creation of new packages.
+2. Why is there anything for us to support in the SCO model?
 
 
-### [e_015](spack.svg#e_015): specify config {#e_015}
+### e_015: specify config {#e_015}
 
 **Brief Description**
 : Add information to the [release config repository](#release_config) to enable
@@ -837,7 +831,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   environments.
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -849,18 +843,23 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 * See current status of [release config repository](#release_config).
 
+**Disposition**
 
-### [e_016](spack.svg#e_016): create {#e_016}
+1. What parts of this are needed in the SCO model?
+2. If it is needed, is this for our own development work, or is this a tool to be support for the use of experiments?
+
+
+### e_016: create {#e_016}
 
 **Brief Description**
-: Create and publish a [Spack instance in a CVMFS filesystem](#n012)
+: Create and publish a [Spack instance in a CVMFS filesystem](#grid)
   according to an [initial request](#request_for_products_area).
 
 **Detailed Description**
 : …
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See current status of [instantiate](#e_013).
@@ -873,7 +872,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   according to an [initial request](#request_for_products_area).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See current status of [instantiate](#e_013).
@@ -886,7 +885,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#test_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -905,7 +904,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#base_release) with the desired configuration.
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -937,7 +936,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#test_release) with the desired configuration.
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See current status of [install](#e_019).
@@ -951,7 +950,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   with the desired configuration.
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 :
@@ -988,7 +987,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   the desired configuration.
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 :
@@ -1006,7 +1005,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   the desired configuration.
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 : See the current status of [retrieve](#e_022).
@@ -1019,7 +1018,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   environment](#grid).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See the current status of [relocate](#e_005).
@@ -1032,7 +1031,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   release](#test_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -1048,7 +1047,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
   suitable for the development of one or more products](#development).
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 : There are multiple options, including
@@ -1079,7 +1078,7 @@ The latter option is favored and is being explored.
   environment](#grid).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See the current status of [relocate](#e_005).
@@ -1092,7 +1091,7 @@ The latter option is favored and is being explored.
   local sources in an interactive [development environment](#development).
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 : See status of [setup-for-dev](#e_026).
@@ -1105,7 +1104,7 @@ The latter option is favored and is being explored.
   environment](#development).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -1125,7 +1124,7 @@ The latter option is favored and is being explored.
   PR](#PR).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -1144,7 +1143,7 @@ The latter option is favored and is being explored.
 : …
 
 **Status**
-: 🟡**In progress**🟡
+: **In progress**
 
 **Detailed status**
 : See relevant details of current status of [continuous integration](#CI).
@@ -1157,7 +1156,7 @@ The latter option is favored and is being explored.
   the state of the triggering [PR](#PR).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 :
@@ -1174,7 +1173,7 @@ The latter option is favored and is being explored.
 : Install [locally-built products](#development) into a [base release](#base_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -1191,7 +1190,7 @@ The latter option is favored and is being explored.
 : Use [locally-built products](#development) in a [grid environment](#grid).
 
 **Status**
-: 🟢**Almost done**🟢
+: **Almost done**
 
 **Detailed status**
 : See current status of [relocate](#e_005).
@@ -1204,7 +1203,7 @@ The latter option is favored and is being explored.
   [development environment](#development)
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 :
@@ -1216,10 +1215,10 @@ The latter option is favored and is being explored.
 
 **Brief Description**
 : Install products built in a [development environment](#development)
-  into a [test release](#test).
+  into a [test release](#test_release).
 
 **Status**
-: 🔵**Done**🔵
+: **Done**
 
 **Detailed status**
 : See current status of [install](#e_033).
