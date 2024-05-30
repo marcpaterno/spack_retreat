@@ -15,9 +15,9 @@ As a result we are revising the goals of the project to concentrate on what is m
 
 The changed goals of the project reflect a simultaneous change in some of the goals of DSSL division.
 In particular, the major change proposed is moving from a model in which the division delivers built and installable versions of many software products and large software suites on supported platforms and compilers to a model in which the division delivers source code and reference builds that demonstrate the working of that code.
-In this document this new model is called the "source code only" (SCO) model.
+In this document this new model is called the *source code only* model.
 
-The SCO model is intended to have two effects.
+The source code only model is intended to have two effects.
 One is reducing the burden on the DSSL division, to allow more time to focus on the development of the new framework.
 The other is to allow greater flexibility to the experiments, who will be able to use the same mechanisms used by DSSL developers to build their own variants of the product stacks and to support additional platforms that may be of interest to an experiment but which are not supported by Fermilab.
 
@@ -82,7 +82,7 @@ We want to move to new compiler versions for supported compilers in a timely fas
 ## Analysis of Work Items from the Spack Retreat
 
 This document uses the same list of "nouns" as did the Spack Retreat, as described in "Spack at FNAL: System Components and Tasks".
-It includes an analysis of to what extent each system component remains part of the deliverables of the project in the "source code only" model.
+It includes an analysis of to what extent each system component remains part of the deliverables of the project in the source code only model.
 
 ### Workflow
 
@@ -97,7 +97,7 @@ It includes an analysis of to what extent each system component remains part of 
 
 **Disposition**
 
-In the SCO model this mostly away, except for self-support and the vetting of pull requests from experiments.
+In the source code only model this mostly away, except for self-support and the vetting of pull requests from experiments.
 
 1. PRs will be handled through GitHub.
 2. We need to establish a workflow for doing so.
@@ -112,7 +112,7 @@ In the SCO model this mostly away, except for self-support and the vetting of pu
 
 1. What is the Spack equivalent of an area for installed products?
    Is it (1) a CVMFS directory containing a built spec, or (2) a spack environment, or (3) something else?
-2.In the SCO model, DSSL is not responsible for creating CVMFS mount points.
+2.In the source code only model, DSSL is not responsible for creating CVMFS mount points.
   We will provide environment specifications for our reference builds of the *critic suite* and the DUNE framework.
 
 Should DSSL provide an environment for a reference build of LArSoft?
@@ -188,7 +188,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 1. DSSL shall provide suite configuration for the *critic suite* and for the DUNE framework.
 2. Will DSSL provide these for LArSoft?
-3. For a SCO model, are these the "final artifacts" for our development?
+3. For a source code only model, are these the "final artifacts" for our development?
 
 ### n_005: Built products {#built_products}
 
@@ -229,7 +229,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 1. DSSL shall provide these as needed for the development of the *critic suite* and the DUNE framework.
 2. Will DSSL provide these for LArSoft?
-3. Can this go away in a SCO model?
+3. Can this go away in a source code only model?
 
 ### n_008: Release config repository {#release_config}
 
@@ -262,7 +262,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 1. What is the relationship between this an the [suite configuration server](#suite_config_server)?
    Is this the repository of information that is served by the suite configuration server?
-2. What of this is needed in the SCO model?
+2. What of this is needed in the source code only model?
    Is this a repository that DSSL will use for our own development?
 3. Is there a need for us to be maintaining such a repository containing information about software products we produce that will be accessed by experiments while they make their own releases?
 
@@ -287,8 +287,8 @@ But we need to do this is way that does not become prohibitively demanding on ou
    Is a *base release* a spack environment?
 1. Are these scripts ones that we need to maintain for our own development needs?
 2. Are these scripts ones that we will support for experiments' use?
-3. In the SCO model we will not maintain base releases for experiments' use.
-4. Does this go away in the SCO model?
+3. In the source code only model we will not maintain base releases for experiments' use.
+4. Does this go away in the source code only model?
 
 ### n_010: Test release {#test_release}
 
@@ -306,7 +306,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 1. Are these scripts we need for our own development purposes?
 2. Are these scripts we will support for the use of experiments?
    Is our usage model one we can recommend to experiments for their own use?
-3. In a SCO model, we will not build test releases for experiments.
+3. In a source code only model, we will not build test releases for experiments.
 
 ### n_011: CVMFS {#CVMFS}
 
@@ -349,7 +349,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Does this go away in the SCO model?
+1. Does this go away in the source code only model?
    We are not delivering built installations of software that the experiments can use for running useful grid jobs; each needs its own experiment stack for that.
 
 ### n_014: Development environment {#development}
@@ -553,7 +553,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. In the SCO model, DSSL would only provide reference builds of the *critic suite* and the DUNE framework, and possibly of LArSoft.
+1. In the source code only model, DSSL would only provide reference builds of the *critic suite* and the DUNE framework, and possibly of LArSoft.
 2. Who are the intended users of these builds?
 3. Is it feasible to expect that the references builds generated by DSSL would actually be used directly by the experiments as the base for their own builds?
 
@@ -689,7 +689,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Is some or all of this needed in the SCO model?
+1. Is some or all of this needed in the source code only model?
 2. If it is needed, is this for our own development work, or is this a tool to be support for the use of experiments?
 
 
@@ -715,7 +715,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. What parts of this are needed in the SCO model?
+1. What parts of this are needed in the source code only model?
 2. If it is needed, is this for our own development work, or is this a tool to be support for the use of experiments?j
 
 ### e_011: upload {#e_011}
@@ -775,7 +775,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. In the SCO model, who are the expected users of these uploads?
+1. In the source code only model, who are the expected users of these uploads?
    We should be tailoring our work to best support those users, with an eye toward how to minimize the ongoing maintenance burden on our end.
 
 
@@ -839,7 +839,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 **Disposition**
 
 1. One of our reasons for moving to the use of spack was to reduce our labor in the creation of new packaged products, and to remove ourselves as a bottleneck to the experimenters' creation of new packages.
-2. Why is there anything for us to support in the SCO model?
+2. Why is there anything for us to support in the source code only model?
 
 
 ### e_015: specify config {#e_015}
@@ -864,7 +864,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. What parts of this are needed in the SCO model?
+1. What parts of this are needed in the source code only model?
 2. If it is needed, is this for our own development work, or is this a tool to be support for the use of experiments?
 
 
@@ -928,7 +928,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Is this a thing that needs to be done in an SCO model?
+1. Is this a thing that needs to be done in an source code only model?
 2. If so, who is doing it?
 
 
@@ -956,7 +956,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Is this a thing that needs to be done in an SCO model?
+1. Is this a thing that needs to be done in an source code only model?
 2. If so, who is doing it?
 
 ### e_020: install {#e_020}
@@ -973,7 +973,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Is this a thing that needs to be done in an SCO model?
+1. Is this a thing that needs to be done in an source code only model?
 2. If so, who is doing it?
 
 
@@ -1006,7 +1006,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Is this a thing that needs to be done in an SCO model?
+1. Is this a thing that needs to be done in an source code only model?
 2. If so, who is doing it?
 
 ### e_022: retrieve {#e_022}
