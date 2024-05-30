@@ -1,4 +1,5 @@
 all: notes.html spack-crop.pdf remaining_work.html revised_work.html
+pdf: revised_work.pdf
 
 remaining_work.html: spack.svg
 
