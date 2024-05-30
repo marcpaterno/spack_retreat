@@ -14,7 +14,7 @@ Effort from the SCSS division available for this project has been sharply curtai
 As a result we are revising the goals of the project to concentrate on what is most important for allowing the DSSL division to meet its goals, which include the development of a new framework for the DUNE collaboration, support for migrating DUNE and any other interested experiments to the new framework, and maintenance support for the art framework for the remaining lifetimes of the experiments that do not migrate to the new framework.
 
 The changed goals of the project reflect a simultaneous change in some of the goals of DSSL division.
-In particular, the major change proposed is moving from a model in which the division delivers built and installable versions of many software products and large software suites _on supported platforms and compilers_ to a model in which the division delivers source code and reference builds that demonstrate the working of that code.
+In particular, the major change proposed is moving from a model in which the division delivers built and installable versions of many software products and large software suites on supported platforms and compilers to a model in which the division delivers source code and reference builds that demonstrate the working of that code.
 In this document this new model is called the "source code only" (SCO) model.
 
 The SCO model is intended to have two effects.
@@ -50,25 +50,25 @@ In concrete terms, the Spack Migration Project will deliver:
 
 2. Documentation for these tools sufficient for the experiments and projects that use the DUNE framework or art , so that they may make use of the same tools.
 
-3. _Procedures and protocols for maintaining FNAL's Spack fork branches._
+3. Procedures and protocols for maintaining FNAL's Spack fork branches.
 
 ## Important Assumptions
 
 1. DSSL shall maintain a fork of the Spack repository.
     a. This fork will be kept up-to-date with changes to the main Spack repository as closely as is feasible.
     b. We will use this fork to make bug fixes or add features that are critical to Fermilab use of Spack.
-    c. We will feed bug fixes and appropriate features _and/or recipe changes_ back to the main Spack repository as PRs in as timely a fashion as is feasible.
+    c. We will feed bug fixes and appropriate features and/or recipe changes back to the main Spack repository as PRs in as timely a fashion as is feasible.
     d. We will handle vetting and approval of PRs from experiments and projects adding new recipes or updating existing recipes.
     e. Experiments are always free to submit PRs directly to the main Spack repository, or to maintain their own repository of recipes.
-       DSSL will not provide direct support for experiment-~maintained~_owned_ repositories of recipes _or forks of the Spack repository_.
+       DSSL will not provide direct support for experiment-owned repositories of recipes or forks of the Spack repository.
 
 2. DSSL shall provide Spack support for experiments.
     a. We will provide documentation and tutorials that supplement existing Spack materials, appropriately localized for Fermilab usage.
     b. We will answer questions from project members and experimenters using our tools through SNOW.
 
 3. Using the products of this project, DSSL will build and test new software on Fermilab-defined reference platforms.
-    a. A reference platform includes specification of an OS (and its version) and a compiler (and its version and language standard)_, and processor architecture (e.g. `x86_64_v3`, `aarch64`, or `m2`)_.
-    b. The first reference platform OS _and processor architecture_ is Alma Linux 9 _with `x86_64_v3`_.
+    a. A reference platform includes specification of an OS (and its version) and a compiler (and its version and language standard), and processor architecture (e.g. `x86_64_v3`, `aarch64`, or `m2`).
+    b. The first reference platform OS and processor architecture is Alma Linux 9 with `x86_64_v3`.
 
 Setting up (1) is part of the Spack Migration Project.
 
