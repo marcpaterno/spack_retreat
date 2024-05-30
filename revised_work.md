@@ -62,7 +62,7 @@ In concrete terms, the Spack Migration Project will deliver:
     e. Experiments are always free to submit PRs directly to the main Spack repository, or to maintain their own repository of recipes.
        DSSL will not provide direct support for experiment-owned repositories of recipes or forks of the Spack repository.
 
-2. DSSL shall provide Spack support for experiments.
+2. DSSL shall provide the following Spack support for experiments.
     a. We will provide documentation and tutorials that supplement existing Spack materials, appropriately localized for Fermilab usage.
     b. We will answer questions from project members and experimenters using our tools through SNOW.
 
@@ -76,7 +76,7 @@ Item (2b) is not part of the Spack Migration Project, and will be determined at 
 
 For (3) we need a plan for dealing with new release of AL9, and eventual migration to support AL10.
 We also need a mechanism by which requests for additional platforms can be decided.
-Accepting an additional supported platform can be a significant commitment of effort and such acceptance should be decided at a higher lever than the SciSoft team.
+Accepting an additional supported platform can be a significant commitment of effort and such acceptance should be decided at a higher level than the SciSoft team.
 We want to move to new compiler versions for supported compilers in a timely fashion.
 
 ## Analysis of Work Items from the Spack Retreat
