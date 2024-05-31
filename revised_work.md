@@ -58,23 +58,26 @@ In concrete terms, the Spack Migration Project will deliver:
     a. This fork will be kept up-to-date with changes to the main Spack repository as closely as is feasible.
     b. We will use this fork to make bug fixes or add features that are critical to Fermilab use of Spack.
     c. We will feed bug fixes and appropriate features and/or recipe changes back to the main Spack repository as PRs in as timely a fashion as is feasible.
-    d. We will handle vetting and approval of PRs from experiments and projects adding new recipes or updating existing recipes.
-    e. Experiments are always free to submit PRs directly to the main Spack repository, or to maintain their own repository of recipes.
+
+2. DSSL shall maintain the recipes for the software it develops.
+    a. These recipes may either reside directly in the DSSL Spack fork or in dedicated recipe repositories apart from the DSSL Spack fork.
+    b. We will handle vetting and approval of PRs from experiments and projects adding new recipes or updating existing recipes.
+    c. Experiments are always free to submit PRs directly to the main Spack repository, or to maintain their own repository of recipes.
        DSSL will not provide direct support for experiment-owned repositories of recipes or forks of the Spack repository.
 
-2. DSSL shall provide the following Spack support for experiments.
+3. DSSL shall provide the following Spack support for experiments:
     a. We will provide documentation and tutorials that supplement existing Spack materials, appropriately localized for Fermilab usage.
     b. We will answer questions from project members and experimenters using our tools through SNOW.
 
-3. Using the products of this project, DSSL will build and test new software on Fermilab-defined reference platforms.
+4. Using the products of this project, DSSL will build and test new software on Fermilab-defined reference platforms.
     a. A reference platform includes specification of an OS (and its version) and a compiler (and its version and language standard), and processor architecture (e.g. `x86_64_v3`, `aarch64`, or `m2`).
     b. The first reference platform OS and processor architecture is Alma Linux 9 with `x86_64_v3`.
 
 Setting up (1) is part of the Spack Migration Project.
 
-Item (2b) is not part of the Spack Migration Project, and will be determined at the division level.
+Item (3b) is not part of the Spack Migration Project, and will be determined at the division level.
 
-For (3) we need a plan for dealing with new release of AL9, and eventual migration to support AL10.
+For (4) we need a plan for dealing with new release of AL9, and eventual migration to support AL10.
 We also need a mechanism by which requests for additional platforms can be decided.
 Accepting an additional supported platform can be a significant commitment of effort and such acceptance should be decided at a higher level than the SciSoft team.
 We want to move to new compiler versions for supported compilers in a timely fashion.
@@ -156,7 +159,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 2. Will DSSL maintain a build cache with a reference build of the LArSoft packages?
 3. Is the `spack buildcache ...` command implemented sufficiently for our purposes?
 4. Is the `spack buildcache ...` command suitable for recommendation for the use of the experiments?
-  
+
 ### n_004: Suite configuration server {#suite_config_server}
 
 **Brief Description**
@@ -278,7 +281,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 *  Scripts exist to facilitate the creation and population of
    consistently-configured and populated Spack instances.
-   
+
 **Disposition**
 
 0. Is the term *base release* one that is meaningful in the spack model?
@@ -1281,4 +1284,3 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Detailed status**
 : See current status of [install](#e_033).
-
