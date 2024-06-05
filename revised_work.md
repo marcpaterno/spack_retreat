@@ -24,7 +24,7 @@ The other is to allow greater flexibility to the experiments, who will be able t
 ## Project Goals (and some non-goals)
 
 CSAID is switching to Spack to lessen the workload associated with using the Fermilab-supported UPS and its related software tools.
-The main goal of the Spack Migration Project is to provide the Spack-based and Spack-related tools needed for this transition.
+The main goal of the Spack Migration Project is to provide the Spack-besed and Spack-related tools needed for this transition.
 This is being done at the same time as the move to the AL9 operating system.
 All software support for CSAID-developed software  on AL9  will be based on the use of Spack, rather than the UPS-related tools.
 Support for use of SL7 will continue to rely on UPS and the associated tools.
@@ -81,6 +81,21 @@ For (4) we need a plan for dealing with new release of AL9, and eventual migrati
 We also need a mechanism by which requests for additional platforms can be decided.
 Accepting an additional supported platform can be a significant commitment of effort and such acceptance should be decided at a higher level than the SciSoft team.
 We want to move to new compiler versions for supported compilers in a timely fashion.
+
+## Terminology
+
+Base release
+: A Spack instance containing built packages installed in a shared, non-CVMFS filesystem.
+
+CVMFS release
+: A Spack instance containing built packages installed in a CVMFS filesystem.
+
+Test release
+: A secondary Spack instance containing built packages requiring either a base release or a CVMFS release for consistent operation.
+
+  We expect a test release to be unique to a single developer.
+  A DUNE developer can have a hierarchy of test releases, for example a test release of LArSoft and another test release of the DUNE software dependent on the version of LArSoft in the first test release.
+  One could also have a LArSoft developer with multiple test releases of LArSoft, which share some lower-level LArSoft products and which have their own copies of higher-level products.
 
 ## Analysis of Work Items from the Spack Retreat
 
@@ -352,8 +367,12 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 **Disposition**
 
-1. Does this go away in the source code only model?
+1. This goes away in the source code only model.
    We are not delivering built installations of software that the experiments can use for running useful grid jobs; each needs its own experiment stack for that.
+   The *test release* is the mechanism through which the experiments (or individual experimenters) can build the software they want to deliver to a grid node.
+   This is similar to the UPS model; we did not deliver the mechanisms used by the experiments to deliver their newly-built software to grid nodes.
+2. Who will provide the tools for this work?
+   It seems this is in line with the FIFE tools.
 
 ### n_014: Development environment {#development}
 
