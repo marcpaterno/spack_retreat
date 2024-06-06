@@ -42,6 +42,7 @@ further reduced dependencies by only building those components of ROOT
 either directly used by Critic or that do not add dependencies to the
 stack, we could avoid building the following dependencies that are
 currently part of the Critic stack:
+
 * fcgi
 * fftw
 * gsl
