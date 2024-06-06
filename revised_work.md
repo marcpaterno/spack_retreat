@@ -130,8 +130,8 @@ In the source code only model this mostly away, except for self-support and the 
 
 1. What is the Spack equivalent of an area for installed products?
    Is it (1) a CVMFS directory containing a built spec, or (2) a spack environment, or (3) something else?
-2.In the source code only model, DSSL is not responsible for creating CVMFS mount points.
-  We will provide environment specifications for our reference builds of the *critic suite* and the DUNE framework.
+2. In the source code only model, DSSL is not responsible for creating CVMFS mount points.
+   We will provide environment specifications for our reference builds of the *critic suite* and the DUNE framework.
 
 Should DSSL provide an environment for a reference build of LArSoft?
 
@@ -142,18 +142,12 @@ Should DSSL provide an environment for a reference build of LArSoft?
 
 **Detailed Description**
 
- A "packaged product" in the context of Spack is a recipe
- (`package.py` and any ancillary files such as patches)
- capable of building the product to the desired specification, along
- with any new or updated recipes required to build dependencies. These
- recipes should be made available either from Spack's main repository
- (preferred), or from one or more dedicated recipe repositories
- accessible to the requester.
+ A "packaged product" in the context of Spack is a recipe (`package.py` and any ancillary files such as patches) capable of building the product to the desired specification, along with any new or updated recipes required to build dependencies.
+ These recipes should be made available either from Spack's main repository (preferred), or from one or more dedicated recipe repositories accessible to the requester.
 
 **Disposition**
 
 This should be modified to state that recipes should be made available in the DSSL fork of the Spack repository.
-
 
 Do we accept new recipes from the experimenter community, or do we recommend that each experiment maintain its own repository of recipes?
 I think there is significant benefit in keeping a single Fermilab recipe repository.
@@ -178,29 +172,17 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_004: Suite configuration server {#suite_config_server}
 
 **Brief Description**
-: An online location from which concretized (fully-specified)
-  configurations of consistent suites of built products may be obtained.
+: An online location from which concretized (fully-specified) configurations of consistent suites of built products may be obtained.
 
 **Detailed Description**
 : Specifically: `spack.lock` files shall be available to on- and off-site users via HTTPS.
 
 **Detailed status**
 
-* The existing infrastructure for uploading UPS packages, bundle
-  configurations, and manifests, and Spack `spack.yaml` files
-  may be leveraged to upload and provide indexed HTTPS access to
-  `spack.lock` files.
-
-* A naming convention must be conceived and implemented to enable
-  unambiguous identification of fully concretized environment
-  configurations.
-
-* Upload infrastructure must be extended to follow the developed
-  naming convention.
-
-* Infrastructure must be developed to facilitate identification and
-  download of appropriate `spack.lock` files according to the
-  destination architecture, and user requirements.
+* The existing infrastructure for uploading UPS packages, bundle configurations, and manifests, and Spack `spack.yaml` files may be leveraged to upload and provide indexed HTTPS access to `spack.lock` files.
+* A naming convention must be conceived and implemented to enable unambiguous identification of fully concretized environment configurations.
+* Upload infrastructure must be extended to follow the developed naming convention.
+* Infrastructure must be developed to facilitate identification and download of appropriate `spack.lock` files according to the destination architecture, and user requirements.
 
 **Disposition**
 
@@ -220,8 +202,8 @@ But we need to do this is way that does not become prohibitively demanding on ou
 
 1. DSSL will create these for our own development support for the *critic suite* and the DUNE framework.
 2. We need to do this on scisoftbuild02.
-  Do we need built products elsewhere?
-  What is the best way to do this?
+   Do we need built products elsewhere?
+   What is the best way to do this?
 3. Will DSSL create these for LArSoft?
 4. Is it appropriate to recommend that the experiments follow our model for how do do this?
 
@@ -252,29 +234,16 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_008: Release config repository {#release_config}
 
 **Brief Description**
-: A repository of information containing package and suite information
-  from which a Spack environment may be created.
+: A repository of information containing package and suite information from which a Spack environment may be created.
 
 **Detailed Description**
-: Given the desirability of being able to produce different [packaged
-  suites](#packaged_suites) that are consistent and can interoperate
-  with each other, information about package versions and configurations
-  should be accessible for the generation of Spack environments
-  describing suite configurations.
+: Given the desirability of being able to produce different [packaged suites](#packaged_suites) that are consistent and can interoperate with each other, information about package versions and configurations should be accessible for the generation of Spack environments describing suite configurations.
 
 **Detailed status**
-:
 
-* A basic implementation of a release config repository exists at
-  https://cdcvs.fnal.gov/redmine/projects/build-framework/repository
-
-* Package configurations (currently in multiple `.yaml.in`
-  files) should be factored-out and stored in a way more conducive to
-  their consistent reuse in multiple `.yaml.in` files.
-
-*`.yaml.in` files should make use of recent improvements to
-  the provision of YAML `include`{.yaml} facilities in Spack environment
-  configuration files.
+* A basic implementation of a release config repository exists at https://cdcvs.fnal.gov/redmine/projects/build-framework/repository
+* Package configurations (currently in multiple `.yaml.in` files) should be factored-out and stored in a way more conducive to their consistent reuse in multiple `.yaml.in` files.
+*`.yaml.in` files should make use of recent improvements to the provision of YAML `include`{.yaml} facilities in Spack environment configuration files.
 
 **Disposition**
 
@@ -287,15 +256,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_009: Base release {#base_release}
 
 **Brief Description**
-: A Spack instance containing built packages installed in a shared,
-  non-CVMFS filesystem.
-
+: A Spack instance containing built packages installed in a shared, non-CVMFS filesystem.
 
 **Detailed status**
-:
-
-*  Scripts exist to facilitate the creation and population of
-   consistently-configured and populated Spack instances.
+: Scripts exist to facilitate the creation and population of consistently-configured and populated Spack instances.
 
 **Disposition**
 
@@ -311,13 +275,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_010: Test release {#test_release}
 
 **Brief Description**
-: A secondary Spack instance containing built packages requiring either
-  a base release or a CVMFS Spack instance for consistent operation.
+: A secondary Spack instance containing built packages requiring either a base release or a CVMFS Spack instance for consistent operation.
 
 **Detailed status**
-:
-
-* Scripts exist to facilitate the creation and population of consistently-configured and populated Spack instances.
+: Scripts exist to facilitate the creation and population of consistently-configured and populated Spack instances.
 
 **Disposition**
 
@@ -329,14 +290,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_011: CVMFS {#CVMFS}
 
 **Brief Description**
-: A Spack instance containing built packages installed in a CVMFS
-  filesystem.
+: A Spack instance containing built packages installed in a CVMFS filesystem.
 
 **Detailed status**
-:
-
-*  Scripts exist to facilitate the creation and population of
-   consistently-configured and populated Spack instances.
+: Scripts exist to facilitate the creation and population of consistently-configured and populated Spack instances.
 
 **Disposition**
 
@@ -348,8 +305,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_012: Runtime environment {#runtime}
 
 **Brief Description**
-: An environment configured to use a CVMFS spack instance, base release,
-  or test release for execution purposes.
+: An environment configured to use a CVMFS spack instance, base release, or test release for execution purposes.
 
 **Disposition**
 
@@ -362,8 +318,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_013: Grid environment {#grid}
 
 **Brief Description**
-: A non-interactive runtime environment configured for remote and/or
-  batch execution.
+: A non-interactive runtime environment configured for remote and/or batch execution.
 
 **Disposition**
 
@@ -377,9 +332,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_014: Development environment {#development}
 
 **Brief Description**
-: An interactive runtime environment configured for software
-  development.
-
+: An interactive runtime environment configured for software development.
 
 **Detailed status**
 : See [setup-for-dev](#e_026).
@@ -395,14 +348,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_015: Pull requests (PR) {#PR}
 
 **Brief Description**
-: One or more related GitHub PRs intended for merge into one or more
-  package source repositories.
-
+: One or more related GitHub PRs intended for merge into one or more package source repositories.
 
 **Detailed status**
-: The implementation of [trigger](spack.svg#e_030) must specify a way
-  to link PRs in separate repositories for group inclusion in a [CI test
-  process](spack.svg#e_031).
+: The implementation of [trigger](spack.svg#e_030) must specify a way to link PRs in separate repositories for group inclusion in a [CI test process](spack.svg#e_031).
 
 **Disposition**
 
@@ -418,32 +367,18 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### n_016: Continuous Integration (CI) {#CI}
 
 **Brief Description**
-: A CI system capable of building and testing released, un-released, or
-  unmerged software, or combinations thereof.
+: A CI system capable of building and testing released, un-released, or unmerged software, or combinations thereof.
 
 **Status**
 : **Problematic**
 
 **Detailed status**
-:
 
-* A CI system exists capable of producing [built
-  suites](#built_env) of released products using Spack.
-
-* We require a method of specifying that certain [built
-  products](#built_products) shall be tested while others shall not.
-
-* We require a system capable of providing configured CI processes for
-  different organizations and [built suites](#built_env) that
-  minimizes process-specific accommodations beyond simple CI job
-  configuration.
-
-* We require a system capable of building and testing specified
-  combinations of released, un-released, or unmerged software.
-
-* We require a system capable of building and testing released
-  software in such a way that [built suites](#built_env) may be
-  easily [uploaded](#e_012) to a [built product server](#scisoft).
+* A CI system exists capable of producing [built suites](#built_env) of released products using Spack.
+* We require a method of specifying that certain [built products](#built_products) shall be tested while others shall not.
+* We require a system capable of providing configured CI processes for different organizations and [built suites](#built_env) that minimizes process-specific accommodations beyond simple CI job configuration.
+* We require a system capable of building and testing specified combinations of released, un-released, or unmerged software.
+* We require a system capable of building and testing released software in such a way that [built suites](#built_env) may be easily [uploaded](#e_012) to a [built product server](#scisoft).
 
 **Disposition**
 
@@ -461,18 +396,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_000: setup {#e_000}
 
 **Brief Description**
-: Set up a [grid environment](#grid) to use a specific [CVMFS-based
-  Spack instance](#CVMFS).
+: Set up a [grid environment](#grid) to use a specific [CVMFS-based Spack instance](#CVMFS).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [CVMFS-based Spack instance](#CVMFS), the
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [CVMFS-based Spack instance](#CVMFS), the `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -484,18 +414,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_001: setup {#e_001}
 
 **Brief Description**
-: Set up an [interactive environment](#runtime) to use a specific
-  [CVMFS-based Spack instance](#CVMFS).
+: Set up an [interactive environment](#runtime) to use a specific [CVMFS-based Spack instance](#CVMFS).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [CVMFS-based Spack instance](#CVMFS), the
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [CVMFS-based Spack instance](#CVMFS), the `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -507,18 +432,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_002: layer {#e_002}
 
 **Brief Description**
-: Create a [base release](#base_release) as a "sub-spack" dependent on a
-  [CVMFS-based Spack instance](#CVMFS).
+: Create a [base release](#base_release) as a "sub-spack" dependent on a [CVMFS-based Spack instance](#CVMFS).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [CVMFS-based Spack instance](#CVMFS), the
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [CVMFS-based Spack instance](#CVMFS), the `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -537,10 +457,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : **Done**
 
 **Detailed status**
-:
-
-* The ability to publish changes to a CVMFS-based filesystem is an
-  existing feature of the system.
+: The ability to publish changes to a CVMFS-based filesystem is an existing feature of the system.
 
 **Disposition**
 
@@ -558,20 +475,11 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : **Almost done**
 
 **Detailed status**
-:
 
-* Spack build caches are provided in multiple public, online locations
-  by Fermilab.
-
-* We must organize, consolidate, and document the availability of
-  public build caches.
-
-* We must provide for the long term maintenance and storage
-  requirements of public build caches.
-
-* We must be aware of and have a plan to manage possible compatibility
-  issues caused by uploading built products to a build cache with
-  different versions of Spack.
+* Spack build caches are provided in multiple public, online locations by Fermilab.
+* We must organize, consolidate, and document the availability of public build caches.
+* We must provide for the long term maintenance and storage requirements of public build caches.
+* We must be aware of and have a plan to manage possible compatibility issues caused by uploading built products to a build cache with different versions of Spack.
 
 **Disposition**
 
@@ -582,32 +490,19 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_005: relocate {#e_005}
 
 **Brief Description**
-: Make a [base release](#base_release) accessible in a [grid
-  environment](#grid).
+: Make a [base release](#base_release) accessible in a [grid environment](#grid).
 
 **Detailed Description**
-: In the absence of a shared filesystem, create a [grid
-  environment](#grid) containing the elements of a given [base
-  release](#base_release) necessary to enable the desired remote
-  computational activity.
+: In the absence of a shared filesystem, create a [grid environment](#grid) containing the elements of a given [base release](#base_release) necessary to enable the desired remote computational activity.
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* The facility exists to be able to export the necessary built
-  products and/or suites to a build cache which can then be uploaded to
-  a remote node as part of a grid submission.
-
-* We require a script enabling a user to specify the required software
-  environment and execute the packaging operations necessary to export
-  same.
-
-* We need to provide a mechanism for submitting grid jobs which will
-  ensure the upload of the created build cache, and its use in creating
-  a correctly configured execution environment on the execution node.
+* The facility exists to be able to export the necessary built products and/or suites to a build cache which can then be uploaded to a remote node as part of a grid submission.
+* We require a script enabling a user to specify the required software environment and execute the packaging operations necessary to export same.
+* We need to provide a mechanism for submitting grid jobs which will ensure the upload of the created build cache, and its use in creating a correctly configured execution environment on the execution node.
 
 **Disposition**
 
@@ -620,18 +515,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_006: setup {#e_006}
 
 **Brief Description**
-: Set up an [interactive environment](#runtime) to use a specific [base
-  release](#base_release).
+: Set up an [interactive environment](#runtime) to use a specific [base release](#base_release).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [base release](#base_release), the
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [base release](#base_release), the `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -643,18 +533,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_007: layer {#e_007}
 
 **Brief Description**
-: Create a [test release](#test_release) as a "sub-spack" dependent on a [base
-  release](#base_release).
+: Create a [test release](#test_release) as a "sub-spack" dependent on a [base release](#base_release).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [base release](#base_release), the
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [base release](#base_release), the `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -665,17 +550,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_008: build {#e_008}
 
 **Brief Description**
-: Produce one or more [built products](#built_products) by following the recipes
-  provided by the corresponding [packaged products](#packaged_products).
+: Produce one or more [built products](#built_products) by following the recipes provided by the corresponding [packaged products](#packaged_products).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* The required functionality is provided by the `spack
-  install` command.
+: The required functionality is provided by the `spack install` command.
 
 **Disposition**
 
@@ -685,28 +566,17 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_009: register {#e_009}
 
 **Brief Description**
-: Upload [non-concretized (loosely specified) configurations](#packaged_products) of
-  suites of products to the [release config repository](#release_config).
+: Upload [non-concretized (loosely specified) configurations](#packaged_products) of suites of products to the [release config repository](#release_config).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
 * See current status of [release config repository](#release_config).
-
-* A suitable online location
-  (`https://scisoft.fnal.gov/packages/.../buildcfg/`) exists
-  to which to upload generated or manually-created Spack environment
-  configuration files.
-
-* The `copyToSciSoft` script is capable of uploading a
-  suitably-named Spack environment configuration file to an appropriate
-  online location.
-
+* A suitable online location (`https://scisoft.fnal.gov/packages/.../buildcfg/`) exists to which to upload generated or manually-created Spack environment configuration files.
+* The `copyToSciSoft` script is capable of uploading a suitably-named Spack environment configuration file to an appropriate online location.
 * The naming convention must be documented.
-
 * The upload procedure must be documented.
 
 **Disposition**
@@ -718,22 +588,15 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_010: build {#e_010}
 
 **Brief Description**
-: Build a [specified consistent suite](#packaged_suites) of [packaged
-  products](#built_env).
+: Build a [specified consistent suite](#packaged_suites) of [packaged products](#built_env).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* The `build-spack-env.sh` script enables the creation of
-  one or more [specified consistent suites](#packaged_suites) given
-  corresponding Spack environment configurations.
-
-* We require a facility to locate and retrieve Spack environment
-  configurations from their [online repository](#suite_config_server)
-  where appropriate.
+* The `build-spack-env.sh` script enables the creation of one or more [specified consistent suites](#packaged_suites) given corresponding Spack environment configurations.
+* We require a facility to locate and retrieve Spack environment configurations from their [online repository](#suite_config_server) where appropriate.
 
 **Disposition**
 
@@ -749,14 +612,9 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : **Almost done**
 
 **Detailed status**
-:
 
-* `spack buildcache create` is the appropriate upload
-  mechanism to use for this task.
-
-* The appropriate online location(s) for specific products and/or
-  organizations should be documented, along with any specific
-  authentication/authorization procedures required.
+* `spack buildcache create` is the appropriate upload mechanism to use for this task.
+* The appropriate online location(s) for specific products and/or organizations should be documented, along with any specific authentication/authorization procedures required.
 
 **Disposition**
 
@@ -766,33 +624,17 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_012: upload {#e_012}
 
 **Brief Description**
-: Upload the concretized (fully-specified) configuration for a
-  consistent suite of [built products](#built_env) to a
-  [server](#suite_config_server).
+: Upload the concretized (fully-specified) configuration for a consistent suite of [built products](#built_env) to a [server](#suite_config_server).
 
 **Status**
 : **In progress**
 
 **Detailed status**
-:
 
-* A suitable online location
-  (`https://scisoft.fnal.gov/packages/.../`) exists to which
-  to upload the `spack.lock` files created during a
-  [build](#e_010) procedure.
-
-* We require a suitable directory organization on the [online
-  location](#suite_config_server).
-
-* We must decide upon a suitably specific naming convention for
-  `spack.lock` files and provide the means to rename
-  `spack.lock` files according to that convention.
-
-* We must adapt the `copyToSciSoft` script (or provide a
-  suitable alternative) to upload `spack.lock` files to an
-  appropriate location on the [online location](#suite_config_server),
-  creating necessary directory structure and indexing facilities as
-  appropriate.
+* A suitable online location (`https://scisoft.fnal.gov/packages/.../`) exists to which to upload the `spack.lock` files created during a [build](#e_010) procedure.
+* We require a suitable directory organization on the [online location](#suite_config_server).
+* We must decide upon a suitably specific naming convention for `spack.lock` files and provide the means to rename `spack.lock` files according to that convention.
+* We must adapt the `copyToSciSoft` script (or provide a suitable alternative) to upload `spack.lock` files to an appropriate location on the [online location](#suite_config_server), creating necessary directory structure and indexing facilities as appropriate.
 
 
 **Disposition**
@@ -804,26 +646,16 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_013: instantiate {#e_013}
 
 **Brief Description**
-: Create a suitably-configured Spack instance, and generate a Spack
-  environment describing a specific consistent suite of [packaged
-  products](#packaged_suites) from information in a [release configuration
-  repository](#release_config).
+: Create a suitably-configured Spack instance, and generate a Spack environment describing a specific consistent suite of [packaged products](#packaged_suites) from information in a [release configuration repository](#release_config).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* We have scripts (`make_spack`, `make_subspack`)
-  to create suitably-configured Spack instances.
-
-* The `build-spack-env.sh` script combines the
-  [instantiate](spack.svg#e_013) and [build](spack.svg#e010) tasks.
-
-* We require a facility to locate and retrieve Spack environment
-  configurations from their [online repository](#suite_config_server)
-  where appropriate.
+* We have scripts (`make_spack`, `make_subspack`) to create suitably-configured Spack instances.
+  The `build-spack-env.sh` script combines the [instantiate](spack.svg#e_013) and [build](spack.svg#e010) tasks.
+* We require a facility to locate and retrieve Spack environment configurations from their [online repository](#suite_config_server) where appropriate.
 
 **Disposition**
 
@@ -837,26 +669,18 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_014: package {#e_014}
 
 **Brief Description**
-: Create [Spack recipe(s)](#packaged_products) describing how to build [requested
-  products](#request_for_products).
+: Create [Spack recipe(s)](#packaged_products) describing how to build [requested products](#request_for_products).
 
 **Detailed Description**
-: Spack `package.py` shall be created or generated, along with
-  any necessary auxiliary files (e.g. patches).
+: Spack `package.py` shall be created or generated, along with any necessary auxiliary files (e.g. patches).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* `spack create` will create a basic `package.py` from a
-  Spack template which can then be filled out to provide a full recipe
-  for building the product.
-
-* We require a script or template to enable straightforward generation
-  of recipes for building and using experiment-originated products such
-  as those utilizing ROOT, or framework plugin libraries.
+* `spack create` will create a basic `package.py` from a Spack template which can then be filled out to provide a full recipe for building the product.
+* We require a script or template to enable straightforward generation of recipes for building and using experiment-originated products such as those utilizing ROOT, or framework plugin libraries.
 
 **Disposition**
 
@@ -867,21 +691,14 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_015: specify config {#e_015}
 
 **Brief Description**
-: Add information to the [release config repository](#release_config) to enable
-  the creation of the [requested products](#request_for_products) via generated Spack
-  environments.
+: Add information to the [release config repository](#release_config) to enable the creation of the [requested products](#request_for_products) via generated Spack environments.
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* For the [release config repository](#release_config) in its current
-  form, "adding information" consists of making appropriate alterations
-  to the `bundle/CMakeLists.txt` file and creating or
-  modifying one or more `yaml.in` files.
-
+* For the [release config repository](#release_config) in its current form, "adding information" consists of making appropriate alterations to the `bundle/CMakeLists.txt` file and creating or modifying one or more `yaml.in` files.
 * See current status of [release config repository](#release_config).
 
 **Disposition**
@@ -893,11 +710,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_016: create {#e_016}
 
 **Brief Description**
-: Create and publish a [Spack instance in a CVMFS filesystem](#grid)
-  according to an [initial request](#request_for_products_area).
+: Create and publish a [Spack instance in a CVMFS filesystem](#grid) according to an [initial request](#request_for_products_area).
 
 **Detailed Description**
-: …
+: ...
 
 **Status**
 : **Almost done**
@@ -915,8 +731,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_017: create {#e_017}
 
 **Brief Description**
-: Create a [Spack instance in a shared, non-CVMFS filesystem](#base_release)
-  according to an [initial request](#request_for_products_area).
+: Create a [Spack instance in a shared, non-CVMFS filesystem](#base_release) according to an [initial request](#request_for_products_area).
 
 **Status**
 : **Almost done**
@@ -933,20 +748,14 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_018: install {#e_018}
 
 **Brief Description**
-: Obtain built products from a [server](#scisoft) to create a [CVMFS
-  release](#test_release).
+: Obtain built products from a [server](#scisoft) to create a [CVMFS release](#test_release).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* The `build-spack-env.sh` script enables the creation of
-  one or more [specified consistent suites](#packaged_suites) given
-  corresponding Spack environment configurations. These products may be
-  obtained pre-built from suitably-configured local or remote Spack
-  build caches.
+: The `build-spack-env.sh` script enables the creation of one or more [specified consistent suites](#packaged_suites) given corresponding Spack environment configurations.
+  These products may be obtained pre-built from suitably-configured local or remote Spack build caches.
 
 **Disposition**
 
@@ -964,17 +773,10 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : **Almost done**
 
 **Detailed status**
-:
 
-* The `build-spack-env.sh` script enables the creation of
-  one or more [specified consistent suites](#packaged_suites) given
-  corresponding Spack environment configurations. These products may be
-  obtained pre-built from suitably-configured local or remote Spack
-  build caches.
-
-* `build-spack-env.sh` must be enhanced to enable the
-  creation of appropriately configured Spack instances subordinate to an
-  already-populated upstream instance.
+* The `build-spack-env.sh` script enables the creation of one or more [specified consistent suites](#packaged_suites) given corresponding Spack environment configurations.
+  These products may be obtained pre-built from suitably-configured local or remote Spack build caches.
+* `build-spack-env.sh` must be enhanced to enable the creation of appropriately configured Spack instances subordinate to an already-populated upstream instance.
 
 **Disposition**
 
@@ -984,8 +786,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_020: install {#e_020}
 
 **Brief Description**
-: Obtain built products from a [server](#scisoft) to create a [test
-  release](#test_release) with the desired configuration.
+: Obtain built products from a [server](#scisoft) to create a [test release](#test_release) with the desired configuration.
 
 **Status**
 : **Almost done**
@@ -1002,29 +803,17 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_021: retrieve {#e_021}
 
 **Brief Description**
-: Obtain the necessary specific suite configurations from the
-  [configuration server](#suite_config_server) to create a [CVMFS release](#CVMFS)
-  with the desired configuration.
+: Obtain the necessary specific suite configurations from the [configuration server](#suite_config_server) to create a [CVMFS release](#CVMFS) with the desired configuration.
 
 **Status**
 : **In progress**
 
 **Detailed status**
-:
 
-* See current status of [suite configuration
-  server](#suite_config_server).
-
-* The `build-spack-env.sh` script enables the creation of
-  one or more [specified consistent suites](#packaged_suites) given
-  corresponding Spack environment configurations. These products may be
-  obtained pre-built from suitably-configured local or remote Spack
-  build caches.
-
-* `build-spack-env.sh` must be enhanced to enable the
-  creation of Spack environments based on local or remote `spack.lock`
-  files, including the ability to locate on and retrieve `spack.lock`
-  files from a [suite configuration server](#suite_config_server).
+* See current status of [suite configuration server](#suite_config_server).
+* The `build-spack-env.sh` script enables the creation of one or more [specified consistent suites](#packaged_suites) given corresponding Spack environment configurations.
+  These products may be obtained pre-built from suitably-configured local or remote Spack build caches.
+* `build-spack-env.sh` must be enhanced to enable the creation of Spack environments based on local or remote `spack.lock` files, including the ability to locate on and retrieve `spack.lock` files from a [suite configuration server](#suite_config_server).
 
 **Disposition**
 
@@ -1034,27 +823,21 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_022: retrieve {#e_022}
 
 **Brief Description**
-: Obtain the necessary specific suite configurations from the
-  [configuration server](#suite_config_server) to create a [base release](#base_release) with
-  the desired configuration.
+: Obtain the necessary specific suite configurations from the [configuration server](#suite_config_server) to create a [base release](#base_release) with the desired configuration.
 
 **Status**
 : **In progress**
 
 **Detailed status**
-:
 
 * See the current status of [retrieve](#e_021).
-
 * See the current status of [instantiate](#e_019).
 
 
 ### e_023: retrieve {#e_023}
 
 **Brief Description**
-: Obtain the necessary specific suite configurations from the
-  [configuration server](#suite_config_server) to create a [test release](#test_release) with
-  the desired configuration.
+: Obtain the necessary specific suite configurations from the [configuration server](#suite_config_server) to create a [test release](#test_release) with the desired configuration.
 
 **Status**
 : **In progress**
@@ -1066,8 +849,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_024: relocate {#e_024}
 
 **Brief Description**
-: Make a [test release](#test_release) accessible in a [grid
-  environment](#grid).
+: Make a [test release](#test_release) accessible in a [grid environment](#grid).
 
 **Status**
 : **Almost done**
@@ -1084,18 +866,13 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_025: setup {#e_025}
 
 **Brief Description**
-: Set up an [interactive environment](#runtime) to use a specific [test
-  release](#test_release).
+: Set up an [interactive environment](#runtime) to use a specific [test release](#test_release).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Given an existing [test release](#test_release),
-  `make_subspack` script will create and configure a
-  subordinate Spack instance.
+: Given an existing [test release](#test_release), `make_subspack` script will create and configure a subordinate Spack instance.
 
 **Disposition**
 
@@ -1105,8 +882,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_026: setup-for-dev {#e_026}
 
 **Brief Description**
-: Convert an [interactive environment](#runtime) into an [environment
-  suitable for the development of one or more products](#development).
+: Convert an [interactive environment](#runtime) into an [environment suitable for the development of one or more products](#development).
 
 **Status**
 : **In progress**
@@ -1122,8 +898,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_027: submit {#e_027}
 
 **Brief Description**
-: Make an [interactive environment](#runtime) accessible in a [grid
-  environment](#grid).
+: Make an [interactive environment](#runtime) accessible in a [grid environment](#grid).
 
 **Status**
 : **Almost done**
@@ -1140,8 +915,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_028: build {#e_028}
 
 **Brief Description**
-: Build from local sources, making necessary changes or additions to
-  local sources in an interactive [development environment](#development).
+: Build from local sources, making necessary changes or additions to local sources in an interactive [development environment](#development).
 
 **Status**
 : **In progress**
@@ -1153,21 +927,15 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### [e_029](spack.svg#e_029): create {#e_029}
 
 **Brief Description**
-: Create a [GitHub PR](#PR) based on sources in a [development
-  environment](#development).
+: Create a [GitHub PR](#PR) based on sources in a [development environment](#development).
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
 
-* `git` or `gh` commands may be used to commit and
-  push local changes to a branch on a remote repository for a product or
-  fork thereof on GitHub.
-
-* `gh` commands or GitHub web UI operations may be used to
-  submit a PR to the source repository for a product.
+* `git` or `gh` commands may be used to commit and push local changes to a branch on a remote repository for a product or fork thereof on GitHub.
+* `gh` commands or GitHub web UI operations may be used to submit a PR to the source repository for a product.
 
 **Disposition**
 
@@ -1178,17 +946,14 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_030: trigger {#e_030}
 
 **Brief Description**
-: Trigger a build process in a [CI](#CI) system based on a [GitHub
-  PR](#PR).
+: Trigger a build process in a [CI](#CI) system based on a [GitHub PR](#PR).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
 * See relevant details of current status of [continuous integration](#CI).
-
 * See current status of [pull requests](#PR).
 
 **Disposition**
@@ -1204,7 +969,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : Execute Spack-based builds in a [CI](#CI) system.
 
 **Detailed Description**
-: …
+: ...
 
 **Status**
 : **In progress**
@@ -1223,18 +988,14 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_032: report {#e_032}
 
 **Brief Description**
-: Retrieve status and built products from a [CI](#CI) system, updating
-  the state of the triggering [PR](#PR).
+: Retrieve status and built products from a [CI](#CI) system, updating the state of the triggering [PR](#PR).
 
 **Status**
 : **Almost done**
 
 **Detailed status**
-:
 
-* Built products may be retrieved from a completed [CI](#CI) execution
-  using the Jenkins web UI.
-
+* Built products may be retrieved from a completed [CI](#CI) execution using the Jenkins web UI.
 * See relevant details of current status of [continuous integration](#CI).
 
 **Disposition**
@@ -1252,12 +1013,7 @@ But we need to do this is way that does not become prohibitively demanding on ou
 : **Done**
 
 **Detailed status**
-:
-
-* The facility exists to be able to export the necessary built
-  products and/or suites to a build cache, which can then be used to
-  install the built products into a different Spack instance via `spack
-  install`.
+: The facility exists to be able to export the necessary built products and/or suites to a build cache, which can then be used to install the built products into a different Spack instance via `spack install`.
 
 
 ### e_034: use {#e_034}
@@ -1280,23 +1036,19 @@ But we need to do this is way that does not become prohibitively demanding on ou
 ### e_035: package {#e_035}
 
 **Brief Description**
-: Finalize [recipe changes/additions](#packaged_products) from
-  [development environment](#development)
+: Finalize [recipe changes/additions](#packaged_products) from [development environment](#development)
 
 **Status**
 : **Done**
 
 **Detailed status**
-:
-
-* Text editors exist.
+: Text editors exist.
 
 
 ### e_036: install {#e_036}
 
 **Brief Description**
-: Install products built in a [development environment](#development)
-  into a [test release](#test_release).
+: Install products built in a [development environment](#development) into a [test release](#test_release).
 
 **Status**
 : **Done**
