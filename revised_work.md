@@ -47,9 +47,7 @@ In concrete terms, the Spack Migration Project will deliver:
 1. The tools to be used by the SciSoft team for development, testing, and production of reference releases of the SciSoft-provided software packages.
    This include the *critic suite* and the (yet to be named) DUNE framework.
    The tools will make use of Spack rather than UPS, and will be used natively on AL9.
-
 2. Documentation for these tools sufficient for the experiments and projects that use the DUNE framework or art , so that they may make use of the same tools.
-
 3. Procedures and protocols for maintaining FNAL's Spack fork branches.
 
 ## Important Assumptions
