@@ -1,7 +1,9 @@
 digraph spack_workflow {
 
   node [shape="rectangle"]
-  nodesep=0.35
+  nodesep=0.1
+  rankdir=LR
+  ratio=0.5625
 
   request_for_products [id="n_000", label="n_000\nRequest for products\n", style=filled, fillcolor=lightgray, href="./remaining_work.html#\N"]
   request_for_products_area [id="n_001", label="n_001\nRequest for\nproducts area\n", style=filled, fillcolor=lightgray, href="./remaining_work.html#\N"]
@@ -16,17 +18,17 @@ digraph spack_workflow {
   test_release [id="n_010", label="n_010\nTest release\n", style=filled, fillcolor=lightcyan, href="./remaining_work.html#\N"]
   CVMFS [id="n_011", label="n_011\n\N\n", style=filled, fillcolor=lightcyan, href="./remaining_work.html#\N"]
   runtime [id="n_012", label="n_012\nRuntime\nenvironment\n", style=filled, fillcolor=palegreen, href="./remaining_work.html#\N"]
-  grid [id="n_013", label="n_013\nGrid\nenvironment\n", style=filled, fillcolor=palegreen, href="./remaining_work.html#\N"]
+  grid [id="n_013", label="n_013\nGrid\nenvironment\n", style="filled,dotted", fillcolor=palegreen, href="./remaining_work.html#\N"]
   development [id="n_014", label="n_014\nDevelopment\nenvironment\n", style=filled, fillcolor=palegreen, href="./remaining_work.html#\N"]
   PR [id="n_015", label="n_015\nPull request\n", style=filled, fillcolor=lightgray, href="./remaining_work.html#\N"]
   CI [id="n_016", label="n_016\n\N\n", style=filled, fillcolor=palegreen, href="./remaining_work.html#\N"]
 
-  CVMFS -> grid [id="e_000", label="e_000\lsetup\l", href="./remaining_work.html#e_000"]
+  CVMFS -> grid [id="e_000", style=dotted, label="e_000\lsetup\l", href="./remaining_work.html#e_000"]
   CVMFS -> runtime [id="e_001", label="e_001\lsetup\l", href="./remaining_work.html#e_001"]
   CVMFS -> base_release [id="e_002", label="e_002\llayer\l", href="./remaining_work.html#e_002"]
   CVMFS -> CVMFS [id="e_003", label="e_003\lpublish\l", href="./remaining_work.html#e_003"]
   built_products -> scisoft [id="e_004", label="e_004\lupload\l", href="./remaining_work.html#e_004"]
-  base_release -> grid [id="e_005", label="e_005\lrelocate\l", href="./remaining_work.html#e_005"]
+  base_release -> grid [id="e_005", style=dotted, label="e_005\lrelocate\l", href="./remaining_work.html#e_005"]
   base_release -> runtime [id="e_006", label="e_006\lsetup\l", href="./remaining_work.html#e_006"]
   base_release -> test_release[id="e_007", label="e_007\llayer\l", href="./remaining_work.html#e_007"]
   packaged_products -> built_products [id="e_008", label="e_008\lbuild\l", href="./remaining_work.html#e_008"]
@@ -45,17 +47,17 @@ digraph spack_workflow {
   suite_config_server -> CVMFS [id="e_021", label="e_021\lretrieve\l", href="./remaining_work.html#e_021"]
   suite_config_server -> base_release [id="e_022", label="e_022\lretrieve\l", href="./remaining_work.html#e_022"]
   suite_config_server -> test_release [id="e_023", label="e_023\lretrieve\l", href="./remaining_work.html#e_023"]
-  test_release -> grid [id="e_024", label="e_024\lrelocate\l", href="./remaining_work.html#e_024"]
+  test_release -> grid [id="e_024", style=dotted, label="e_024\lrelocate\l", href="./remaining_work.html#e_024"]
   test_release -> runtime [id="e_025", label="e_025\lsetup\l", href="./remaining_work.html#e_025"]
   runtime -> development [id="e_026", label="e_026\lsetup-for-dev\l", href="./remaining_work.html#e_026"]
-  runtime -> grid [id="e_027", label="e_027\lsubmit\l", href="./remaining_work.html#e_027"]
+  runtime -> grid [id="e_027", style=dotted, label="e_027\lsubmit\l", href="./remaining_work.html#e_027"]
   development -> development [id="e_028", label="e_028\lbuild/tweak\l", href="./remaining_work.html#e_028"]
   development -> PR [id="e_029", label="e_029\lcreate\l", href="./remaining_work.html#e_029"]
   PR -> CI [id="e_030", label="e_030\ltrigger\l", href="./remaining_work.html#e_030"]
   CI -> CI [id="e_031", label="e_031\lprocess\l", href="./remaining_work.html#e_031"]
   CI -> PR [id="e_032", label="e_032\lreport\l", href="./remaining_work.html#e_032"]
   development -> base_release [id="e_033", label="e_033\linstall\l", href="./remaining_work.html#e_033"]
-  development -> grid [id="e_034", label="e_034\luse\l", href="./remaining_work.html#e_034"]
+  development -> grid [id="e_034", style=dotted, label="e_034\luse\l", href="./remaining_work.html#e_034"]
   development -> packaged_products [id="e_035", label="e_035\lpackage\l", href="./remaining_work.html#e_035"]
   development -> test_release [id="e_036", label="e_036\linstall\l", href="./remaining_work.html#e_036"]
 }
