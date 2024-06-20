@@ -1,4 +1,4 @@
-all: notes.html spack-crop.pdf remaining_work.html revised_work.html reference-builds-notes.pdf reduced-workflow-crop.pdf
+all: notes.html spack-crop.pdf remaining_work.html revised_work.html reference-builds-notes.pdf reduced-workflow-crop.pdf reference-builds-vs-standard-builds.pdf
 pdf: revised_work.pdf
 
 remaining_work.html: spack.svg
