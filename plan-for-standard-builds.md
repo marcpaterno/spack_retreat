@@ -11,6 +11,8 @@ However, the SciSoft team still needs to be able to build and test the software 
 The SciSoft team will also need to be able to build the software stack for the new DUNE framework.
 The builds of LArSoft (and of art) that will be produced by the SciSoft team are what we are calling *standard builds*.
 
+[CHG 2024-07-11 001]: # ("needs to be able to build:" who is responsible for ensuring this is the case, and how does the SciSoft team prevent it from being them?)
+
 We distinguish two types of standard builds:
 
 1. A standard build of a *package*, which is built in a single variant, which includes the union of the set of features needed for the building of the experiment-specific software that uses LArSoft.
@@ -19,6 +21,8 @@ We distinguish two types of standard builds:
 The SciSoft team will create a spack environment for each standard build of a suite.
 All standard builds of packages that are part of such a suite will be pushed to an appropriate binary build cache and also installed in CVMFS.
 It is an open question whether we should also distribute the files needed to define a spack environment through the build caches or CVMFS.
+
+[CHG 2024-07-11 002]: # (CVMFS, maybe: otherwise https://scisoft.fnal.gov. I don't think environment definition files can be stored/retrieved from an actual Spack build cache, unless that is a recent feature?)
 
 This document does not describe *how* the SciSoft team will go about creating standard builds.
 It describes the intended *use* of standard builds.
@@ -32,13 +36,17 @@ These builds will use a specific source code version for each of the packages in
 Each of the packages will be built in both *debug* and *profile* modes.
 Each will be built using a small number of supported compilers (and specific versions of those compilers).
 
+[CHG 2024-07-11 003]: # (We need to determine whether the whole stack will be built debug (ugh), or just SciSoft-developed packages.)
+
 2. A spack environment will be created corresponding to each standard build.
 Users of the standard builds will be able to use `spack env activate` to activate the standard environment, and then build their software against that standard environment.
-Users who are also developing all, or part, of LArSoft itself will also be able to set up the standard environment, and to build part of all of LArSoft in addition to their own experiment's software stack.
+Users who are also developing all, or part, of LArSoft itself will also be able to set up the standard environment, and to build part ~~of~~or all of LArSoft in addition to their own experiment's software stack.
 
 3. Experiments that are part of the LArSoft collaboration are encouraged to use one of the *most recent* standard builds as a base for their own development builds.
 One of the main reasons for creating the standard builds is to test new releases of the LArSoft suite against the experiment codes.
 If the experiment development builds do not use the standard builds then this testing becomes infeasible for the SciSoft team, and the effort spent creating the standard builds will be wasted.
+
+[CHG 2024-07-11 004]: # (We should not release unless we have a requestor.)
 
 4. Experiments that are part of the LArSoft collaboration are encouraged to use *one of* the standard builds as a base for their own production builds.
 This may not be the most recent standard build, since the pace of releases for production is determined by other factors than the pace of the releases of the LArSoft suite.
@@ -56,12 +64,16 @@ Pull requests (to a LArSoft repository) from the experiments are the main trigge
 Pull requests will not be accepted if they do not pass this CI testing.
 Note that this is necessary, but not sufficient, for accepting a pull request.
 
+[CHG 2024-07-11 005]: # (We should document the actual PR requirements (where?) and ensure they are kept up to date with the technical implementation of same as they evolve.)
+
 2. If the CI for LArSoft is passed, then the CI for each LArSoft experiment is run.
 If any of the experiment CI systems fail, the PR will be rejected.
 Is the responsibility of whoever submitted the PR to fix the failure.
+
+[CHG 2024-07-11 006]: # (In order for this to be reasonable, the version of experiment software used must be "known good" against the LArSoft version (e.g. `develop`) that the PR is based on. In the case of `develop`, who is responsible for that?)
 
 3. It is the responsibility of each experiment to maintain their CI system by keeping the branches of the repositories they use for development up-to-date with the most recent release of LArSoft.
 If an experiment does not keep their CI up-to-date with the most recent release of LArSoft then their CI system will be (perhaps temporarilty) removed from the workflow of the CI system used to verify new PRs in LArSoft.
 It can be re-enabled in the workflow as soon as the experiment updates their code to work with the most recent release of LArSoft.
 
-
+[CHG 2024-07-11 007]: # (How do we verify PRs in the case where no experiment software is currently compliant? Who is responsible for bringing experiment software (back) into compliance and how do we avoid it being SciSoft team since we need it mor ethan they do?)
