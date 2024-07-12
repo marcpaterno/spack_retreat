@@ -1,17 +1,16 @@
 ---
 title: A Plan for Standard Builds of LArSoft
-subtitle: Draft version 1.2
-date: 2024-08-08
+subtitle: Draft version 2
+date: 2024-08-12
 ---
 
 ## Definition of a Standard Build
 
 The move away from UPS to spack is intended to make it easier for non-SciSoft personnel to make their own builds of software stacks.
 However, the SciSoft team still needs to be able to build and test the software stacks that depend upon LArSoft, so that testing of LArSoft can be done.
+See below for how the SciSoft team will rely on experiment CI systems to do this.
 The SciSoft team will also need to be able to build the software stack for the new DUNE framework.
 The builds of LArSoft (and of art) that will be produced by the SciSoft team are what we are calling *standard builds*.
-
-[CHG 2024-07-11 001]: # ("needs to be able to build:" who is responsible for ensuring this is the case, and how does the SciSoft team prevent it from being them?)
 
 We distinguish two types of standard builds:
 
@@ -20,9 +19,7 @@ We distinguish two types of standard builds:
 2. A standard build of a *suite*, which is comprised of consistent standard builds of packages.
 The SciSoft team will create a spack environment for each standard build of a suite.
 All standard builds of packages that are part of such a suite will be pushed to an appropriate binary build cache and also installed in CVMFS.
-It is an open question whether we should also distribute the files needed to define a spack environment through the build caches or CVMFS.
-
-[CHG 2024-07-11 002]: # (CVMFS, maybe: otherwise https://scisoft.fnal.gov. I don't think environment definition files can be stored/retrieved from an actual Spack build cache, unless that is a recent feature?)
+The SciSoft team will make available environment definition files for each standard build of a suite through CVMFS or https://scisoft.fnal.gov or both.
 
 This document does not describe *how* the SciSoft team will go about creating standard builds.
 It describes the intended *use* of standard builds.
@@ -35,8 +32,7 @@ This document describes the plans for the "steady state"; during the transition 
 These builds will use a specific source code version for each of the packages in the software stack.
 Each of the packages will be built in both *debug* and *profile* modes.
 Each will be built using a small number of supported compilers (and specific versions of those compilers).
-
-[CHG 2024-07-11 003]: # (We need to determine whether the whole stack will be built debug (ugh), or just SciSoft-developed packages.)
+For *debug* builds of the LArSoft suite, we will continue past practice of compiling a select set of interesting packages from the underlying software stack in *debug* mode, with other packages compiled in an appropriate optimization mode.
 
 2. A spack environment will be created corresponding to each standard build.
 Users of the standard builds will be able to use `spack env activate` to activate the standard environment, and then build their software against that standard environment.
@@ -45,8 +41,8 @@ Users who are also developing all, or part, of LArSoft itself will also be able 
 3. Experiments that are part of the LArSoft collaboration are encouraged to use one of the *most recent* standard builds as a base for their own development builds.
 One of the main reasons for creating the standard builds is to test new releases of the LArSoft suite against the experiment codes.
 If the experiment development builds do not use the standard builds then this testing becomes infeasible for the SciSoft team, and the effort spent creating the standard builds will be wasted.
-
-[CHG 2024-07-11 004]: # (We should not release unless we have a requestor.)
+New releases candidates will be created when one of the LArSoft experiments requests a new LArSoft release.
+The code of the experiment making a release request must be consistent with the current LArSoft release.
 
 4. Experiments that are part of the LArSoft collaboration are encouraged to use *one of* the standard builds as a base for their own production builds.
 This may not be the most recent standard build, since the pace of releases for production is determined by other factors than the pace of the releases of the LArSoft suite.
@@ -58,22 +54,23 @@ The procedure for handling such pull requests will be described in a separate do
 
 ## Relation to use of LArSoft CI and experiment CI used to verify LArSoft releases
 
-
 1. The SciSoft team will use the LArSoft CI system to build the development head of each LArSoft repository whenever necessary.
 Pull requests (to a LArSoft repository) from the experiments are the main trigger for such CI builds.
 Pull requests will not be accepted if they do not pass this CI testing.
 Note that this is necessary, but not sufficient, for accepting a pull request.
-
-[CHG 2024-07-11 005]: # (We should document the actual PR requirements (where?) and ensure they are kept up to date with the technical implementation of same as they evolve.)
+The SciSoft team will develop a proposed set of requirements to be met by each PR.
+The requirements will be documented and maintained  by the SciSoft team.
 
 2. If the CI for LArSoft is passed, then the CI for each LArSoft experiment is run.
-If any of the experiment CI systems fail, the PR will be rejected.
-Is the responsibility of whoever submitted the PR to fix the failure.
+If any of the experiment CI systems fail, and if the experiment's CI was passed before the PR was included, the PR will be rejected.
+It is the responsibility of whatever experiment submitted or requested the PR to fix the failure.
 
-[CHG 2024-07-11 006]: # (In order for this to be reasonable, the version of experiment software used must be "known good" against the LArSoft version (e.g. `develop`) that the PR is based on. In the case of `develop`, who is responsible for that?)
-
-3. It is the responsibility of each experiment to maintain their CI system by keeping the branches of the repositories they use for development up-to-date with the most recent release of LArSoft.
-If an experiment does not keep their CI up-to-date with the most recent release of LArSoft then their CI system will be (perhaps temporarilty) removed from the workflow of the CI system used to verify new PRs in LArSoft.
+3. It is the responsibility of each experiment to maintain their CI system by keeping the branches of the repositories they use for development up-to-date with the development head of LArSoft.
+If an experiment does not keep their CI up-to-date with the most recent release of LArSoft then their CI system will be (perhaps temporarily) removed from the workflow of the CI system used to verify new PRs in LArSoft.
 It can be re-enabled in the workflow as soon as the experiment updates their code to work with the most recent release of LArSoft.
 
-[CHG 2024-07-11 007]: # (How do we verify PRs in the case where no experiment software is currently compliant? Who is responsible for bringing experiment software (back) into compliance and how do we avoid it being SciSoft team since we need it mor ethan they do?)
+Note that commits to the experiment's repositories, and not only changes to LArSoft, might break the experiment's CI.
+
+4. A PR that fixes a bug in an old release of LArSoft reported by an experiment will only be merged into the bug fix branch of that release if the CI system for the experiment passes, and if the PR breaks no existing CI that had been passing before the PR.
+Each experiment is expected to keep a branch of their own repositories to be used for CI testing of any bug fix versions of LArSoft that the experiment requests.
+
