@@ -36,7 +36,7 @@ For *debug* builds of the LArSoft suite, we will continue past practice of compi
 
 2. A spack environment will be created corresponding to each standard build.
 Users of the standard builds will be able to use `spack env activate` to activate the standard environment, and then build their software against that standard environment.
-Users who are also developing all, or part, of LArSoft itself will also be able to set up the standard environment, and to build part ~~of~~or all of LArSoft in addition to their own experiment's software stack.
+Users who are also developing all, or part, of LArSoft itself will also be able to set up the standard environment, and to build part or all of LArSoft in addition to their own experiment's software stack.
 
 3. Experiments that are part of the LArSoft collaboration are encouraged to use one of the *most recent* standard builds as a base for their own development builds.
 One of the main reasons for creating the standard builds is to test new releases of the LArSoft suite against the experiment codes.
