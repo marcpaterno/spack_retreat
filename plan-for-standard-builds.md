@@ -1,6 +1,6 @@
 ---
 title: A Plan for Standard Builds of LArSoft
-subtitle: Draft version 2
+subtitle: Draft version 2.1
 date: 2024-08-12
 ---
 
