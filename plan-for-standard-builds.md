@@ -76,6 +76,6 @@ Each experiment is expected to keep a branch of their own repositories to be use
 
 ## Notes on experiment use of standard builds
 
-* Each standard build will be created using a specific version of Spack and relevant external recipe repositories.
+* Each standard build will be created using a specific version of Spack, along with relevant external recipe repositories and required external system packages.
 
 * In order to reduce unnecessary rebuilding of the software stack, experiments are encouraged to use either the appropriate Spack installation from CVMFS, or to use SciSoft-provided scripts and/or procedures to produce an appropriately versioned and configured Spack installation.
