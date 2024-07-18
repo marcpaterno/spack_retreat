@@ -74,3 +74,8 @@ Note that commits to the experiment's repositories, and not only changes to LArS
 4. A PR that fixes a bug in an old release of LArSoft reported by an experiment will only be merged into the bug fix branch of that release if the CI system for the experiment passes, and if the PR breaks no existing CI that had been passing before the PR.
 Each experiment is expected to keep a branch of their own repositories to be used for CI testing of any bug fix versions of LArSoft that the experiment requests.
 
+## Notes on experiment use of standard builds
+
+* Each standard build will be created using a specific version of Spack and relevant external recipe repositories.
+
+* In order to reduce unnecessary rebuilding of the software stack, experiments are encouraged to use either the appropriate Spack installation from CVMFS, or to use SciSoft-provided scripts and/or procedures to produce an appropriately versioned and configured Spack installation.
