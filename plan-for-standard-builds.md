@@ -1,8 +1,33 @@
 ---
-title: A Plan for Standard Builds of LArSoft
-subtitle: Draft version 2.2
-date: 2024-08-12
+title: "A Plan for Standard Builds of LArSoft"
+subtitle: Draft version 3
+date: "2024-08-12"
+geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
+output:
+  word_document: default
+  pdf_document:
 ---
+
+## Introduction
+
+For more than 30 years the Fermilab scientific software stack has been packaged and distributed using UPS and related tools.
+Fermilab specific scripts and procedures were developed to build several hundred third-party software packages (i.e., software created by neither Fermilab scientific software developers nor by the experiments) into UPS-compatible forms.
+Because UPS is a Fermilab-specific tool, it has been difficult for non-Fermilab personnel to develop the expertise needed to contribute to building this software stack.
+As a result, the time taken to update versions of software, and to add new packages, is longer than it would be if the software stack were built and distributed using more widely-used tools.
+
+In order to make it easier for non-Fermilab personnel to contribute to our shared scientific software stack, and because of the diminishing availability of personnel to maintain support of the specialized infrastructure needed, we have decided to move to using spack as the primary tool for building and distributing the software stack.
+Because spack is supported by a larger community than is UPS, we will gain the advantage of being able to use the work of others in the community who have already created the necessary recipes for building much of the software we need.
+In addition, it will be easier for members of Fermilab experiments to add new recipes for third-party software that they need to use, and to contribute those additions back to the rest of the community.
+
+In this document we describe a plan for how to make use of the software built, packaged, and distributed using spack and related tools.
+The goals of this plan are several:
+
+1. It will allow the SciSoft team to build, package, and distribute to the experiments the software the teams develops or contributes to, including the *art* framework, LArSoft, and the new framework being developed for DUNE.
+2. It will provide the experiments greater flexibility in building software not provided in the suite of products delivered by the SciSoft team.
+It will also provide a clear path for sharing effort between experiments.
+3. It will provide more flexibility to allow experiments to support building their software stack on platforms or operating systems not directly supported by Fermilab, for example, at supercomputing facilities.
+
+A central feature of the new plan is what we call a *standard build*, described in the next section.
 
 ## Definition of a Standard Build
 
@@ -10,7 +35,7 @@ The move away from UPS to spack is intended to make it easier for non-SciSoft pe
 However, the SciSoft team still needs to be able to build and test the software stacks that depend upon LArSoft, so that testing of LArSoft can be done.
 See below for how the SciSoft team will rely on experiment CI systems to do this.
 The SciSoft team will also need to be able to build the software stack for the new DUNE framework.
-The builds of LArSoft (and of art) that will be produced by the SciSoft team are what we are calling *standard builds*.
+The builds of LArSoft (and of *art*) that will be produced by the SciSoft team are what we are calling *standard builds*.
 
 We distinguish two types of standard builds:
 
@@ -28,7 +53,7 @@ It describes the intended *use* of standard builds.
 
 This document describes the plans for the "steady state"; during the transition process from UPS to spack necessary adjustments to the process will probably be needed.
 
-1. For each new release of the art suite, and of LArSoft, the SciSoft team will create a small number of standard builds.
+1. For each new release of the *art* suite, and of LArSoft, the SciSoft team will create a small number of standard builds.
 These builds will use a specific source code version for each of the packages in the software stack.
 Each of the packages will be built in both *debug* and *profile* modes.
 Each will be built using a small number of supported compilers (and specific versions of those compilers).
@@ -49,7 +74,7 @@ This may not be the most recent standard build, since the pace of releases for p
 
 5. Experiments are always capable of building alternative builds of LArSoft.
 The SciSoft team will be available for consulting on such builds on a best-effort bases.
-Pull requests to recipes for 3rd party packages and to the art and LArSoft packages from experiments will be welcomed.
+Pull requests to recipes for 3rd party packages and to the *art* and LArSoft packages from experiments will be welcomed.
 The procedure for handling such pull requests will be described in a separate document.
 
 ## Relation to use of LArSoft CI and experiment CI used to verify LArSoft releases
