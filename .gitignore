@@ -3,3 +3,5 @@
 *.pdf
 !spack-crop.pdf
 .Rproj.user
+.venv
+venv

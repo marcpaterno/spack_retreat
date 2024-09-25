@@ -41,11 +41,15 @@ The builds of LArSoft (and of *art*) that will be produced by the SciSoft team a
 We distinguish two types of standard builds:
 
 1. A standard build of a *package*, which is built in a single variant, which includes the union of the set of features needed for the building of the experiment-specific software that uses LArSoft.
+Each LArSoft repository, for example, would map to a single package.
 
 2. A standard build of a *suite*, which is comprised of consistent standard builds of packages.
 The SciSoft team will create a Spack environment for each standard build of a suite.
-All standard builds of packages that are part of such a suite will be pushed to an appropriate binary build cache and also installed in CVMFS.
+All standard builds of packages that are part of such a suite will be pushed to an appropriate binary build cache[^1] and also installed in CVMFS.
 The SciSoft team will make available environment definition files for each standard build of a suite through CVMFS, or `https://scisoft.fnal.gov`, or both.
+
+[^1]: A *binary build cache*, often shortened to *build cache*, is a location in which pre-built libraries, etc., are kept in the form of tarballs.
+A `spack install` command command can download and untar the already-built package, rather than downloading source code and building the package.
 
 This document does not describe *how* the SciSoft team will go about creating standard builds.
 It describes the intended *use* of standard builds.
