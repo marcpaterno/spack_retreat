@@ -62,11 +62,12 @@ It describes the intended *use* of standard builds.
 
 This document describes the plans for the "steady state"; during the transition process from UPS to Spack necessary adjustments to the process will probably be needed.
 
-1. For each new release of the *art* suite, and of LArSoft, the SciSoft team will create a small number of standard builds.
-These builds will use a specific source code version for each of the packages in the software stack.
-First-party software will be built in both *debug* and *profile* modes, along with specific third-party packages for which this is determined to be useful.
-Each will be built using a small number of supported compilers (and specific versions of those compilers).
-For *debug* builds of the LArSoft suite, we will continue past practice of compiling a select set of interesting packages from the underlying software stack in *debug* mode, with other packages compiled in an appropriate optimization mode.
+1. For each new release of the *art* suite, and of LArSoft, the SciSoft team will create a number of standard builds.
+These builds will use a specific, single source code version for each of the packages in the software stack.
+First-party software will be built in both *debug* and *profile* modes.
+Third-party packages for which *debug* builds are useful will also be built in both *debug* and *profile* mode; others will be built in *profile* mode only.
+Each package will be built using a small number of supported compilers (and specific versions of those compilers).
+The LArSoft collaboration and the SciSoft team will together decide on what compilers are to be supported.
 
 2. A Spack environment will be created corresponding to each standard build.
 Users of the standard builds will be able to use `spack env activate` to activate the standard environment, and then build their software against that standard environment.
