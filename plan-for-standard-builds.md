@@ -41,7 +41,11 @@ The builds of LArSoft (and of *art*) that will be produced by the SciSoft team a
 We distinguish two types of standard builds:
 
 1. A standard build of a *package*, which is built in a single variant, which includes the union of the set of features needed for the building of the experiment-specific software that uses LArSoft.
-Each LArSoft repository, for example, would map to a single package.
+For example, if one experiment requires ROOT with support Apache Arrow, and another requires support for graphviz, then the standard build of ROOT would include both the Apache Arrow variant and the graphviz variant.
+It will be up to the LArSoft collaboration to determine, in collaobration with the experiments, which set of features should be included in the standard build of each package.
+
+Usually a *package* consists of all the software contained in a single repository.
+In the case of LArSoft, each repository is a package.
 
 2. A standard build of a *suite*, which is comprised of consistent standard builds of packages.
 The SciSoft team will create a Spack environment for each standard build of a suite.
