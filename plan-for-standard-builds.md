@@ -23,7 +23,7 @@ Finally, Spack is better placed than UPS to handle the needs of current and upco
 In this document we describe a plan for how to make use of the software built, packaged, and distributed using Spack and related tools.
 The goals of this plan are several:
 
-1. It will allow the SciSoft team to build, package, and distribute to the experiments the software the teams develops or contributes to, including the *art* framework, LArSoft, and the new framework being developed for DUNE.
+1. It will allow the SciSoft team to build, package, and distribute to the experiments the software the team develops or contributes to, including the *art* framework, LArSoft, and the new framework being developed for DUNE.
 2. It will provide the experiments greater flexibility in building software not provided in the suite of products delivered by the SciSoft team.
 It will also provide a clear path for sharing effort between experiments.
 3. It will provide more flexibility to allow experiments to support building their software stack on platforms or operating systems not directly supported by Fermilab, for example, at supercomputing facilities.
@@ -41,7 +41,7 @@ The builds of LArSoft (and of *art*) that will be produced by the SciSoft team a
 We distinguish two types of standard builds:
 
 1. A standard build of a *package*, which is built in a single variant, which includes the union of the set of features needed for the building of the experiment-specific software that uses LArSoft.
-For example, if one experiment requires ROOT with support Apache Arrow, and another requires support for graphviz, then the standard build of ROOT would include both the Apache Arrow variant and the graphviz variant.
+For example, if one experiment requires ROOT with support for Apache Arrow, and another requires support for Graphviz, then the standard build of ROOT would include both the Apache Arrow variant and the graphviz variant.
 It will be up to the LArSoft collaboration to determine, in collaobration with the experiments, which set of features should be included in the standard build of each package.
 
 Usually a *package* consists of all the software contained in a single repository.
@@ -87,7 +87,7 @@ The SciSoft team will be available for consulting on such builds on a best-effor
 Pull requests to recipes for 3rd party packages and to the *art* and LArSoft packages from experiments will be welcomed.
 The procedure for handling such pull requests will be described in a separate document.
 
-## Relation to use of LArSoft CI and experiment CI used to verify LArSoft releases
+## Relation to Use of LArSoft CI and Experiment CI Used To Verify LArSoft Releases
 
 1. The SciSoft team will use the LArSoft CI system to build the development head of each LArSoft repository whenever necessary.
 Pull requests (to a LArSoft repository) from the experiments are the main trigger for such CI builds.
@@ -109,7 +109,7 @@ Note that commits to the experiment's repositories, and not only changes to LArS
 4. A PR that fixes a bug in an old release of LArSoft reported by an experiment will only be merged into the bug fix branch of that release if the CI system for the experiment passes, and if the PR breaks no existing CI that had been passing before the PR.
 Each experiment is expected to keep a branch of their own repositories to be used for CI testing of any bug fix versions of LArSoft that the experiment requests.
 
-## Notes on experiment use of standard builds
+## Notes on Experiment Use of Standardb Builds
 
 * Each standard build will be created using a specific version of Spack, along with relevant external recipe repositories and required external system packages.
 
