@@ -65,7 +65,7 @@ This document describes the plans for the "steady state"; during the transition 
 1. For each new release of the *art* suite, and of LArSoft, the SciSoft team will create a number of standard builds.
 These builds will use a specific, single source code version for each of the packages in the software stack.
 First-party software will be built in both *debug* and *profile* modes.
-Third-party packages for which *debug* builds are useful will also be built in both *debug* and *profile* mode; others will be built in *profile* mode only.
+Third-party packages for which *debug* builds are useful will also be built in both *debug* and *profile* mode; others will be built in *release* mode only.
 Each package will be built using a small number of supported compilers (and specific versions of those compilers).
 The LArSoft collaboration and the SciSoft team will together decide on what compilers are to be supported.
 
