@@ -1,7 +1,7 @@
 ---
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Draft version 3.3
-date: "2024-09-30"
+subtitle: Draft version 3.3.1
+date: "2024-10-03"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   word_document: default
