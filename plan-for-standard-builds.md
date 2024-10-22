@@ -4,11 +4,12 @@ subtitle: Draft version 3.4
 date: "2024-10-15"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
-  word_document: default
   pdf_document:
+    latex_engine: xelatex
+numbersections: true
 ---
 
-## Introduction
+# Introduction
 
 For more than 30 years the Fermilab scientific software stack has been packaged and distributed using UPS and related tools.
 Fermilab specific scripts and procedures were developed to build several hundred third-party software packages (i.e., software created by neither Fermilab scientific software developers nor by the experiments) into UPS-compatible forms.
@@ -29,7 +30,7 @@ The goals of this plan are several:
 
 A central feature of the new plan is what we call a *standard build*, described in the next section.
 
-## Definition of a Standard Build
+# Definition of a Standard Build
 
 The move away from UPS to Spack is intended to make it easier for non-SciSoft personnel to make their own builds of software stacks.
 At the same time, the SciSoft team must retain the ability to build and test LArSoft, which requires building and testing the software stacks that depend upon LArSoft.
@@ -53,7 +54,7 @@ A `spack install` command command can download and untar the already-built packa
 
 
 
-## The Plan for Standard Builds and Releases
+# The Plan for Standard Builds and Releases
 
 Here we describe the "steady state" plan for releases, the standard builds that will be created for each release, and guidance on how the experiments should use them. Some adjustments to the process might be needed during the transition from UPS to Spack.
 
@@ -84,7 +85,7 @@ The SciSoft team will be available for consulting on such builds on a best-effor
 
 
 
-## The use of the LArSoft and Experiemt CI systems to verify LArSoft Releases
+# The use of the LArSoft and Experiemt CI systems to verify LArSoft Releases
 
 Changes to LArSoft code are made via PRs to the relevant repositories. PRs that pass a review and testing process are merged into the main body of code, where they can be tagged and used in a release. The review process uses the CI system to trigger builds and two phases of tests that are built into each of the LArSoft and experiment code repositories. (In the following, we refer to the build and tests collectively "CI tests".) As in the past, the SciSoft team will rely  on the results from these CI tests to determine whether the pull request behaves in the expected way. Only when test results are understood can PRs be accepted. Details of the CI testing process, the conditions that must be met for a PR to be accepted, and the responsibilities on various parties in maintaining the tests are described below.
 
@@ -105,7 +106,7 @@ It will be re-enabled in the workflow as soon as the experiment updates their co
 4. Bug fix PRs for old releases of LArSoft can be accepted for declared production releases of LArSoft only. A PR that fixes a bug in a production release of LArSoft will be merged into the bug-fix branch for that release only if the CI tests for the production release of LArSoft and the experiment passes, or the PR breaks no CI tests that passed immediately before the PR. 
 Each experiment is expected to keep a branch in their own repositories for CI testing of bug fixes for each of the LArSoft production releases they use. 
 
-## Other Notes on the Use of Spack
+# Other Notes on the Use of Spack
 
 * Each standard build will be created using a specific version of Spack, along with relevant external recipe repositories and required external system packages.
 
