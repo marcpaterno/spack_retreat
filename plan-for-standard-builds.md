@@ -1,6 +1,6 @@
 ---
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Draft version 3.4
+subtitle: Draft version 3.4.1
 date: "2024-10-15"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
@@ -11,7 +11,7 @@ numbersections: true
 
 # Introduction
 
-For more than 30 years the Fermilab scientific software stack has been packaged and distributed using UPS and related tools.
+For more than 30 years the Fermilab scientific software stacks have been packaged and distributed using UPS and related tools.
 Fermilab specific scripts and procedures were developed to build several hundred third-party software packages (i.e., software created by neither Fermilab scientific software developers nor by the experiments) into UPS-compatible forms.
 Because UPS is a Fermilab-specific tool, it has been difficult for non-Fermilab personnel to develop the expertise needed to contribute to building this software stack.
 As a result, the time taken to update versions of software, and to add new packages, is longer than it would be if the software stack were built and distributed using more widely-used tools.
@@ -26,7 +26,7 @@ The goals of this plan are several:
 
 1. To allow the SciSoft team to build, package, and distribute to the experiments the software the team develops or contributes to, including the *art* framework, LArSoft, and the new framework being developed for DUNE.
 2. To provide the experiments greater flexibility in building software not provided in the suite of products delivered by the SciSoft team, while also providing a clear path for sharing effort between experiments.
-3. To provide more flexibility for experiments to support building their software stack on platforms or operating systems not directly supported by Fermilab, for example, at supercomputing facilities.
+3. To provide more flexibility for experiments to support building their software stack on platforms on operating systems not directly supported by Fermilab, for example, at supercomputing facilities.
 
 A central feature of the new plan is what we call a *standard build*, described in the next section.
 
@@ -35,11 +35,12 @@ A central feature of the new plan is what we call a *standard build*, described 
 The move away from UPS to Spack is intended to make it easier for non-SciSoft personnel to make their own builds of software stacks.
 At the same time, the SciSoft team must retain the ability to build and test LArSoft, which requires building and testing the software stacks that depend upon LArSoft.
 Separately, the SciSoft team will also need to be able to build and test the software stack for the new DUNE framework. The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*. 
-All builds of LArSoft (and of *art*) that will be produced by the SciSoft team will be these standard build.
+All builds of LArSoft (and of *art*) that will be produced by the SciSoft team will be these standard builds.
+The "data management" software stacks will need to package data management clients, etc., so they do not have conflicting dependencies with the scientific software stacks.
 
 We distinguish two types of standard builds:
 
-1. A standard build of a *package* (usally consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant, and includes the full set of features needed to build any one of the experiment-specific software stacks that use LArSoft.
+1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant, and includes the full set of features needed to build any one of the experiment-specific software stacks that use LArSoft.
 For example, if one experiment requires ROOT with support for Apache Arrow, and another requires support for Graphviz, then the standard build of ROOT would include both the Apache Arrow and the graphviz options in the standard build.
 It will be up to the collaborating LArSoft experiments to determine the set of features to be included in the standard build of each package.
 
@@ -58,7 +59,7 @@ A `spack install` command command can download and untar the already-built packa
 
 Here we describe the "steady state" plan for releases, the standard builds that will be created for each release, and guidance on how the experiments should use them. Some adjustments to the process might be needed during the transition from UPS to Spack.
 
-1. New releases will be created when one of the LArSoft experiments or the SciSoft team submits a sucessful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team, depending on whether there is a physics impact. 
+1. New releases will be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team, depending on whether there is a physics impact.
 The code of the experiment making a release request must be consistent with the current LArSoft release.
 
 PRs from experiments to recipes for 3rd party packages, and to the *art* and LArSoft packages will be welcomed.
@@ -75,7 +76,7 @@ The LArSoft collaboration and the SciSoft team will together decide on compilers
 Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and then build their software against that standard environment.
 Users who are developing all or part of LArSoft itself will be able to set up the standard environment, then build the relevant parts of LArSoft in addition to their own experiment's software stack.
 
-4. Experiments that are part of the LArSoft collaboration should use standard builds, preferrably one of the *most recent*, as the base for their own development builds. Doing so makes it possible to test new releases of LArSoft against the experiment code. If an experiment builds does not use a standard build of LArSoft, then testing by the SciSoft team becomes infeasible, which risks wasting effort creating standard builds that do not work.
+4. Experiments that are part of the LArSoft collaboration should use standard builds, preferably one of the *most recent*, as the base for their own development builds. Doing so makes it possible to test new releases of LArSoft against the experiment code. If an experiment builds does not use a standard build of LArSoft, then testing by the SciSoft team becomes infeasible, which risks wasting effort creating standard builds that do not work.
 
 5. Experiments that are part of the LArSoft collaboration are encouraged to use *one of* the standard builds as a base for their own production builds.
 This need not be the most recent standard build, since the pace of releases for production is determined by other factors than the pace of the releases of the LArSoft suite.
@@ -85,7 +86,7 @@ The SciSoft team will be available for consulting on such builds on a best-effor
 
 
 
-# The use of the LArSoft and Experiemt CI systems to verify LArSoft Releases
+# The use of the LArSoft and Experiment CI systems to verify LArSoft Releases
 
 Changes to LArSoft code are made via PRs to the relevant repositories. PRs that pass a review and testing process are merged into the main body of code, where they can be tagged and used in a release. The review process uses the CI system to trigger builds and two phases of tests that are built into each of the LArSoft and experiment code repositories. (In the following, we refer to the build and tests collectively "CI tests".) As in the past, the SciSoft team will rely  on the results from these CI tests to determine whether the pull request behaves in the expected way. Only when test results are understood can PRs be accepted. Details of the CI testing process, the conditions that must be met for a PR to be accepted, and the responsibilities on various parties in maintaining the tests are described below.
 
