@@ -67,7 +67,7 @@ Examples include *ROOT*, *GEANT4*, *catch2*, and *range*.
 3. The *art* layer includes all of the products that are currently part of the *critic* suite.
 These are all products that are developed by the SciSoft team.
 
-4. The *fife* layer includes products needed to build higher-level layers, but not *art*, and which are developed by other groups in CSAID.
+4. The *fife* layer includes products needed to build higher-level layers, along with data management and authentication client packages, but not *art*, and which are developed by other groups in CSAID.
 One example is *ifdhc*.
 
 5. The *nulite* layer includes products that are needed to build *larsoft* but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
@@ -80,7 +80,7 @@ Each experiment layer is independent of other experiment layers.
 
 ## Building and distributing layered environments
 
-The SciSoft team will be responsible for building and distributing releases of the *tools*, *substrate*, and *art* layers.
+The SciSoft team will be responsible for building and distributing releases of the *tools*, *substrate*, and *art* layers, while the Data Management team will be responsible for building and distributing the *fife* layer.
 Releases of *tools* and *substrate* will be made as needed in response to requests for newer version of packages in those layers.
 Updates to the *tools* layer will be made in response to requests from experiments or the SciSoft team, not automatically when new versions of the source code for those packages are released.
 Updates to the *substrate* layer will be made in response to requests from experiments or the SciSoft team, or when needed to support new versions of higher-level layers.
@@ -90,7 +90,7 @@ The requesting party is also responsible for demonstrating that the higher-level
 Updates to the *art* layer will be made as needed, either because of new versions of *tools* or *substrate*, or due to pull requests for bug fixes or new features in the *art* suite.
 The SciSoft team will remain responsible for ensuring that the *art* layer builds and passes CI tests without error.
 
-The SciSoft team will build and distribute releases of the *fife* layer, but maintenance of the code for the packages in that layer remains the responsibility of the authors of that code.
+The SciSoft team will build and distribute releases of the *fife* layer, if needed, or reuse recent builds from Data Management, who will be responsible for maintenance of the code for the packages in that layer. 
 Similarly,. the SciSoft team will build and distribute releases of the *nulite* layer, but maintenance of the code for the packages in that layer remains the responsibility of the authors of that code.
 
 The *larsoft* layer is handled differently, as described below.
