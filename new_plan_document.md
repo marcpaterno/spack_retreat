@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A proposal for building and testing LArSoft code"
-subtitle: Draft version 1
-date: "2024-10-28"
+subtitle: Draft version 2
+date: "2024-10-30"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 numbersections: true
 secnumdepth: 1
