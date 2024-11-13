@@ -2,7 +2,7 @@
 documentclass: scrartcl
 title: "A Plan for Standard Builds of LArSoft"
 subtitle: Draft version 4
-date: "2024-11-12"
+date: "2024-11-13"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -27,7 +27,7 @@ As a result, the time taken to update versions of software, and to add new packa
 In order to make it easier for non-Fermilab personnel to contribute to our shared scientific software stack, and because of the diminishing availability of personnel to maintain support of the specialized infrastructure needed, we have decided to move to using Spack as the primary tool for building and distributing the software stack.
 Because Spack is supported by a larger community than is UPS, we will gain the advantage of being able to use the work of others in the community who have already created the necessary recipes for building much of the software we need.
 In addition, it will be easier for members of Fermilab experiments to add new recipes for third-party software that they need to use, and to contribute those additions back to the rest of the community.
-Finally, Spack is better placed than UPS to handle the needs of current and upcoming experiments, as UPS is very rigid and has high maintenance overhead with respect to dependency chains, and has other limitations with such as relocatability and release distribution.
+Finally, Spack is better placed than UPS to handle the needs of current and upcoming experiments, as UPS is very rigid and has high maintenance overhead with respect to dependency chains, and has other limitations with regards to issues such as relocatability and release distribution.
 
 In this document we describe a plan for how to make use of the software built, packaged, and distributed using Spack and related tools.
 The goals of this plan are several:
@@ -48,17 +48,20 @@ The "data management" software stacks will need to package data management clien
 
 We distinguish two types of standard builds:
 
-1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant, and includes the full set of features needed to build any one of the experiment-specific software stacks that use LArSoft.
+1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant[^variant], and includes the full set of features needed to build any one of the experiment-specific software stacks that use LArSoft.
    For example, if one experiment requires ROOT with support for Apache Arrow, and another requires support for Graphviz, then the standard build of ROOT would include both the Apache Arrow and the graphviz options in the standard build.
    It will be up to the collaborating LArSoft experiments to determine the set of features to be included in the standard build of each package.
+
+[^variant]: In Spack, a variant is a way to specify build options or configuration choices for a package.
+Variants allow the user to customize how a package is built and installed, giving flexibility to enable or disable certain features, choose dependencies, or set specific configuration parameters.
 
 
 2. A standard build of a *suite*, which is comprised of consistent standard builds of all the packages in the suite.
    The SciSoft team will create a Spack environment for each standard build of a suite.
-   All standard builds of packages that are part of a suite will be pushed to an appropriate binary build cache[^1] and also installed in CVMFS.
+   All standard builds of packages that are part of a suite will be pushed to an appropriate binary build cache[^bbc] and also installed in CVMFS.
    The SciSoft team will make available environment definition files for each standard build of a suite through CVMFS, or `https://scisoft.fnal.gov`, or both.
 
-[^1]: A *binary build cache*, often shortened to *build cache*, is a location in which pre-built libraries, etc., are kept in the form of tarballs.
+[^bbc]: A *binary build cache*, often shortened to *build cache*, is a location in which pre-built libraries, etc., are kept in the form of tarballs.
 A `spack install` command command can download and untar the already-built package, rather than downloading source code and building the package.
 
 
@@ -141,7 +144,7 @@ Some adjustments in the definitions of these layers should be expected before th
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.30\textwidth]{layer_diagram.drawio.pdf}
-  \caption{Proposed spack environment layers.}
+  \caption{Proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft.}
   \label{fig:spack_environments}
 \end{figure}
 
@@ -155,8 +158,10 @@ Some adjustments in the definitions of these layers should be expected before th
 3. The *art* layer includes all of the products that are currently part of the *critic* suite.
    These are all products that are developed by the SciSoft team.
 
+
 4. The *fife* layer includes products needed to build higher-level layers, along with data management and authentication client packages, but not *art*, and which are developed by other groups in CSAID.
    One example is *ifdhc*.
+
 
 5. The *nulite* layer includes products that are needed to build *larsoft* but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
    Examples are *ifdhc_art*, *genie*, and *nusimdata*.
@@ -183,7 +188,7 @@ Similarly, the SciSoft team will build and distribute releases of the *nulite* l
 
 The SciSoft team will build and distribute releases of the *larsoft* layer as described above.
 
-Each experiment retains the reponsibility for building and distributing its own *experiment* layer.
+Each experiment retains the responsibility for building and distributing its own *experiment* layer.
 
 # Other Notes on the Use of Spack
 
