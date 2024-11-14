@@ -148,7 +148,7 @@ Some adjustments in the definitions of these layers should be expected before th
   \label{fig:spack_environments}
 \end{figure}
 
-1. The *tools* layer includes tools that are used for development but again which code is not linked.
+1. The *tools* layer includes tools that are used for development but against which code is not linked.
    Examples include compilers, *git*, *cmake*, and *ninja*.
 
 2. The *substrate* layer includes products for which we (CSAID) are not in control of the source code.
@@ -164,7 +164,7 @@ Some adjustments in the definitions of these layers should be expected before th
 
 
 5. The *nulite* layer includes products that are needed to build *larsoft* but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
-   Examples are *ifdhc_art*, *genie*, and *nusimdata*.
+   Examples are *ifdh_art*, *genie*, and *nusimdata*.
 
 6. The *larsoft* layer includes all of the LArSoft products.
 
