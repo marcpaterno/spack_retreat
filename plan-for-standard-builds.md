@@ -26,6 +26,7 @@ As a result, the time taken to update versions of software, and to add new packa
 
 In order to make it easier for non-Fermilab personnel to contribute to our shared scientific software stack, and because of the diminishing availability of personnel to maintain support of the specialized infrastructure needed, we have decided to move to using Spack as the primary tool for building and distributing the software stack.
 Because Spack is supported by a larger community than is UPS, we will gain the advantage of being able to use the work of others in the community who have already created the necessary recipes for building much of the software we need.
+We will also gain the advantage that thorough documentation is available on the web.
 In addition, it will be easier for members of Fermilab experiments to add new recipes for third-party software that they need to use, and to contribute those additions back to the rest of the community.
 Finally, Spack is better placed than UPS to handle the needs of current and upcoming experiments, as UPS is very rigid and has high maintenance overhead with respect to dependency chains, and has other limitations with regards to issues such as relocatability and release distribution.
 
@@ -45,15 +46,17 @@ At the same time, the SciSoft team must retain the ability to build and test LAr
 Separately, the SciSoft team will also need to be able to build and test the software stack for the new DUNE framework. The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*. 
 All builds of LArSoft (and of *art*) that will be produced by the SciSoft team will be these standard builds.
 The "data management" software stacks will need to package data management clients, etc., so they do not have conflicting dependencies with the scientific software stacks.
+It is inconvenient for users of the data management tools (e.g., *rucio-clients*, *sam-web-client*, etc.) to have to "unsetup" their experiment's software environment in order to "setup" the data management tools.
+Having the tools built with the same underlying libraries will allows them to be active in the same shell session.
 
 We distinguish two types of standard builds:
 
-1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant[^variant], and includes the full set of features needed to build any one of the experiment-specific software stacks that use LArSoft.
+1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant[^variant].
    For example, if one experiment requires ROOT with support for Apache Arrow, and another requires support for Graphviz, then the standard build of ROOT would include both the Apache Arrow and the graphviz options in the standard build.
-   It will be up to the collaborating LArSoft experiments to determine the set of features to be included in the standard build of each package.
+   It will be up to the collaborating LArSoft experiments to determine the set of options to be included in the standard build of each package.
 
 [^variant]: In Spack, a variant is a way to specify build options or configuration choices for a package.
-Variants allow the user to customize how a package is built and installed, giving flexibility to enable or disable certain features, choose dependencies, or set specific configuration parameters.
+Variants allow the user to customize how a package is built and installed, giving flexibility to enable or disable certain build options and configuration choices, choose dependencies, or set specific configuration parameters.
 
 
 2. A standard build of a *suite*, which is comprised of consistent standard builds of all the packages in the suite.
@@ -71,7 +74,7 @@ A `spack install` command command can download and untar the already-built packa
 Here we describe the "steady state" plan for releases, the standard builds that will be created for each release, and guidance on how the experiments should use them.
 Some adjustments to the process might be needed during the transition from UPS to Spack.
 
-1. New releases will be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team, depending on whether there is a physics impact.
+1. New releases will be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team.
    The code of the experiment making a release request must be consistent with the current LArSoft release.
 
    PRs from experiments to recipes for 3rd party packages, and to the *art* and LArSoft packages will be welcomed.
@@ -111,10 +114,10 @@ Only when test results are understood can PRs be accepted.
 Details of the CI testing process, the conditions that must be met for a PR to be accepted, and the responsibilities on various parties in maintaining the tests are described below.
 
 1. The SciSoft team will use the LArSoft CI system to build and test the development head of each LArSoft repository as needed, such as when triggered by a PR to a LArSoft repository from any source (the experiments or SciSoft).  
-   Each PR or collection of associated PRs to one or more LArSoft repositories must pass all CI tests for all LArSoft repositories.
-   In addition, PRs must meet a set of additional requirements before they can be accepted. 
+   Each PR or collection of associated PRs to LArSoft repositories must pass all CI tests for all LArSoft repositories.
+   In addition, PRs must meet a set of additional requirements before they can be accepted.
    Those additional requirements will be proposed, documented and maintained separately by the SciSoft team.
-   It is the responsibility of the submitter of the PR to fix test failures, or to arrange to have them fixed.
+   It is the responsibility of the submitter of the PR to fix test failures address issues related to the other requirements, or to arrange to have them fixed.
 
 
 2. Once the CI tests for LArSoft are passed, the CI tests for each experiment that uses LArSoft are run.
@@ -123,7 +126,7 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 
 3. Note that commits to an experiment's repositories, and not only changes to LArSoft, might break that experiment's CI tests.
    It is the responsibility of each experiment to maintain their CI system by keeping the branches of the repositories they use for development up-to-date with the development head of LArSoft.
-   If an experiment does not keep their CI tests up-to-date with the most recent release of LArSoft, or that branch otherwise becomes incompatible with the most recent release, then their CI tests will be (perhaps temporarily) removed from the workflow of the CI system used to verify new PRs in LArSoft.
+   If an experiment does not keep their CI tests up-to-date with the most recent release of LArSoft, or that branch otherwise becomes incompatible with the most recent release, then their CI tests will be removed from the workflow of the CI system used to verify new PRs in LArSoft.
    It will be re-enabled in the workflow as soon as the experiment updates their code to work with the most recent release of LArSoft.
 
 4. Bug fix PRs for old releases of LArSoft can be accepted for declared production releases of LArSoft only.
@@ -136,19 +139,20 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 
 The SciSoft team will create *layered spack environments* for our own use and for the use of the experiments.
 This is the technique we use to control what spack will attempt to build for each environment.
-By installing a consistent set of packages into a given layer we can ensure that consistent set is used for "higher level" environments, while still allowing experiments to replace any portions of the the dependency graph of packages when they have a special need to do so.
-Figure \ref{fig:spack_environments} shows the proposed spack environments and how they are layered; their contents are described below.
+By installing a consistent set of packages into a given layer, we ensure the use of those packages in all “higher level” environments, while still allowing experiments to replace any portions of the the dependency graph of packages when they have a special need to do so.
+Figure \ref{fig:spack_environments} shows for illustrative purposes how spack environments might be layered.
+A description of the layers shown in this figure is provided below.
+Details of the layers and their contents may change in the final implementation.
 Note that the packages that are named are for illustration only; they are not exhaustive.
-Some adjustments in the definitions of these layers should be expected before this plan is finalized.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.30\textwidth]{layer_diagram.drawio.pdf}
-  \caption{Proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft.}
+  \caption{An illustrative example of the proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft. The final implementation may differ.}
   \label{fig:spack_environments}
 \end{figure}
 
-1. The *tools* layer includes tools that are used for development but against which code is not linked.
+1. The *tools* layer includes tools that are used for development.
    Examples include compilers, *git*, *cmake*, and *ninja*.
 
 2. The *substrate* layer includes products for which we (CSAID) are not in control of the source code.
@@ -159,7 +163,8 @@ Some adjustments in the definitions of these layers should be expected before th
    These are all products that are developed by the SciSoft team.
 
 
-4. The *fife* layer includes products needed to build higher-level layers, along with data management and authentication client packages, but not *art*, and which are developed by other groups in CSAID.
+4. The *fife* layer includes products, excluding *art*, needed to build higher-level layers, along with data management and authentication client packages.
+   These products are developed by other groups in CSAID.
    One example is *ifdhc*.
 
 
@@ -168,7 +173,7 @@ Some adjustments in the definitions of these layers should be expected before th
 
 6. The *larsoft* layer includes all of the LArSoft products.
 
-7. The *experiment* layer indicates the software of one LArSoft-using experiment, and any 3rd party products that are used only by one experiment.
+7. The *experiment* layer indicates the software of one LArSoft-using experiment, and any 3rd party products that are used only by that one experiment.
    Each experiment layer is independent of other experiment layers.
 
 ## Building and distributing layered environments
@@ -177,7 +182,7 @@ The SciSoft team will be responsible for building and distributing releases of t
 Releases of *tools* and *substrate* will be made as needed in response to requests for newer version of packages in those layers.
 Updates to the *tools* layer will be made in response to requests from experiments or the SciSoft team, not automatically when new versions of the source code for those packages are released.
 Updates to the *substrate* layer will be made in response to requests from experiments or the SciSoft team, or when needed to support new versions of higher-level layers.
-The requesting party (experiment of the SciSoft team) is responsible for demonstrating that the update is self-consistent in that the updated *substrate* builds without error.
+The requesting party (experiment or the SciSoft team) is responsible for demonstrating that the update is self-consistent in that the updated *substrate* builds without error.
 The requesting party is also responsible for demonstrating that the higher-level layers also build and pass CI tests without error.
 
 Updates to the *art* layer will be made as needed, either because of new versions of *tools* or *substrate*, or due to pull requests for bug fixes or new features in the *art* suite.
