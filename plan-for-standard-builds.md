@@ -51,7 +51,7 @@ Having the tools built with the same underlying libraries will allows them to be
 
 We distinguish two types of standard builds:
 
-1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built in a single variant[^variant].
+1. A standard build of a *package* (usually consisting of all the software in a single repository, e.g., for LArSoft), which is built with a specific set of variants[^variant].
    For example, if one experiment requires ROOT with support for Apache Arrow, and another requires support for Graphviz, then the standard build of ROOT would include both the Apache Arrow and the graphviz options in the standard build.
    It will be up to the collaborating LArSoft experiments to determine the set of options to be included in the standard build of each package.
 
@@ -88,7 +88,7 @@ Some adjustments to the process might be needed during the transition from UPS t
    The LArSoft collaboration and the SciSoft team will together decide on compilers to be supported.
 
 3. A Spack environment will be created corresponding to each standard build.
-   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and then build their software against that standard environment.
+   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment.
    Users who are developing all or part of LArSoft itself will be able to set up the standard environment, then build the relevant parts of LArSoft in addition to their own experiment's software stack.
 
 4. Experiments that are part of the LArSoft collaboration should use standard builds, preferably one of the *most recent*, as the base for their own development builds.
