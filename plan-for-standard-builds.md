@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Draft version 4
-date: "2024-11-13"
+subtitle: Draft version 5
+date: "2024-11-25"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -156,8 +156,8 @@ Note that the packages that are named are for illustration only; they are not ex
    Examples include compilers, *git*, *cmake*, and *ninja*.
 
 2. The *substrate* layer includes products for which we (CSAID) are not in control of the source code.
-   Examples include *ROOT*, *GEANT4*, *catch2*, and *range*.
-   *python* should probably be included here because some code needs to link against the *libpython.so*.
+   Examples include *ROOT*, *Geant4*, and *Catch2*.
+   *Python* should probably be included here because some code needs to link against the *libpython.so*.
 
 3. The *art* layer includes all of the products that are currently part of the *critic* suite.
    These are all products that are developed by the SciSoft team.
@@ -169,7 +169,7 @@ Note that the packages that are named are for illustration only; they are not ex
 
 
 5. The *nulite* layer includes products that are needed to build *larsoft* but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
-   Examples are *ifdh_art*, *genie*, and *nusimdata*.
+   Examples are *ifdh_art*, *GENIE*, and *nusimdata*.
 
 6. The *larsoft* layer includes all of the LArSoft products.
 
@@ -194,6 +194,9 @@ Similarly, the SciSoft team will build and distribute releases of the *nulite* l
 The SciSoft team will build and distribute releases of the *larsoft* layer as described above.
 
 Each experiment retains the responsibility for building and distributing its own *experiment* layer.
+
+It is not yet determined whether a given Spack installation would host multiple layers and/or releases of same, and what the complications/advantages of such might be.
+It is also not yet determined how many binary build caches we will need and when different caches should be used.
 
 # Other Notes on the Use of Spack
 
