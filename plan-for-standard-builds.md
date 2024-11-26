@@ -139,7 +139,7 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 
 The SciSoft team will create *layered spack environments* for our own use and for the use of the experiments.
 This is the technique we use to control what spack will attempt to build for each environment.
-By installing a consistent set of packages into a given layer, we ensure the use of those packages in all “higher level” environments, while still allowing experiments to replace any portions of the the dependency graph of packages when they have a special need to do so.
+By installing a consistent set of packages into a given layer, we ensure the use of those packages in all “higher level” environments, while still allowing experiments to replace any portions of the dependency graph of packages when they have a special need to do so.
 Figure \ref{fig:spack_environments} shows for illustrative purposes how spack environments might be layered.
 A description of the layers shown in this figure is provided below.
 Details of the layers and their contents may change in the final implementation.
