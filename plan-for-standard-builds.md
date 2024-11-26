@@ -43,7 +43,7 @@ A central feature of the new plan is what we call a *standard build*, described 
 
 The move away from UPS to Spack is intended to make it easier for non-SciSoft personnel to make their own builds of software stacks.
 At the same time, the SciSoft team must retain the ability to build and test LArSoft, which requires building and testing the software stacks that depend upon LArSoft.
-Separately, the SciSoft team will also need to be able to build and test the software stack for the new DUNE framework. The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*. 
+Separately, the SciSoft team will also need to be able to build and test the software stack for the new DUNE framework. The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*.
 All builds of LArSoft (and of *art*) that will be produced by the SciSoft team will be these standard builds.
 The "data management" software stacks will need to package data management clients, etc., so they do not have conflicting dependencies with the scientific software stacks.
 It is inconvenient for users of the data management tools (e.g., *rucio-clients*, *sam-web-client*, etc.) to have to "unsetup" their experiment's software environment in order to "setup" the data management tools.
@@ -113,7 +113,7 @@ As in the past, the SciSoft team will rely  on the results from these CI tests t
 Only when test results are understood can PRs be accepted.
 Details of the CI testing process, the conditions that must be met for a PR to be accepted, and the responsibilities on various parties in maintaining the tests are described below.
 
-1. The SciSoft team will use the LArSoft CI system to build and test the development head of each LArSoft repository as needed, such as when triggered by a PR to a LArSoft repository from any source (the experiments or SciSoft).  
+1. The SciSoft team will use the LArSoft CI system to build and test the development head of each LArSoft repository as needed, such as when triggered by a PR to a LArSoft repository from any source (the experiments or SciSoft).
    Each PR or collection of associated PRs to LArSoft repositories must pass all CI tests for all LArSoft repositories.
    In addition, PRs must meet a set of additional requirements before they can be accepted.
    Those additional requirements will be proposed, documented and maintained separately by the SciSoft team.
@@ -121,7 +121,7 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 
 
 2. Once the CI tests for LArSoft are passed, the CI tests for each experiment that uses LArSoft are run.
-   As in the case of the LArSoft CI tests, all CI tests for all experiments must succeed for a PR to be accepted. 
+   As in the case of the LArSoft CI tests, all CI tests for all experiments must succeed for a PR to be accepted.
    It is the responsibility of whatever experiment submitted or requested the PR to fix CI test failures or make arrangements to have them fixed.
 
 3. Note that commits to an experiment's repositories, and not only changes to LArSoft, might break that experiment's CI tests.
@@ -130,8 +130,8 @@ Details of the CI testing process, the conditions that must be met for a PR to b
    It will be re-enabled in the workflow as soon as the experiment updates their code to work with the most recent release of LArSoft.
 
 4. Bug fix PRs for old releases of LArSoft can be accepted for declared production releases of LArSoft only.
-   A PR that fixes a bug in a production release of LArSoft will be merged into the bug-fix branch for that release only if the CI tests for the production release of LArSoft and the experiment passes, or the PR breaks no CI tests that passed immediately before the PR. 
-   Each experiment is expected to keep a branch in their own repositories for CI testing of bug fixes for each of the LArSoft production releases they use. 
+   A PR that fixes a bug in a production release of LArSoft will be merged into the bug-fix branch for that release only if the CI tests for the production release of LArSoft and the experiment passes, or the PR breaks no CI tests that passed immediately before the PR.
+   Each experiment is expected to keep a branch in their own repositories for CI testing of bug fixes for each of the LArSoft production releases they use.
 
 # How we will organize Spack environments
 
@@ -188,7 +188,7 @@ The requesting party is also responsible for demonstrating that the higher-level
 Updates to the *art* layer will be made as needed, either because of new versions of *tools* or *substrate*, or due to pull requests for bug fixes or new features in the *art* suite.
 The SciSoft team will remain responsible for ensuring that the *art* layer builds and passes CI tests without error.
 
-The SciSoft team will build and distribute releases of the *fife* layer, if needed, or reuse recent builds from Data Management, who will be responsible for maintenance of the code for the packages in that layer. 
+The SciSoft team will build and distribute releases of the *fife* layer, if needed, or reuse recent builds from Data Management, who will be responsible for maintenance of the code for the packages in that layer.
 Similarly, the SciSoft team will build and distribute releases of the *nulite* layer, but maintenance of the code for the packages in that layer remains the responsibility of the authors of that code.
 
 The SciSoft team will build and distribute releases of the *larsoft* layer as described above.
@@ -205,4 +205,3 @@ The 1.0 release of spack is expected within the calendar year.
 At least until that release, we expect that upgrades to spack will require re-building a full new software stack.
 
 In order to reduce unnecessary rebuilding of the software stack, experiments are encouraged to use either the appropriate Spack installation from CVMFS, or to use SciSoft-provided scripts and/or procedures to produce an appropriately versioned, patched (where necessary), and configured Spack installation.
-
