@@ -15,12 +15,12 @@ colorlinks: true
   describes some upcoming general high impact changes, with links to further
   details for each.
   
-* This presentation will précis those changes and discuss the
+* This presentation will introduce those changes and discuss the
   implications and risks for us. Some of them will need to be monitored
   and possibly steered in order to ensure they satisfy our use cases.
 
 * Some changes are previewed in
-  [v1.0.0-alpha.2](https://github.com/spack/spack/tree/v1.0.0-alpha.2)
+  [release v1.0.0-alpha.2](https://github.com/spack/spack/tree/v1.0.0-alpha.2)
   as they have not yet been merged to
   [develop](https://github.com/spack/spack/tree/develop).
 
@@ -31,7 +31,7 @@ colorlinks: true
 
 ## Compilers as Build Dependencies
 
-* [Turn compilers into nodes
+* Open PR [Turn compilers into nodes
   #45189](https://github.com/spack/spack/pull/45189)
 
 * Also relevant: [Slack comment from Harmen
@@ -47,7 +47,7 @@ colorlinks: true
 
 ## Migrate Package Recipes to Their Own Repository
 
-* [Discussion: Move built-in packages to a separate repository
+* Open Issue [Discussion: Move built-in packages to a separate repository
   #47480](https://github.com/spack/spack/issues/47480)
 
 * This will change the way we work, and will necessitate some script
@@ -58,7 +58,7 @@ colorlinks: true
 
 ## Include Source Provenance in `spec.json` and Package Hashes
 
-* [specs: include source provenance in spec.json and package hash
+* Open PR [specs: include source provenance in spec.json and package hash
   #32312](https://github.com/spack/spack/pull/32312)
 
 * This could be straightforward and non-disruptive.
@@ -69,7 +69,7 @@ colorlinks: true
 
 ## "Stateless" Spack
 
-* [Shared spack #47615](https://github.com/spack/spack/pull/47615)
+* Draft PR [Shared spack #47615](https://github.com/spack/spack/pull/47615)
 
 * This should be very good for us, especially for CVMFS.
 
@@ -79,27 +79,27 @@ colorlinks: true
 
 ## Environments
 
-* [Discussion: Environments: Support fully including other environments
+* Open Issue [Discussion: Environments: Support fully including other environments
   and standardize include syntax
   #46973](https://github.com/spack/spack/issues/46973)
 
-  * [Support conditional and optional includes
+  * Draft PR [Support conditional and optional includes
     #46792](https://github.com/spack/spack/pull/46792)
 
-  * [Allowing environment variables to be set in a spack.yaml
+  * Draft PR [Allowing environment variables to be set in a spack.yaml
     #47587](https://github.com/spack/spack/pull/47587)
 
-  * [Environments: support including other environment files
+  * Draft PR [Environments: support including other environment files
     #42442](https://github.com/spack/spack/pull/42442)
 
-  * [Command: Add option to add/remove environment includes
+  * Open PR [Command: Add option to add/remove environment includes
     #44285](https://github.com/spack/spack/pull/44285)
   
-  * [Add configs for reusing specs from environments and enable reuse
+  * Merged PR [Add configs for reusing specs from environments and enable reuse
     from included concrete environments by default
     #45139](https://github.com/spack/spack/pull/45139)
 
-  * [Environments: refresh cached URL-included config on
+  * Open PR [Environments: refresh cached URL-included config on
     re-concretization #34199](https://github.com/spack/spack/pull/34199)
 
 * A _lot_ of material here that we should understand the implications
