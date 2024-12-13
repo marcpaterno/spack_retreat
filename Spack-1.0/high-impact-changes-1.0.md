@@ -1,7 +1,7 @@
 ---
 title: "High Impact Changes for Spack `develop` and 1.0"
 author: "Chris Green, FNAL"
-date: "2024-12-12"
+date: "Spack Migration Team Meeting, 2024-12-12"
 theme: MFP
 aspectratio: 1610
 colorlinks: true
@@ -42,7 +42,10 @@ colorlinks: true
 
 * This could be _very_ good for us.
 
-* It could also stop us in our tracks.
+* It could also stop us in our tracks. Specifically, if the new paradigm
+  is too rigid, it may prevent us using system libraries compatibly
+  built with the system compiler in conjunction with libraries and
+  applications built with a different compiler.
 
 
 ## Migrate Package Recipes to Their Own Repository
