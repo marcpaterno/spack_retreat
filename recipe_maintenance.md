@@ -29,7 +29,7 @@ CSAID should maintain a fork of the main Spack repository that contains recipes.
 
 The reason for having the fork is to allow us to modify recipes which we need to modify on our own time scale.
 The Spack team sometimes delays the merging of a pull request (PR) into the Spack recipe repository.
-By maintaining our own fork, we can accept merge requests more quickly and then feed them back to the main Spack recipe repository.
+By maintaining our own fork, we can make acceptable locally-originated changes available to our users more quickly than otherwise would be the case.
 
 Maintenance of the fork is not free.
 The main Spack recipe repository is updated frequently, and so we will need to automate the updating of the fork.
@@ -46,7 +46,8 @@ The Spack recipe for a given package should not live in the same repository as t
 Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package.
 It will also allow each project to have its own accounting of "minutes" spent on GitHub actions for continuous integration usage.
 
-We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
+We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph. If possible, this should be done by upstreaming recipes, or by relocating recipes between existing repositories rather than by creating new recipe repositories.
+
 Spack itself does not require this, but doing this will make it easier to ensure we do not introduce any cycles into the dependency graph of the packages themselves.
 
 
