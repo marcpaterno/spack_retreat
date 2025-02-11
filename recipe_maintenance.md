@@ -27,17 +27,30 @@ This document proposes a plan for CSAID maintenance of Spack recipes.
 
 CSAID should maintain a fork of the main Spack repository that contains recipes.
 
-The reason for having the fork is...
+The reason for having the fork is to allow us to modify recipes which we need to modify on our own timescale.
+The Spack team sometimes delays the merging of a pull request (PR) into the Spack recipe repository.
+By maintaining our own fork, we can accept merge requests more quickly and then feed them back to the main Spack recipe repository.
 
-The cost of maintaining the fork is...
+aintenance of the fork is not free.
+The main Spack recipe repository is updated frequently, and so we will need to automate the updating of the fork.
+We anticipate that few recipes will need modification in our fork, and thus automatic updating of the fork will rarely lead to merge conflicts.
+When conflicts do occur, whoever has modified the recipe should be responsible for reconciling the recipe.
+We should also strive to push PRs from our fork to the main Spack recipe repository as quickly as possible.
+
+PRs for modifications to the recipes should be submitted to the main Spack recipe repository whenver possible.
+We should accept PRs to our fork only when there is a problem with the submission to the main Spack recipe repository that can not be fixed in a timely fashion.
 
 ## One repository for each CSAID project
 
 CSAID should maintain one repository for each project, to contain the Spack recipes for the project.
 
-The reason for this is...
+The Spack recipe for a given package should not live in the same repository as the code for that package to avoid excessive and unnecessary changes in the recipe.
+Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package.
+It will also allow each project to have its own accounting of "minutes" spent on GitHub actions for continuous integration usage.
 
-The cost of this is ...
+We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
+Spack itself does not require this, but doing this will make it easier to ensure we do not introduce any cycles into the dependency graph of the packages themselves.
+
 
 # Rules for maintaining Spack recipes
 
