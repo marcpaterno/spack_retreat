@@ -44,10 +44,14 @@ We should accept PRs to our fork only when there is a problem with the submissio
 
 CSAID should maintain one repository for each project, to contain the Spacke recipes for the project.
 
-The reason for this is...
+The Spack recipe for a given package should not live in the same repository as the code for that package to avoid excessive and unnecessary changes in the recipe.
+Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package.
+It will also allow each project to have its own accounting of "minutes" spent on GitHub actions for continuous integration usage.
 
-The cost of this is ...
-# 
+We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
+Spack itself does not require this, but doing this will make it easier to ensure we do not introduce any cycles into the dependency graph of the packages themselves.
+
+
 
 # Rules for maintaining Spack recipes
 
