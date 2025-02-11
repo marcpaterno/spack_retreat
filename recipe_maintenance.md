@@ -35,10 +35,8 @@ Maintenance of the fork is not free.
 The main Spack recipe repository is updated frequently, and so we will need to automate the updating of the fork.
 We anticipate that few recipes will need modification in our fork, and thus automatic updating of the fork will rarely lead to merge conflicts.
 When conflicts do occur, whoever has modified the recipe should be responsible for reconciling the recipe.
-We should also strive to push PRs from our fork to the main Spack recipe repository as quickly as possible.
 
-PRs for modifications to the recipes should be submitted to the main Spack recipe repository whenever possible.
-We should accept PRs to our fork only when there is a problem with the submission to the main Spack recipe repository that can not be fixed in a timely fashion.
+*See rules 3–5 below for conditions under which CSAID's recipe repository fork will differ from Spack's upstream recipe repository.*
 
 ## One repository for each CSAID project
 
