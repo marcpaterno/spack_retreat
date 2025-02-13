@@ -40,11 +40,10 @@ When conflicts do occur, whoever has modified the recipe should be responsible f
 
 ## One recipe repository per CSAID project
 
-CSAID should maintain one repository for each project, to contain the Spack recipes for the project.
-
 The Spack recipe for a given package must not live in the same repository as the source code for that package to avoid excessive and unnecessary changes in the recipe.
-Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package, and
-will allow each project to have its own accounting of "minutes" spent on GitHub actions for continuous integration usage.
+
+CSAID should maintain one repository for each project, to contain the Spack recipes for the project. Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package, and
+will allow each project to have its own accounting of GitHub actions "minutes" for continuous integration usage.
 
 We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph. If possible, this should be done by upstreaming recipes, or by relocating recipes between existing repositories rather than by creating new recipe repositories.
 
