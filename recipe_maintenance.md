@@ -66,9 +66,11 @@ Spack itself does not require this, but doing this will make it easier to ensure
    understanding that the submitter is responsible for reconciliation as
    soon as reasonably practicable.
 
-4. If a recipe does not exist in Spack's upstream repository, then the
-   new recipe shall be upstreamed if its applicability may reasonably be
-   expected to be outside one experiment/project.
+4. If a recipe for a package not maintained at Fermilab does not exist 
+   in Spack's upstream repository, then the new recipe shall be upstreamed 
+   if its applicability may reasonably be expected to be outside one 
+   experiment/project.  Packages maintained at Fermilab may have their recipes
+   upstreamed if there is an expectation they might be used elsewhere.
 
 5. If a new recipe would be upstreamed but for overriding time
    constraints, then it may be submitted in parallel to CSAID's fork with
