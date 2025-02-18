@@ -52,8 +52,8 @@ CSAID should maintain one repository for each project[^project], to contain the 
 Keeping all the recipes for a given project in a single recipe repository provides some cohesion to the package, and will allow each project to have its own accounting of GitHub actions "minutes" for continuous integration usage.
 
 [^project]: For our purposes, a *project* is a set of Spack-managed packages (i.e. software repositories) that are maintained in concert, and which are typically used together.
-            Some examples are: the *art* project, *LArSoft*, and *fife*.
-            A repository maintained by a small team which has no other closely associated packages may be a project by itself, e.g. *marley*.
+            Some examples are: the *art* project, *LArSoft*, and *FIFE*.
+            A repository maintained by a small team which has no other closely associated packages may be a project by itself, e.g. *MARLEY*.
 
 We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
 If possible, this should be done by upstreaming recipes, or by relocating recipes between existing repositories rather than by creating new recipe repositories.
