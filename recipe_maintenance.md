@@ -56,7 +56,7 @@ Keeping all the recipes for a given project in a single recipe repository provid
             A repository maintained by a small team which has no other closely associated packages may be a project by itself, e.g. *MARLEY*.
 
 We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
-If possible, this should be done by upstreaming recipes, or by relocating recipes between existing repositories rather than by creating new recipe repositories.
+If possible, this should be done by upstreaming recipes, or by moving recipes to other existing recipe repositories rather than by creating new recipe repositories.
 
 Spack itself does not require this, but doing this will make it easier to ensure we do not introduce any cycles into the dependency graph of the packages themselves.
 
