@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Maintaining Spack Recipes"
-subtitle: Draft version 1
-date: "2025-02-10"
+subtitle: Draft version 2
+date: "2025-02-18"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
