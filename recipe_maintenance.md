@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Maintaining Spack Recipes"
-subtitle: Draft version 2
-date: "2025-02-18"
+subtitle: Draft version 3
+date: "2025-02-24"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -25,7 +25,10 @@ This document proposes a plan for CSAID maintenance of Spack recipes.
 
 ## Fork of the Spack recipe repository
 
-CSAID should maintain a fork of the main Spack repository that contains recipes.
+CSAID should maintain a fork of the main Spack repository that contains recipes. [^fork]
+
+[^fork]: Before the release of Spack v1.0, a single repository contains both the source code for Spack and a set of Spack recipes for many products.
+         As part of the v1.0 release, all recipes will be removed to a separate repository.
 
 The reason for having the fork is to allow us to modify recipes which we need to modify on our own time scale.
 The Spack team sometimes delays the merging of a pull request (PR) into the Spack recipe repository.
@@ -41,6 +44,10 @@ When conflicts do occur, whoever has modified the recipe should be responsible f
 [^1]: For example, the GitHub statistics for the [spack](https://github.com/spack/spack) repository reports 364 merged pull requests over the period January 18, 2025 through February 18, 2025.
       Most of these are changes to recipes.
 
+In common *git* parlance, the original repository from which a fork is created is called an *upstream* repository.
+The act of pushing commits from the fork to the upstream repository is called *upstreaming* the commits.
+We use this terminology in the rules below.
+
 *See rules 3–5 below for conditions under which CSAID's recipe repository fork will differ from Spack's upstream recipe repository.*
 
 ## One recipe repository per CSAID project
@@ -54,6 +61,8 @@ Keeping all the recipes for a given project in a single recipe repository provid
 [^project]: For our purposes, a *project* is a set of Spack-managed packages (i.e. software repositories) that are maintained in concert, and which are typically used together.
             Some examples are: the *art* project, *LArSoft*, and *FIFE*.
             A repository maintained by a small team which has no other closely associated packages may be a project by itself, e.g. *MARLEY*.
+
+## No cyclic dependencies between recipe repositories
 
 We should take care to ensure that the dependency graph of recipe repositories (as implied by the dependencies between the recipes) remains a directed acyclic graph.
 If adding a new recipe to a repository would create a dependency cycle between repositories, the preferred approach to keeping things acyclic is 
