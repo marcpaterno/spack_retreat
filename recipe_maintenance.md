@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Maintaining Spack Recipes"
-subtitle: Draft version 3
-date: "2025-02-24"
+subtitle: Version 1
+date: "2025-03-25"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -36,7 +36,7 @@ By maintaining our own fork, we can make acceptable locally-originated changes a
 
 Maintenance of the fork is not free.
 The main Spack recipe repository is updated frequently[^1], and so we will need to automate the updating of the fork.
-It is probably sufficient to update the fork hourly, but it is always possible to manually trigger updates when needed.
+It is probably sufficient to update the fork daily, but it is always possible to manually trigger updates when needed.
 
 We anticipate that few recipes will need modification in our fork, and thus automatic updating of the fork will rarely lead to merge conflicts.
 When conflicts do occur, whoever has modified the recipe should be responsible for reconciling the recipe.

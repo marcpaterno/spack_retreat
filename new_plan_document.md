@@ -52,7 +52,7 @@ Figure \ref{fig:spack_environments} shows the proposed spack environments and ho
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.30\textwidth]{layer_diagram.drawio.pdf}
+  \includegraphics[width=0.30\textwidth]{layer_diagram.pdf}
   \caption{Proposed spack environment layers.}
   \label{fig:spack_environments}
 \end{figure}

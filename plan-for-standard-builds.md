@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Draft version 5
-date: "2024-11-25"
+subtitle: Version 1
+date: "2025-03-28"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -147,7 +147,7 @@ Note that the packages that are named are for illustration only; they are not ex
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.30\textwidth]{layer_diagram.drawio.pdf}
+  \includegraphics[width=0.30\textwidth]{layer_diagram.pdf}
   \caption{An illustrative example of the proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft. The final implementation may differ.}
   \label{fig:spack_environments}
 \end{figure}
