@@ -75,7 +75,7 @@ A `spack install` command command can download and untar the already-built packa
 Here we describe the "steady state" plan for releases, the standard builds that will be created for each release, and guidance on how the experiments should use them.
 Some adjustments to the process might be needed during the transition from UPS to Spack.
 
-1. A new releases may be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team.
+1. A new release may be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team.
    The code of the experiment making a release request must be consistent with the current LArSoft release, or for a bug fix release, consistent with the most recent bug fix release on the associated minor release branch of LArSoft.
 
    PRs from experiments to recipes for 3rd party packages, and to the *art* and LArSoft packages will be welcomed.
@@ -89,7 +89,7 @@ Some adjustments to the process might be needed during the transition from UPS t
    The LArSoft collaboration and the SciSoft team will together decide on compilers to be supported.
 
 3. A Spack environment will be created corresponding to each standard build of a suite.
-   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment
+   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment.
    Users of the standard builds can also do development with Spack MPD, which does not require activation of the environment.
    Users who are developing all or part of LArSoft itself will be able to set up the standard environment, then build the relevant parts of LArSoft in addition to their own experiment's software stack.
 
