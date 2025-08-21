@@ -1,8 +1,8 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Version 1
-date: "2025-03-28"
+subtitle: Version 2.0a
+date: "2025-08-20"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
   pdf_document:
@@ -33,7 +33,7 @@ Finally, Spack is better placed than UPS to handle the needs of current and upco
 In this document we describe a plan for how to make use of the software built, packaged, and distributed using Spack and related tools.
 The goals of this plan are several:
 
-1. To allow the SciSoft team to build, package, and distribute to the experiments the software the team develops or contributes to, including the *art* framework, LArSoft, and the new framework being developed for DUNE.
+1. To allow the SciSoft team to build, package, and distribute to the experiments the software the team develops or contributes to, including the *art* framework, LArSoft, and eventually *phlex.
 2. To provide the experiments greater flexibility in building software not provided in the suite of products delivered by the SciSoft team, while also providing a clear path for sharing effort between experiments.
 3. To provide more flexibility for experiments to support building their software stack on platforms on operating systems not directly supported by Fermilab, for example, at supercomputing facilities.
 
@@ -43,7 +43,8 @@ A central feature of the new plan is what we call a *standard build*, described 
 
 The move away from UPS to Spack is intended to make it easier for non-SciSoft personnel to make their own builds of software stacks.
 At the same time, the SciSoft team must retain the ability to build and test LArSoft, which requires building and testing the software stacks that depend upon LArSoft.
-Separately, the SciSoft team will also need to be able to build and test the software stack for the new DUNE framework. The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*.
+Separately, the SciSoft team will also need to be able to build and test the software stack for *phlex*.
+The framework for allowing these distinct efforts to proceed relies on the idea of *standard builds*.
 All builds of LArSoft (and of *art*) that will be produced by the SciSoft team will be these standard builds.
 The "data management" software stacks will need to package data management clients, etc., so they do not have conflicting dependencies with the scientific software stacks.
 It is inconvenient for users of the data management tools (e.g., *rucio-clients*, *sam-web-client*, etc.) to have to "unsetup" their experiment's software environment in order to "setup" the data management tools.
@@ -74,8 +75,8 @@ A `spack install` command command can download and untar the already-built packa
 Here we describe the "steady state" plan for releases, the standard builds that will be created for each release, and guidance on how the experiments should use them.
 Some adjustments to the process might be needed during the transition from UPS to Spack.
 
-1. New releases will be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team.
-   The code of the experiment making a release request must be consistent with the current LArSoft release.
+1. A new releases may be created when one of the LArSoft experiments or the SciSoft team submits a successful pull request (PR) on one or more of the LArSoft repositories, or when one of the underlying dependencies is updated, which may occur at the discretion either of the experiments or the SciSoft team.
+   The code of the experiment making a release request must be consistent with the current LArSoft release, or for a bug fix release, consistent with the most recent bug fix release on the associated minor release branch of LArSoft.
 
    PRs from experiments to recipes for 3rd party packages, and to the *art* and LArSoft packages will be welcomed.
    The procedure for handling such PRs will be described in a separate document.
@@ -87,8 +88,9 @@ Some adjustments to the process might be needed during the transition from UPS t
    Each package will be built using a small number of supported compilers (and specific versions of those compilers).
    The LArSoft collaboration and the SciSoft team will together decide on compilers to be supported.
 
-3. A Spack environment will be created corresponding to each standard build.
-   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment.
+3. A Spack environment will be created corresponding to each standard build of a suite.
+   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment
+   Users of the standard builds can also do development with Spack MPD, which does not require activation of the environment.
    Users who are developing all or part of LArSoft itself will be able to set up the standard environment, then build the relevant parts of LArSoft in addition to their own experiment's software stack.
 
 4. Experiments that are part of the LArSoft collaboration should use standard builds, preferably one of the *most recent*, as the base for their own development builds.
@@ -135,46 +137,53 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 
 # How we will organize Spack environments
 
-## Layered spack environments
+## Layered Spack environments
 
-The SciSoft team will create *layered spack environments* for our own use and for the use of the experiments.
-This is the technique we use to control what spack will attempt to build for each environment.
-By installing a consistent set of packages into a given layer, we ensure the use of those packages in all “higher level” environments, while still allowing experiments to replace any portions of the dependency graph of packages when they have a special need to do so.
+The SciSoft team will create spack environments for our own use and for the use of the experiments.
+To ensure binary compatibility across the several environments layers that will be created the SciSoft team will use Spack to conretize and build a *global* build.
+This global build will then be used to create the environment layers each of which contains a subset of the global build and which can be used directly when desired.
+By installing a consistent set of packages into the build, we ensure the use of those packages in all layered environments made available, while still allowing experiments to replace any portions of the dependency graph of packages when they have a special need to do so.
 Figure \ref{fig:spack_environments} shows for illustrative purposes how spack environments might be layered.
 A description of the layers shown in this figure is provided below.
 Details of the layers and their contents may change in the final implementation.
 Note that the packages that are named are for illustration only; they are not exhaustive.
+Link dependencies are allowed within each layer, and from higher layers to lower layers, but never from lower layers to higher layers.
+The arrows in figure \ref{fig:spack_environments} show the direction of the allowed dependencies.
+The connection to the *tools* layer has no arrow because there is no link dependency upon *tools*.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.30\textwidth]{layer_diagram.pdf}
-  \caption{An illustrative example of the proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft. The final implementation may differ.}
+  \includegraphics[width=0.45\textwidth]{environment_graph_cropped.pdf}
+  \caption{The proposed spack environment layers. Note that \textit{art}, \textit{fife} and \textit{nulite} are also used by experiments and projects that do not depend upon LArSoft, as shown. Yellow boxes show the packages that are directly maintained by CSAID.}
   \label{fig:spack_environments}
 \end{figure}
 
 1. The *tools* layer includes tools that are used for development.
-   Examples include compilers, *git*, *cmake*, and *ninja*.
+   Examples include compilers (but not compiler runtimes), *git*, *cmake*, and *ninja*.
+   Packages in other layers do not have link dependencies on this layer.
 
 2. The *substrate* layer includes products for which we (CSAID) are not in control of the source code.
    Examples include *ROOT*, *Geant4*, and *Catch2*.
-   *Python* should probably be included here because some code needs to link against the *libpython.so*.
+   *Python* should probably be included here because some code needs to link against the *libpython.so*, and because the Python interpreter is a runtime dependency for Python programs.
+   Compiler runtimes are included in this layer.
 
-3. The *art* layer includes all of the products that are currently part of the *critic* suite.
-   These are all products that are developed by the SciSoft team.
-
-
-4. The *fife* layer includes products, excluding *art*, needed to build higher-level layers, along with data management and authentication client packages.
+3. The *fife* layer includes products, excluding *art*, needed to build higher-level layers, along with data management and authentication client packages.
    These products are developed by other groups in CSAID.
    One example is *ifdhc*.
 
+4. The *art* layer includes all of the products that are currently part of the *critic* suite, and which are all products that are developed by the SciSoft team.
+   The *art* layer also includes *ifdh_art*, which introduces the dependency on *ifdh*.
 
-5. The *nulite* layer includes products that are needed to build *larsoft* but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
-   Examples are *ifdh_art*, *GENIE*, and *nusimdata*.
+5. The *nulite* layer includes products that are needed to build *larsoft* (and *novasoft*)but which are not part of *art* or *fife*, and which are controlled by other groups in CSAID.
+   Examples are *GENIE* and *nusimdata*.
 
 6. The *larsoft* layer includes all of the LArSoft products.
+   It also includes *artdaq_core* which is used by the experiments that use LArSoft.
 
-7. The *experiment* layer indicates the software of one LArSoft-using experiment, and any 3rd party products that are used only by that one experiment.
+7. The *experiment* layers indicates the software of one of the supported experiments, and any 3rd party products that are used only by that one experiment.
    Each experiment layer is independent of other experiment layers.
+
+Experiments are free to introduce addtional layers if code sharing between limited subgroups of experiments is desired.
 
 ## Building and distributing layered environments
 
@@ -200,8 +209,29 @@ It is also not yet determined how many binary build caches we will need and when
 
 # Other Notes on the Use of Spack
 
-Because spack has not yet reached the 1.0 release, backwards compatibility is not guaranteed when moving to a new version of spack.
-The 1.0 release of spack is expected within the calendar year.
-At least until that release, we expect that upgrades to spack will require re-building a full new software stack.
+The release of Spacke 1.0 has introduced the promise from the Spack principle developers that new releases of Spack 1.x will be compatible with the recipes from early 1.x versions.
+This was not true for pre-1.0 versions of Spack.
+In addition, Spack package recipes have been moved out of the Spack core repository and into their own repository, which is versioned separately.
+Upgrades to the Spack inftrastructure should no longer require rebuild of the entire software stack.
 
 In order to reduce unnecessary rebuilding of the software stack, experiments are encouraged to use either the appropriate Spack installation from CVMFS, or to use SciSoft-provided scripts and/or procedures to produce an appropriately versioned, patched (where necessary), and configured Spack installation.
+Recommended procedures for doing this will be detailed in another document.
+
+# Change log
+
+Only significant changes to the plan will be included in the change log.
+The git repository can be consulted for a full record of all changes.
+
+
+## Version 1 (2025-03-28)
+
+Original version.
+
+## Version 2 (2025-08-20)
+
+1. Introduce use of the name chosen for the DUNE framework, *phlex*.
+
+2. Add statement in section 3, item 2, about bug fix releases.
+
+3. Substantial changes to section 5 to reflex the change in our approach to building environments.
+ 

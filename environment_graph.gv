@@ -1,0 +1,36 @@
+digraph g
+{
+  node [shape=box, style="rounded,filled", colorscheme=set312];
+
+  tools [fillcolor=1];
+  substrate [fillcolor=1];
+
+  fife [fillcolor=2];
+  art [fillcolor=2];
+  nulite [fillcolor=2];
+  larsoft [fillcolor=2];
+  ArtDAQ [fillcolor=2];
+
+  mu2eoffline [fillcolor=3];
+  dunesw [fillcolor=4];
+  icaruscode [fillcolor=5];
+  sbndcode [fillcolor=6];
+  uboonecode [fillcolor=7];
+  novasoft [fillcolor=8];
+
+
+  dunesw -> larsoft;
+  sbndcode -> larsoft;
+  icaruscode-> larsoft;
+  uboonecode -> larsoft;
+  ArtDAQ -> larsoft;
+  
+  larsoft -> nulite;
+  novasoft-> nulite;
+
+  mu2eoffline -> art;
+  nulite -> art;
+  art -> fife;
+  fife -> substrate;
+  substrate -> tools [arrowhead=none];
+}

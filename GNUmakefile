@@ -1,4 +1,19 @@
-all: notes.html spack-crop.pdf remaining_work.html revised_work.html reference-builds-notes.pdf reduced-workflow-crop.pdf reference-builds-vs-standard-builds.pdf plan-for-standard-builds.pdf new_plan_document.pdf ci_document.pdf recipe_maintenance.pdf branch-policy.pdf
+DRAWIO=/Applications/draw.io.app/Contents/MacOS/draw.io
+
+all: \
+	environment_graph_cropped.pdf \
+	notes.html \
+	spack-crop.pdf \
+	remaining_work.html \
+	revised_work.html \
+	reference-builds-notes.pdf \
+	reduced-workflow-crop.pdf \
+	reference-builds-vs-standard-builds.pdf \
+	plan-for-standard-builds.pdf \
+	new_plan_document.pdf \
+	ci_document.pdf \
+	recipe_maintenance.pdf \
+	branch-policy.pdf
 pdf: revised_work.pdf
 
 remaining_work.html: spack.svg
@@ -14,6 +29,14 @@ revised_work.html: PANDOC_MD_EXTS += +smart
 # Most robust way to get the clickable map information into the HTML.
 remaining_work.html: spack.cmapx
 remaining_work.html: override POSTPROCESS_ACTION = cat $1 spack.cmapx > $2
+
+layer_diagram.pdf: layer_diagram.drawio
+	$(DRAWIO) --export --format pdf --crop --output $@ $<
+
+environment_graph_cropped.pdf: environment_graph.pdf
+	pdfcrop $< $@
+
+plan-for-standard-builds.pdf: environment_graph.pdf
 
 ########################################################################
 # No user-serviceable parts below
