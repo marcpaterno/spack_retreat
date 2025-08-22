@@ -12,19 +12,25 @@ digraph g
   ArtDAQ [fillcolor=2];
 
   mu2eoffline [fillcolor=3];
+  "Mu2e TDAQ" [fillcolor=3];
   dunesw [fillcolor=4];
   icaruscode [fillcolor=5];
   sbndcode [fillcolor=6];
   uboonecode [fillcolor=7];
   novasoft [fillcolor=8];
-
+  sbndaq [ fillcolor="5:6" ];
 
   dunesw -> larsoft;
   sbndcode -> larsoft;
   icaruscode-> larsoft;
   uboonecode -> larsoft;
   ArtDAQ -> art;
-  larsoft -> ArtDaq;
+  larsoft -> ArtDAQ;
+  
+  "Mu2e TDAQ" -> ArtDAQ;
+  "Mu2e TDAQ" -> mu2eoffline;
+  sbndaq -> icaruscode
+  sbndaq -> sbndcode
   
   larsoft -> nulite;
   novasoft-> nulite;
