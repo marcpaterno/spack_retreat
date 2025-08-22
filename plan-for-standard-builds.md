@@ -89,7 +89,7 @@ Some adjustments to the process might be needed during the transition from UPS t
    The LArSoft collaboration and the SciSoft team will together decide on compilers to be supported.
 
 3. A Spack environment will be created corresponding to each standard build of a suite.
-   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their software against that standard environment.
+   Users of the standard builds will be able to use `spack env activate` (or the alias, `spacktivate`) to activate the standard environment, and also build their experiment software against that standard environment.
    Users of the standard builds can also do development with Spack MPD, which does not require activation of the environment.
    Users who are developing all or part of LArSoft itself will be able to set up the standard environment, then build the relevant parts of LArSoft in addition to their own experiment's software stack.
 
@@ -140,7 +140,7 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 ## Layered Spack environments
 
 The SciSoft team will create spack environments for our own use and for the use of the experiments.
-To ensure binary compatibility across the several environments layers that will be created the SciSoft team will use Spack to conretize and build a *global* build.
+To ensure binary compatibility across the several environments the SciSoft team will use Spack to conretize and build a *global* build.
 This global build will then be used to create the environment layers each of which contains a subset of the global build and which can be used directly when desired.
 By installing a consistent set of packages into the build, we ensure the use of those packages in all layered environments made available, while still allowing experiments to replace any portions of the dependency graph of packages when they have a special need to do so.
 Figure \ref{fig:spack_environments} shows for illustrative purposes how spack environments might be layered.
