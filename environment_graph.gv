@@ -23,7 +23,8 @@ digraph g
   sbndcode -> larsoft;
   icaruscode-> larsoft;
   uboonecode -> larsoft;
-  ArtDAQ -> larsoft;
+  ArtDAQ -> art;
+  larsoft -> ArtDaq;
   
   larsoft -> nulite;
   novasoft-> nulite;
