@@ -13,7 +13,9 @@ all: \
 	new_plan_document.pdf \
 	ci_document.pdf \
 	recipe_maintenance.pdf \
-	branch-policy.pdf
+	branch-policy.pdf \
+	spack_ci_migration.pdf
+
 pdf: revised_work.pdf
 
 remaining_work.html: spack.svg
