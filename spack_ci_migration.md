@@ -43,7 +43,7 @@ The following list is time-ordered.
 Item 3 can be worked on at the same time as items 1 and 2.
 Items 4 and 5 must be done in order, and after item 3.
 
-1. We must decide whether new Jenkins projects, or updates of the current Jenkins job configuration scripts, will be better support future use.
+1. We must decide whether new Jenkins projects, or updates of the current Jenkins job configuration scripts, will better support future use.
    The Spack Migration Team will need the assistance of Vito to make this decision.
    In this step, together with Vito, the team will make a time estimate for the rest of this work.
 
@@ -60,6 +60,6 @@ Items 4 and 5 must be done in order, and after item 3.
    The team will need the assistance of Vito in writing these scripts.
    The scripts involved include:
 
-6. common scripts (from "generic_ci", above)
-7. scripts for  lar_ci
-8. experiment-specific scripts for each active LArSoft experiment
+    - common scripts (from "generic_ci", above)
+    - scripts for  lar_ci
+    - experiment-specific scripts for each active LArSoft experiment
