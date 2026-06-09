@@ -1,7 +1,7 @@
 ---
 documentclass: scrartcl
 title: "A Plan for Standard Builds of LArSoft"
-subtitle: Version 2.0a
+subtitle: Version 3.0
 date: "2025-08-20"
 geometry: "left=1.0in,right=1.0in,top=1.5in,bottom=1.0in"
 output:
@@ -59,16 +59,13 @@ We distinguish two types of standard builds:
 [^variant]: In Spack, a variant is a way to specify build options or configuration choices for a package.
 Variants allow the user to customize how a package is built and installed, giving flexibility to enable or disable certain build options and configuration choices, choose dependencies, or set specific configuration parameters.
 
-
-2. A standard build of a *suite*, which is comprised of consistent standard builds of all the packages in the suite.
+1. A standard build of a *suite*, which is comprised of consistent standard builds of all the packages in the suite.
    The SciSoft team will create a Spack environment for each standard build of a suite.
    All standard builds of packages that are part of a suite will be pushed to an appropriate binary build cache[^bbc] and also installed in CVMFS.
    The SciSoft team will make available environment definition files for each standard build of a suite through CVMFS, or `https://scisoft.fnal.gov`, or both.
 
 [^bbc]: A *binary build cache*, often shortened to *build cache*, is a location in which pre-built libraries, etc., are kept in the form of tarballs.
 A `spack install` command command can download and untar the already-built package, rather than downloading source code and building the package.
-
-
 
 # The Plan for Standard Builds and Releases
 
@@ -103,9 +100,7 @@ Some adjustments to the process might be needed during the transition from UPS t
 6. Experiments may choose to build alternative builds of LArSoft.
    The SciSoft team will be available for consulting on such builds on a best-effort basis.
 
-
-
-# The use of the LArSoft and Experiment CI systems to verify LArSoft Releases
+# The use of the LArSoft and Experiment CI systems to verify LArSoft Pull Requests
 
 Changes to LArSoft code are made via PRs to the relevant repositories.
 PRs that pass a review and testing process are merged into the main body of code, where they can be tagged and used in a release.
@@ -115,12 +110,17 @@ As in the past, the SciSoft team will rely  on the results from these CI tests t
 Only when test results are understood can PRs be accepted.
 Details of the CI testing process, the conditions that must be met for a PR to be accepted, and the responsibilities on various parties in maintaining the tests are described below.
 
+The CI tests run for LArSoft PRs are not intended to be *physics validation tests* for the experiments.
+The purpose of the CI tests is to verify that the code changes do not break experiment software.
+Physics validation testing of each experiment's code is the responsibility of that experiment.
+
+## How the CI system we be used to verify LArSoft PRs
+
 1. The SciSoft team will use the LArSoft CI system to build and test the development head of each LArSoft repository as needed, such as when triggered by a PR to a LArSoft repository from any source (the experiments or SciSoft).
    Each PR or collection of associated PRs to LArSoft repositories must pass all CI tests for all LArSoft repositories.
    In addition, PRs must meet a set of additional requirements before they can be accepted.
    Those additional requirements will be proposed, documented and maintained separately by the SciSoft team.
    It is the responsibility of the submitter of the PR to fix test failures address issues related to the other requirements, or to arrange to have them fixed.
-
 
 2. Once the CI tests for LArSoft are passed, the CI tests for each experiment that uses LArSoft are run.
    As in the case of the LArSoft CI tests, all CI tests for all experiments must succeed for a PR to be accepted.
@@ -134,6 +134,19 @@ Details of the CI testing process, the conditions that must be met for a PR to b
 4. Bug fix PRs for old releases of LArSoft can be accepted for declared production releases of LArSoft only.
    A PR that fixes a bug in a production release of LArSoft will be merged into the bug-fix branch for that release only if the CI tests for the production release of LArSoft and the experiment passes, or the PR breaks no CI tests that passed immediately before the PR.
    Each experiment is expected to keep a branch in their own repositories for CI testing of bug fixes for each of the LArSoft production releases they use.
+
+## What will be built and tested for each LArSoft PR
+
+Each PR to a LArSoft repository will trigger a build of:
+
+1. the PR version of the code for that repository
+2. the development head for each LArSoft repository that has a compile or link dependency (either directly or transitively) on the repository being changed by the PR
+3. the development head of each active LArSoft experiment's repositories that have a compile or link dependency (either directly or transitively) on the repository being changed by the PR
+
+The  LArSoft repositories that do not have a compile or link dependency on the repository being changed will not be built.
+Instead, their most recent releases will be used in the build.
+
+Upon successful build of the above, the `ctest` test suite for each built repository will be run.
 
 # How we will organize Spack environments
 
@@ -222,7 +235,6 @@ Recommended procedures for doing this will be detailed in another document.
 Only significant changes to the plan will be included in the change log.
 The git repository can be consulted for a full record of all changes.
 
-
 ## Version 1 (2025-03-28)
 
 Original version.
@@ -234,4 +246,11 @@ Original version.
 2. Add statement in section 3, item 2, about bug fix releases.
 
 3. Substantial changes to section 5 to reflex the change in our approach to building environments.
- 
+
+## Version 3 (2026-06-09)
+
+1. Revise section 4 to describe the use of the LArSoft and experiment CI systems for verifying LArSoft pull requests rather than releases.
+
+2. Clarify that CI testing for LArSoft pull requests is intended to detect software breakage, not to serve as physics validation for experiment code.
+
+3. Add a description of which dependent LArSoft and experiment repositories will be built and tested for each LArSoft pull request.
